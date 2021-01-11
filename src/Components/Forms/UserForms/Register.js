@@ -7,9 +7,8 @@ function Register() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
 
-    const register = async(e) =>{
-        e.preventDefault();
-       const result = await Axios.post("/user/register",{
+    const register = async() =>{
+       const response = await Axios.post(" /user/register",{
             username,
             email,
             password
