@@ -7,7 +7,7 @@ function Login() {
     const [password,setPassword] = useState("");
 
     const login = async() =>{
-        const response = await Axios.post("http://localhost4014/user/login",{
+        const response = await Axios.post("/user/login",{
            
              email,
              password
@@ -27,13 +27,13 @@ function Login() {
 
             <div>
                 <label>email :</label>
-                <input type="email" value="email" placeholder="email"  onChange={(e)=>setEmail(e.target.value)}/>
+                <input type="email" value={email}   onChange={(e)=>setEmail(e.target.value)}/>
                 
             </div>
 
             <div>
                 <label>password:</label>
-                <input type="text" value="password" placeholder="password" onChange={(e)=>setPassword(e.target.value)} />
+                <input type="text" value={password}  onChange={(e)=>setPassword(e.target.value)} />
               
             </div>
             <button onClick={login}>Login</button>

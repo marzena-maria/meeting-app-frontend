@@ -7,14 +7,18 @@ function Register() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
 
-    const register = async() =>{
-       const response = await Axios.post("http://localhost4014/user/register",{
+    const register = async(e) =>{
+        e.preventDefault();
+       const result = await Axios.post("/user/register",{
             username,
             email,
             password
         })
-        if(response){
-            console.log(response);
+        if(result){
+            console.log(result);
+           
+          
+            
         }
         }
 
@@ -23,19 +27,19 @@ function Register() {
             <h1>Register</h1>
             <div>
                 <label>username :</label>
-                <input type="text" value="username" placeholder="username" onChange={(e)=>setUsername(e.target.value)} />
+                <input type="text" value={username}  onChange={(e)=>setUsername(e.target.value)} />
                 
             </div>
 
             <div>
                 <label>email :</label>
-                <input type="email" value="email" placeholder="email"  onChange={(e)=>setEmail(e.target.value)}/>
+                <input type="email" value={email}  onChange={(e)=>setEmail(e.target.value)}/>
                 
             </div>
 
             <div>
                 <label>password:</label>
-                <input type="text" value="password" placeholder="password" onChange={(e)=>setPassword(e.target.value)} />
+                <input type="text" value={password}  onChange={(e)=>setPassword(e.target.value)} />
               
             </div>
             <button onClick={register}>Register</button>
