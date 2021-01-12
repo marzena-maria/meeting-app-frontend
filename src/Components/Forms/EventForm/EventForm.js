@@ -4,39 +4,45 @@ import axios from 'axios';
 
 function EventForm() {
 
-    async function saveEventForm() {
-        const response = await axios.post('/add-new-event', {
-            eventName,
-            startingDate,
-            // online,
-            description,
-            category
-        })
-        if(response) {
+    async function onSubmitForm() {
+        try {
+            const response = await axios.post('/events/add-new-event', {
+                eventName,
+                startingDate,
+                ifOnline,
+                description,
+                category
+            })
             console.log(response);
+            if(response) {
+                console.log(response);
+            }
+        }
+        catch (error) {
+            console.error(error);
         }
     };
 
+
     //const [organizer, setOrganizer] = React.useState('');
     const [eventName, setEventName] = React.useState('');
+
     const [startingDate, setStartingDate] = React.useState('');
     //const [finishingDate, setFinishingDate] = React.useState('');
-    //const [inOnline, setIfOnline] = React.useState(false);
+    const [ifOnline, setIfOnline] = React.useState(false);
     // const [location, setLocation] = React.useState(locationInitialState);
     const [description, setDescription] = React.useState('');
 
     // categories 
-    const [category, setCategory] = React.useState([ '', 'culture', 'sport', 'learning languages', 'other' ]);
+    //const [category, setCategory] = React.useState([ '', 'culture', 'sport', 'learning languages', 'other' ]);
+    //const Options = category.map(Options => Options);
 
-    const Options = category.map(Options => Options);
+    const [category, setCategory] = React.useState('');
 
-    function handleOptions(event) {
-        console.clear()
-        console.log((category[event.target.value]))
-    };
-
-    // participants
-    //const [participants, setParticipants] = React.useState('');
+    // function handleOptions(event) {
+    //     console.clear()
+    //     console.log((category[event.target.value]))
+    // };
 
     return (
         <>
@@ -56,12 +62,13 @@ function EventForm() {
                 type='date'
             />
 
-            {/* <label htmlFor='ifOnline'>Online:</label>
+            <label htmlFor='ifOnline'>Online:</label>
             <input 
-                onChange={event => {setIfOnline()}}
+                onChange={event => {setIfOnline(event.target.checked)}}
                 className='ifOnlineInput'
                 type='checkbox'
-            /> */}
+                checked={ifOnline}
+            />
 
             <label htmlFor='description'>Description:</label>
             <input 
@@ -71,17 +78,20 @@ function EventForm() {
             />
 
             <label htmlFor='category'>Category:</label>
-            <select onChange={event => handleOptions(event)}>
-                {Options.map((test, key) => 
+            <select onChange={event => setCategory(event.target.value)}>
+                <option value="culture">culture</option>
+                <option value="sport">sport</option>
+                <option value="learning_languages">learning languages</option>
+                <option value="other">other</option>
+                {/* {Options.map((test, key) => 
                 <option key={key} value={key}>
                     {test}
-                </option>)}
+                </option>)} */}
             </select>
 
-            {/*  participants????  */}
         </form>
 
-        <button onClick={saveEventForm}>Create New Event</button>
+        <button onClick={onSubmitForm}>Create New Event</button>
         </>
     )   
      
