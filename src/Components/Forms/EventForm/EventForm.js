@@ -9,7 +9,7 @@ function EventForm() {
             const response = await axios.post('/events/add-new-event', {
                 eventName,
                 startingDate,
-                ifOnline,
+                online,
                 description,
                 category
             })
@@ -29,7 +29,7 @@ function EventForm() {
 
     const [startingDate, setStartingDate] = React.useState('');
     //const [finishingDate, setFinishingDate] = React.useState('');
-    const [ifOnline, setIfOnline] = React.useState(false);
+    const [online, setOnline] = React.useState(false);
     // const [location, setLocation] = React.useState(locationInitialState);
     const [description, setDescription] = React.useState('');
 
@@ -62,12 +62,12 @@ function EventForm() {
                     type='date'
                 />
 
-                <label htmlFor='ifOnline'>Online:</label>
+                <label htmlFor='online'>Online:</label>
                 <input 
-                    onChecked={event => {setIfOnline(event.target.checked)}}
+                    onChange={event => {setOnline(event.target.checked)}}
                     className='ifOnlineInput'
                     type='checkbox'
-                    checked={ifOnline}
+                    checked={online}
                 />
 
                 <label htmlFor='description'>Description:</label>
@@ -82,7 +82,7 @@ function EventForm() {
                     <option value="music">culture</option>
                     <option value="books">culture</option>
                     <option value="sport">sport</option>
-                    <option value="learning_languages">learning languages</option>
+                    <option value="learning languages">learning languages</option>
                     <option value="other">other</option>
                 </select>
 
