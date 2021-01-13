@@ -1,0 +1,24 @@
+.formContainer {
+    form {
+        display: grid;
+        margin: 5px;
+        
+        input,
+        select {
+            width: 150px;
+        }
+
+        label {
+            margin: 10px 0;
+        }
+
+        .descriptionInput {
+            height: 200px;
+        }
+    }
+    
+    button {
+        margin: 10px 0;
+        padding: 15px 5px;
+    }
+}
