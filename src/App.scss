@@ -1,5 +1,75 @@
-.App {
+body {
+  background-color: rgb(243, 234, 234);
+}
+
+#container {
   text-align: center;
 }
 
+.user_panel {
+  height: 350px;
+  width: 40%;
+  min-width: 350px;
+  float: left;
+  margin: 10px 2.5% 15px;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;  
+}
 
+.user_details {
+  color: #ffffff;
+  background-color: #550055;
+}
+
+.user_details_pp {
+  width: 150px;
+  height: 100%;
+  float: left;
+}
+
+.user_details_inputs {
+  width: calc(100% - 150px);
+  height: 100%;
+  float: right;
+}
+
+.user_details_inputs input {
+  text-align: center;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
+}
+
+.user_events_attend {  
+  background-color: rgb(106, 128, 128);
+  width: 50%;
+  color: white;
+}
+
+.button {
+  color: white;
+  text-decoration: none;
+  background-color:  rgba(0,0,0,0.2);
+  width: 200px;
+  height: 30px;
+  line-height: 30px;
+  display: inline-block;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
+  cursor: pointer;
+}
+.button:hover,
+.button:focus{
+  background-color:  rgba(0,0,0,0.4);
+}
+
+.user_events_organize {
+  background-color:rgb(255, 192, 150);
+  width: 50%;
+  float: right;
+}

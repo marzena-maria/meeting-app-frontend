@@ -1,6 +1,6 @@
-//import './App.scss';
+import './App.scss';
 import React from "react"
-import {BrowserRouter,Route,Switch, Redirect,Link} from "react-router-dom"
+import {BrowserRouter,Route,Switch, Redirect,Link} from "react-router-dom";
 import Register from "./Components/Forms/Register";
 import Login from "./Components/Forms/Login";
 import UserProfile from "./Components/Pages/UserProfile";
