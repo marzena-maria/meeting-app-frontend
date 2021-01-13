@@ -9,7 +9,7 @@ function EventForm() {
             const response = await axios.post('/events/add-new-event', {
                 eventName,
                 startingDate,
-                ifOnline,
+                online,
                 description,
                 category
             })
@@ -29,7 +29,7 @@ function EventForm() {
 
     const [startingDate, setStartingDate] = React.useState('');
     //const [finishingDate, setFinishingDate] = React.useState('');
-    const [ifOnline, setIfOnline] = React.useState(false);
+    const [online, setOnline] = React.useState(false);
     // const [location, setLocation] = React.useState(locationInitialState);
     const [description, setDescription] = React.useState('');
 
@@ -45,54 +45,51 @@ function EventForm() {
     // };
 
     return (
-        <>
-        <form>
-            
-            <label htmlFor='eventName'>Event Name:</label>
-            <input 
-                onChange={event => {setEventName(event.target.value)}}
-                className='eventNameInput'
-                type='text'
-            />
+        <div className='formContainer'>
+            <form>
+                
+                <label htmlFor='eventName'>Event Name:</label>
+                <input 
+                    onChange={event => {setEventName(event.target.value)}}
+                    className='eventNameInput'
+                    type='text'
+                />
 
-            <label htmlFor='startingDate'>Starts at:</label>
-            <input 
-                onChange={event => {setStartingDate(event.target.value)}}
-                className='startingDateInput'
-                type='date'
-            />
+                <label htmlFor='startingDate'>Starts at:</label>
+                <input 
+                    onChange={event => {setStartingDate(event.target.value)}}
+                    className='startingDateInput'
+                    type='date'
+                />
 
-            <label htmlFor='ifOnline'>Online:</label>
-            <input 
-                onChange={event => {setIfOnline(event.target.checked)}}
-                className='ifOnlineInput'
-                type='checkbox'
-                checked={ifOnline}
-            />
+                <label htmlFor='online'>Online:</label>
+                <input 
+                    onChange={event => {setOnline(event.target.checked)}}
+                    className='ifOnlineInput'
+                    type='checkbox'
+                    checked={online}
+                />
 
-            <label htmlFor='description'>Description:</label>
-            <input 
-                onChange={event => {setDescription(event.target.value)}}
-                className='descriptionInput'
-                type='text'
-            />
+                <label htmlFor='description'>Description:</label>
+                <textarea 
+                    onChange={event => {setDescription(event.target.value)}}
+                    className='descriptionInput'
+                    type='text'
+                />
 
-            <label htmlFor='category'>Category:</label>
-            <select onChange={event => setCategory(event.target.value)}>
-                <option value="culture">culture</option>
-                <option value="sport">sport</option>
-                <option value="learning_languages">learning languages</option>
-                <option value="other">other</option>
-                {/* {Options.map((test, key) => 
-                <option key={key} value={key}>
-                    {test}
-                </option>)} */}
-            </select>
+                <label htmlFor='category'>Category:</label>
+                <select onChange={event => setCategory(event.target.value)}>
+                    <option value="music">culture</option>
+                    <option value="books">culture</option>
+                    <option value="sport">sport</option>
+                    <option value="learning languages">learning languages</option>
+                    <option value="other">other</option>
+                </select>
 
-        </form>
+            </form>
 
-        <button onClick={onSubmitForm}>Create New Event</button>
-        </>
+            <button onClick={onSubmitForm}>Create New Event</button>
+        </div>
     )   
      
 }
