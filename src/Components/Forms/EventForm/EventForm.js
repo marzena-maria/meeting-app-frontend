@@ -64,14 +64,14 @@ function EventForm() {
 
                 <label htmlFor='ifOnline'>Online:</label>
                 <input 
-                    onChange={event => {setIfOnline(event.target.checked)}}
+                    onChecked={event => {setIfOnline(event.target.checked)}}
                     className='ifOnlineInput'
                     type='checkbox'
                     checked={ifOnline}
                 />
 
                 <label htmlFor='description'>Description:</label>
-                <input 
+                <textarea 
                     onChange={event => {setDescription(event.target.value)}}
                     className='descriptionInput'
                     type='text'
