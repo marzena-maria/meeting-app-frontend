@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './EventForm.scss';
 import axios from 'axios';
 
-function EventForm() {
+const EventForm = () => {
 
-    async function onSubmitForm() {
+    const onSubmitForm = async () => {
         try {
             const response = await axios.post('/events/add-new-event', {
                 eventName,
