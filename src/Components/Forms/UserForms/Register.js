@@ -15,6 +15,9 @@ function Register() {
         })
         if(response){
             console.log(response);
+           
+          
+            
         }
         }
 
@@ -23,19 +26,19 @@ function Register() {
             <h1>Register</h1>
             <div>
                 <label>username :</label>
-                <input type="text" value="username" placeholder="username" onChange={(e)=>setUsername(e.target.value)} />
+                <input type="text" value={username}  onChange={(e)=>setUsername(e.target.value)} />
                 
             </div>
 
             <div>
                 <label>email :</label>
-                <input type="email" value="email" placeholder="email"  onChange={(e)=>setEmail(e.target.value)}/>
+                <input type="email" value={email}  onChange={(e)=>setEmail(e.target.value)}/>
                 
             </div>
 
             <div>
                 <label>password:</label>
-                <input type="text" value="password" placeholder="password" onChange={(e)=>setPassword(e.target.value)} />
+                <input type="text" value={password}  onChange={(e)=>setPassword(e.target.value)} />
               
             </div>
             <button onClick={register}>Register</button>

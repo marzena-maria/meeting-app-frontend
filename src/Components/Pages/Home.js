@@ -1,11 +1,18 @@
 import React from 'react'
+import NavBar from "../shared/NavBar"
+
+import SearchFromInput from './SearchFromInput/SearchFromInput';
 
 function Home() {
     return (
         <div>
-            <h1> Home Page </h1>
+           <NavBar />
+        
+
+            <SearchFromInput />
+            
         </div>
     )
 }
 
-export default Home
+export default Home;

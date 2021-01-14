@@ -5,6 +5,10 @@ import Axios from "axios";
 /*import Gravatar from 'react-gravatar';*/
 
 function UserProfile() {
+    
+
+
+
     return (
         <div id="container">
             <div className="user_details user_panel">

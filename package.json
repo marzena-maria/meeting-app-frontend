@@ -2,7 +2,7 @@
   "name": "meeting-app-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4014",
+  "proxy":"http://localhost:4014",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.3",
@@ -21,6 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+ 
   "eslintConfig": {
     "extends": [
       "react-app",
