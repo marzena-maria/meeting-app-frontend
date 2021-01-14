@@ -1,9 +1,14 @@
-import React from 'react'
+import axios from 'axios'
+import React,{useState,useEffect} from 'react'
 
 function UserProfile() {
+    
+
+
+
     return (
         <div>
-            <h1> User Profile Page </h1>
+            
         </div>
     )
 }

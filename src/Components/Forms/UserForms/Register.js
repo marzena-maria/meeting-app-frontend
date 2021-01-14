@@ -13,8 +13,8 @@ function Register() {
             email,
             password
         })
-        if(result){
-            console.log(result);
+        if(response){
+            console.log(response);
            
           
             

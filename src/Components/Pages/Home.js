@@ -1,9 +1,10 @@
 import React from 'react'
+import NavBar from "../shared/NavBar"
 
 function Home() {
     return (
         <div>
-            <h1> Home Page </h1>
+           <NavBar />
         </div>
     )
 }
