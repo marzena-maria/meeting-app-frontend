@@ -5,15 +5,17 @@ import axios from 'axios';
 import  { debounce } from 'lodash';
 
 import Input from './Input/Input';
+import DisplayResultsFromInput from './DisplayResults/DisplayResultsFromInput';
 
+// parent component 
 
 const SearchFromInput = () => {
 
     const [inputValue, setInputValue] = useState('');
     const [events, setEvents] = useState([]); 
 
-    console.log(inputValue);
-    console.log(events);
+    //console.log(inputValue);
+    //console.log(events);
 
     const handleGetEvents = async inputValue => {
         try {
@@ -39,8 +41,11 @@ const SearchFromInput = () => {
 
     return (
         <div>
-            <p>Search From Input</p>
             <Input onChange={value => setInputValue(value)} />
+            <DisplayResultsFromInput 
+                // show one event page
+                // onClick={}
+                listOfResults={events}/>
         </div>
     )
 
