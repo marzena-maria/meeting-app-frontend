@@ -1,62 +1,99 @@
 import React,{useState} from 'react'
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import Axios from "axios";
 /*import ProfilePic from "./" IMPORTER L IMAGE DU PROFILE EN QUESTION*/
-/*import Gravatar from 'react-gravatar';*/
 
 function UserProfile() {
 
-    const auth_user = async() => {
-        const response = await Axios.post("/user/get-auth-user")
-        console.log(response.data.user);
-        if (response.data.status !== true) {
-            // Redirect to /user/login
+    const [user,setUser] = useState("");
+    const [redirect,setRedirect] = useState(false);
+    const [loading,setLoading] = useState(true);
+    const [username,setUsername] = useState('');
+    const [city,setCity] = useState('');
+    const [age,setAge] = useState('');
+    
 
+    const auth_user = async() => {
+        const response = await Axios.get("/user/get-auth-user")
+        
+        if (response.data.status === false) {
+            setRedirect(true);
         } else {
-            return response.data.user
+            setUser(response.data.user);
+
+            setUsername(response.data.user.username);
+            setCity(response.data.user.city);
+            setAge(response.data.user.age);
+        }
+
+        setLoading(false);
+    }
+
+    const update = async() => {
+        const response = await Axios.post("/user/update-user", {user})
+        
+        if (response.data.status === false) {
+            console.log('Update failed');
+        } else {
+            console.log('Update succeed');
         }
     }
 
-    auth_user();
+    function handleUserChange(fieldName, value) {
 
-    /**
-     * TODO: Update with user info from auth_user
-     */
+        switch(fieldName) {
+            case 'city':
+                setCity(value);
+                user.city = value;
+                break;
+            case 'age':
+                setAge(value);
+                user.age = value;
+                break;
+            default:
+                setUsername(value);
+                user.username = value;
+        }
+    }
 
-    const [username,setUsername] = useState("celia_bll");
-    const [city,setCity] = useState("Hamburg");
-    const [age,setAge] = useState("21");
+    if (loading === false) {
 
+        if (redirect === true) {
+            return <Redirect to="/login" />;
+        }
 
-    return (
-        <div id="container">
-            <div className="user_details user_panel">
-                <div className="user_details_pp">{/*<Gravatar email="celia.bouzen@gmail.com"*/}</div>
-                <div className="user_details_inputs">
-                    <h1>Célia</h1>
-                    <input type="text" name="username" value={username} onChange={(e)=>setUsername(e.target.value)} />
-                    <input type="text" name="city" value={city} onChange={(e)=>setCity(e.target.value)}></input>
-                    <input type="text" name="age" value={age} onChange={(e)=>setAge(e.target.value)}></input>
-                </div>
-                <button onClick="">Update</button>
-            </div>
-            <div className="user_events_attend user_panel">
-                <h2>Event I attend</h2>
-                    <div className="attended_events">XXXXXXXXX
+        return (
+            <div id="container">
+                <div className="user_details user_panel">
+                    <div className="user_details_pp"></div>
+                    <div className="user_details_inputs">
+                        <h1>{user.firstName}</h1>
+                        <input type="text" name="username" value={username} onChange={(e)=>handleUserChange('username', e.target.value)} /> <br/>
+                        <input type="text" name="city" value={city} onChange={(e)=>handleUserChange('city', e.target.value)} /><br/>
+                        <input type="text" name="age" value={age} onChange={(e)=>handleUserChange('age', e.target.value)} /><br/>
+                        <button onClick={update}>Update</button>
                     </div>
-                    <p><Link to="/events/browse" className="button">Browse New Events</Link>
-                    </p>
-            </div>
-            <div className="user_events_organize user_panel">
-                <h2>Events I organise</h2>
-                    <div className="organized_events">XXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
-                    <p><Link to="/events/create" className="button">Create New Event</Link>
-                    </p>
-            </div>            
-        </div> 
-    )
-
-    
+                </div>
+                <div className="user_events_attend user_panel">
+                    <h2>Event I attend</h2>
+                        <div className="attended_events">XXXXXXXXX
+                        </div>
+                        <p><Link to="/events/browse" className="button">Browse New Events</Link>
+                        </p>
+                </div>
+                <div className="user_events_organize user_panel">
+                    <h2>Events I organise</h2>
+                        <div className="organized_events">XXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+                        <p><Link to="/events/create" className="button">Create New Event</Link>
+                        </p>
+                </div>            
+            </div> 
+        )
+    } else {
+        auth_user();
+        
+        return ( <div> Loading... </div> );
+    }    
 }
 
 export default UserProfile
