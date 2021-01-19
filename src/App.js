@@ -1,29 +1,39 @@
 //import './App.scss';
 import React from "react"
-import {BrowserRouter,Route,Switch,Link} from "react-router-dom"
-import Register from "./Components/Forms/Register";
-import Login from "./Components/Forms/Login";
-import EventForm from './Components/Forms/EventForm/EventForm';
+import {BrowserRouter,Route,Switch, Redirect,Link} from "react-router-dom"
+import Register from "./Components/Forms/UserForms/Register";
+import Login from "./Components/Forms/UserForms/Login";
+import UserProfile from "./Components/Pages/UserProfile";
+import Home from "./Components/Pages/Home";
+
 
 function App() {
   return (
     <BrowserRouter>
-
-    <ul>
-      {/* <li>
-        <Link to="/">Homepage</Link>
-      </li> */}
+    {/*<h1> home page</h1> */}
+    {/* <ul>
       <li>
-        <Link to='/add-new-event'>Add New Event</Link>
+        <Link to="/home">Home</Link>
+      </li> */}
+      {/* <li>
+        <Link to="/register">Register</Link>
       </li>
-    </ul>
+      <li>
+        <Link to="/login">Login</Link>
+      </li> */}
+      {/* <li>
+        <Link to="/user_profile">User Profile</Link>
+      </li>
+    </ul> */}
 
+
+    {/* <NavBar /> */}
     <Switch>
-
+     
       <Route path ="/register" component={Register} exact />
       <Route path ="/login" component={Login} exact />
-      <Route path="/add-new-event" component={EventForm}/>
-      {/* <Route path="/" component={Homepage}/> */}
+      <Route path ="/user_profile" component={UserProfile} exact />
+      <Route path ="/" component={Home} exact />
 
     </Switch>
 
