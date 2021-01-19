@@ -79,8 +79,8 @@ function EventForm() {
 
                 <label htmlFor='category'>Category:</label>
                 <select onChange={event => setCategory(event.target.value)}>
-                    <option value="music">culture</option>
-                    <option value="books">culture</option>
+                    <option value="music">music</option>
+                    <option value="books">books</option>
                     <option value="sport">sport</option>
                     <option value="learning languages">learning languages</option>
                     <option value="other">other</option>
