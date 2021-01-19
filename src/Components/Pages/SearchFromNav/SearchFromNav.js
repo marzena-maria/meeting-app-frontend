@@ -9,10 +9,10 @@ const SearchFromNav = () => {
 
     const [events, setEvents] = useState([]);
     const [clicked, setClicked] = useState('');
-    const [category, setCategory] = useState('');
     console.log(events);
-    console.log(category);
+    console.log(clicked);
 
+    // --- CATEGORIES - START --- //
     const categories = ['music', 'books', 'sport', 'learning languages', 'other'];
     
     const allCategories = categories.map(element => (
@@ -43,11 +43,21 @@ const SearchFromNav = () => {
 
     }, [clicked]);
 
+    // --- CATEGORIES - END --- //
+
+    // --- ONLINE EVENTS - START --- //
+
+
+
+    // --- CATEGORIES - END --- //
 
     return (
         <div>
             <p>Search From Nav</p>
-            {allCategories}
+            <div>
+                {allCategories} 
+                <button>online</button>
+            </div>
             <DisplayResults listOfResults={events}/>
         </div>
     )
