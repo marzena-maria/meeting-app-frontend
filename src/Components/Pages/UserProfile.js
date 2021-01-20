@@ -3,6 +3,8 @@ import {Link, Redirect} from "react-router-dom";
 import Axios from "axios";
 /*import ProfilePic from "./" IMPORTER L IMAGE DU PROFILE EN QUESTION*/
 
+
+
 function UserProfile() {
 
     const [user,setUser] = useState("");
