@@ -1,18 +1,17 @@
-import React from 'react'
-import NavBar from "../shared/NavBar"
-
-import SearchFromInput from './SearchFromInput/SearchFromInput';
+import React from "react";
+import NavBar from "../shared/NavBar";
+import Slider from "../Slider/Slider"
+import SearchFromInput from "./SearchFromInput/SearchFromInput";
 
 function Home() {
-    return (
-        <div>
-           <NavBar />
-        
+  return (
+    <div>
+      <NavBar />
+      <Slider />
 
-            <SearchFromInput />
-            
-        </div>
-    )
+      <SearchFromInput />
+    </div>
+  );
 }
 
 export default Home;
