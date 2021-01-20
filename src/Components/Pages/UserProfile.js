@@ -13,6 +13,7 @@ function UserProfile() {
     const [username,setUsername] = useState('');
     const [city,setCity] = useState('');
     const [age,setAge] = useState('');
+    const [eventsOrganized,setEventsOrganized] = useState('');
     
 
     const auth_user = async() => {
@@ -26,6 +27,9 @@ function UserProfile() {
             setUsername(response.data.user.username);
             setCity(response.data.user.city);
             setAge(response.data.user.age);
+
+            // Get events organized by auth user
+            events_organized();
         }
 
         setLoading(false);
@@ -38,6 +42,29 @@ function UserProfile() {
             console.log('Update failed');
         } else {
             console.log('Update succeed');
+        }
+    }
+
+    const events_organized = async() => {
+        const response = await Axios.get("/events/get-events/", {user})
+        
+        if (response.data.status === true) {
+            setEventsOrganized(response.data.events);
+        } else {
+            console.log('Failed to get user`s events');
+        }
+    }
+
+    const renderEventsOrganized = () => {
+        if (eventsOrganized) {
+            return (<ul>
+                {eventsOrganized.map((eventOrganized, i) => {
+                    let eventDate = new Date(eventOrganized.startingDate);
+                    return (<li key={i.toString()}> <span className="eventName">{eventOrganized.eventName}</span> <span className="eventDate">{eventDate.toGMTString().toUpperCase()}</span> </li>);
+                })}
+            </ul>)
+        } else {
+            return (<p> No event organized. </p>);
         }
     }
 
@@ -78,14 +105,16 @@ function UserProfile() {
                 </div>
                 <div className="user_events_attend user_panel">
                     <h2>Event I attend</h2>
-                        <div className="attended_events">XXXXXXXXX
+                        <div className="attended_events">
                         </div>
                         <p><Link to="/events/browse" className="button">Browse New Events</Link>
                         </p>
                 </div>
                 <div className="user_events_organize user_panel">
                     <h2>Events I organise</h2>
-                        <div className="organized_events">XXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
+                        <div className="organized_events">
+                            { renderEventsOrganized() }
+                        </div>
                         <p><Link to="/events/create" className="button">Create New Event</Link>
                         </p>
                 </div>            

@@ -49,6 +49,34 @@ body {
   color: white;
 }
 
+.organized_events ul {
+  list-style: none;
+  width: 90%;
+  margin: 0 5%;
+  padding: 0;
+}
+
+.organized_events ul > li {
+  display: inline-block;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.organized_events ul span {
+  display: inline-block;
+  width: 50%;
+}
+
+.organized_events ul .eventName {
+  text-align:left;
+  float: left;
+}
+
+.organized_events ul .eventDate {
+  text-align:right;
+  float: right;
+}
+
 .button {
   color: white;
   text-decoration: none;
