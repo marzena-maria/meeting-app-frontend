@@ -8,57 +8,44 @@ import DisplayResults from '../../shared/DisplayResults/DisplayResults';
 const SearchFromNav = () => {
 
     const [events, setEvents] = useState([]);
-    const [clicked, setClicked] = useState('');
-    console.log(events);
-    console.log(clicked);
 
-    // --- CATEGORIES - START --- //
-    const categories = ['music', 'books', 'sport', 'learning languages', 'other'];
-    
-    const allCategories = categories.map(element => (
-        <button
-            className='categoryButton'
-            onClick={() => setClicked(element)}>
-            {element}
-        </button>
-    ));
+    const categories = ['music', 'books', 'sport', 'learning languages', 'other', 'online'];
 
-    console.log(allCategories);
-
-    //localhost:4014/events/search-events?category=sport
-
-    useEffect(() => {
-
-        const getCategory = async () => {
-            try {
-                const response = await axios.get(`/events/search-events?category=${clicked}`);
-                setEvents(response.data);
-                console.log(events);
+    const getCategory = async (category) => {
+        try {
+            let response;
+            switch(category) {
+                case 'online':
+                    response = await axios.get(`/events/search-events/online`);
+                    break;
+                // case 'location':
+                //     response = await axios.get(`/events/search-events/location/${location}`);
+                //     break;
+                    default:
+                    response = await axios.get(`/events/search-events/category/${category}`);
+                    break;
             }
-            catch (error) {
-                console.log(error)
-            }      
+            setEvents(response.data);
         }
-        getCategory();
-
-    }, [clicked]);
-
-    // --- CATEGORIES - END --- //
-
-    // --- ONLINE EVENTS - START --- //
+        catch (error) {
+            console.log(error)
+        }      
+    }
 
 
-
-    // --- CATEGORIES - END --- //
 
     return (
         <div>
-            <p>Search From Nav</p>
             <div>
-                {allCategories} 
-                <button>online</button>
+                {categories.map(category => (
+                <button
+                    className='categoryButton'
+                    onClick={() => getCategory(category)}>
+                    {category}
+                </button>))}
             </div>
-            <DisplayResults listOfResults={events}/>
+            <DisplayResults 
+                listOfResults={events}/>
         </div>
     )
 };

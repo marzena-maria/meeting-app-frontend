@@ -13,8 +13,8 @@ const DisplayResults = ({ listOfResults }) => {
                         listOfResults.map(eventData => (
                             <li key={eventData._id}> 
                                 <p>{eventData.eventName}</p>   
-                                <span>{eventData.startingDate}</span>  
-                                <span>{eventData.category}</span>                             
+                                <p>{eventData.startingDate}</p>  
+                                <p>{eventData.category}</p>                             
                             </li>
                     ))) : <p>No result</p>
                 }
