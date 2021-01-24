@@ -9,7 +9,12 @@ const EventForm = () => {
             const response = await axios.post('/events/add-new-event', {
                 eventName,
                 startingDate,
+                timeFrom,
+                timeTo,
                 online,
+                //location,
+                //address,
+                place,
                 description,
                 category
             })
@@ -23,26 +28,23 @@ const EventForm = () => {
         }
     };
 
-
-    //const [organizer, setOrganizer] = React.useState('');
     const [eventName, setEventName] = React.useState('');
-
     const [startingDate, setStartingDate] = React.useState('');
-    //const [finishingDate, setFinishingDate] = React.useState('');
+    const [timeFrom, setTimeFrom] = React.useState('');
+    const [timeTo, setTimeTo] = React.useState('');
     const [online, setOnline] = React.useState(false);
-    // const [location, setLocation] = React.useState(locationInitialState);
+    //const [location, setLocation] = React.useState('locationInitialState');
+
+    //address - start
+    const [place, setPlace] = React.useState('');
+    // const [street, setStreet] = React.useState('');
+    // const [city, setCity] = React.useState('');
+    // const [country, setCountry] = React.useState('');
+    // const [postalCode, setPostalCode] = React.useState('');
+    //address - end
+
     const [description, setDescription] = React.useState('');
-
-    // categories 
-    //const [category, setCategory] = React.useState([ '', 'culture', 'sport', 'learning languages', 'other' ]);
-    //const Options = category.map(Options => Options);
-
     const [category, setCategory] = React.useState('');
-
-    // function handleOptions(event) {
-    //     console.clear()
-    //     console.log((category[event.target.value]))
-    // };
 
     return (
         <div className='formContainer'>
@@ -62,12 +64,40 @@ const EventForm = () => {
                     type='date'
                 />
 
+                <label htmlFor='time'>From:</label>
+                <input 
+                    onChange={event => {setTimeFrom(event.target.value)}}
+                    className='timeFromInput'
+                    type='time'
+                />
+
+                <label htmlFor='time'>To:</label>
+                <input 
+                    onChange={event => {setTimeTo(event.target.value)}}
+                    className='timeToInput'
+                    type='time'
+                />
+
                 <label htmlFor='online'>Online:</label>
                 <input 
                     onChange={event => {setOnline(event.target.checked)}}
                     className='ifOnlineInput'
                     type='checkbox'
                     checked={online}
+                />
+
+                {/* <label htmlFor='location'>Location / Address:</label>
+                <input 
+                    onChange={event => {setLocation(event.target.value)}}
+                    className='locationInput'
+                    type='text'
+                /> */}
+
+                <label htmlFor='place'>Place:</label>
+                <input 
+                    onChange={event => {setPlace(event.target.value)}}
+                    className='placeInput'
+                    type='text'
                 />
 
                 <label htmlFor='description'>Description:</label>

@@ -1,9 +1,10 @@
 //import './App.scss';
-import React from "react"
-import {BrowserRouter,Route,Switch, Redirect,Link} from "react-router-dom"
+import React from "react";
+import {BrowserRouter,Route,Switch, Redirect,Link} from "react-router-dom";
 import Register from "./Components/Forms/UserForms/Register";
 import Login from "./Components/Forms/UserForms/Login";
 import UserProfile from "./Components/Pages/UserProfile";
+import EventForm from './Components/Forms/EventForm/EventForm';
 import Home from "./Components/Pages/Home";
 
 
@@ -29,7 +30,7 @@ function App() {
 
     {/* <NavBar /> */}
     <Switch>
-     
+      <Route path ="/event-form" component={EventForm} exact /> 
       <Route path ="/register" component={Register} exact />
       <Route path ="/login" component={Login} exact />
       <Route path ="/user_profile" component={UserProfile} exact />
