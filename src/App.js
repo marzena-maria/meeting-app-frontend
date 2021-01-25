@@ -6,7 +6,7 @@ import Login from "./Components/Forms/UserForms/Login";
 import UserProfile from "./Components/Pages/UserProfile";
 import Home from "./Components/Pages/Home";
 import EventForm from './Components/Forms/EventForm/EventForm';
-//import Maps from './Components/Pages/Maps/Maps';
+import Maps from './Components/Pages/Maps/Maps';
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
     {/* <NavBar /> */}
     <Switch>
       <Route path ="/event-form" component={EventForm} exact /> 
-      {/* <Route path ="/location" component={Maps} exact />  */}
+      <Route path ="/location" component={Maps} exact /> 
       <Route path ="/register" component={Register} exact />    
       <Route path ="/register" component={Register} exact />
       <Route path ="/login" component={Login} exact />
