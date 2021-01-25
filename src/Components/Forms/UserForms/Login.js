@@ -37,6 +37,7 @@ function Login() {
               
             </div>
             <button onClick={login}>Login</button>
+            <a href="">Forget Password</a>
         </div>
     )
 }

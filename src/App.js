@@ -5,10 +5,11 @@ import Register from "./Components/Forms/UserForms/Register";
 import Login from "./Components/Forms/UserForms/Login";
 import UserProfile from "./Components/Pages/UserProfile";
 import Home from "./Components/Pages/Home";
-
+import Notifications from "./Components/Notifications"
 
 function App() {
   return (
+    <Notifications >
     <BrowserRouter>
     {/*<h1> home page</h1> */}
     {/* <ul>
@@ -38,6 +39,7 @@ function App() {
     </Switch>
 
     </BrowserRouter>
+    </Notifications>
   );
 }
 
