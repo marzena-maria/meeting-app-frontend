@@ -1,5 +1,5 @@
-//import './App.scss';
-import React from "react";
+import './App.scss';
+import React from "react"
 import {BrowserRouter,Route,Switch, Redirect,Link} from "react-router-dom";
 import Register from "./Components/Forms/UserForms/Register";
 import Login from "./Components/Forms/UserForms/Login";
@@ -7,7 +7,6 @@ import UserProfile from "./Components/Pages/UserProfile";
 import EventForm from './Components/Forms/EventForm/EventForm';
 import Maps from './Components/Pages/Maps/Maps';
 import Home from "./Components/Pages/Home";
-
 
 function App() {
   return (
