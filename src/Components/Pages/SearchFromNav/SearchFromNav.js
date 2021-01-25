@@ -1,28 +1,23 @@
 import React, { useState, useEffect } from 'react';
-//import '/SearchFromNav.scss';
+import './SearchFromNav.scss';
 
 import axios from 'axios';
 
 import DisplayResults from '../../shared/DisplayResults/DisplayResults';
 
-const SearchFromNav = () => {
+const SearchFromNav = ({ setEvents }) => {
 
-    const [events, setEvents] = useState([]);
+    const options = ['music', 'books', 'sport', 'learning languages', 'other', 'online'];
 
-    const categories = ['music', 'books', 'sport', 'learning languages', 'other', 'online'];
-
-    const getCategory = async (category) => {
+    const getOption = async (option) => {
         try {
             let response;
-            switch(category) {
+            switch(option) {
                 case 'online':
                     response = await axios.get(`/events/search-events/online`);
                     break;
-                // case 'location':
-                //     response = await axios.get(`/events/search-events/location/${location}`);
-                //     break;
                     default:
-                    response = await axios.get(`/events/search-events/category/${category}`);
+                    response = await axios.get(`/events/search-events/category/${option}`);
                     break;
             }
             setEvents(response.data);
@@ -30,22 +25,25 @@ const SearchFromNav = () => {
         catch (error) {
             console.log(error)
         }      
-    }
+    };
 
 
 
     return (
         <div>
             <div>
-                {categories.map(category => (
-                <button
-                    className='categoryButton'
-                    onClick={() => getCategory(category)}>
-                    {category}
-                </button>))}
+                <ul className='optionsToClick'>
+                    {options.map(option => (    
+                        <li
+                        className='optionField'
+                        onClick={() => getOption(option)}>
+                            {option}
+                        </li>
+                    ))}
+                </ul>
+                
             </div>
-            <DisplayResults 
-                listOfResults={events}/>
+
         </div>
     )
 };

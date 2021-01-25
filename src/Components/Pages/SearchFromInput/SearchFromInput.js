@@ -7,10 +7,9 @@ import  { debounce } from 'lodash';
 import Input from './Input/Input';
 import DisplayResults from '../../shared/DisplayResults/DisplayResults';
 
-const SearchFromInput = () => {
+const SearchFromInput = ({ setEvents }) => {
 
     const [inputValue, setInputValue] = useState('');
-    const [events, setEvents] = useState([]); 
 
     //console.log(inputValue);
     //console.log(events);
@@ -34,12 +33,12 @@ const SearchFromInput = () => {
         handleDelay(inputValue);
     }, [inputValue, handleDelay]);
 
-    console.log(events);
+
 
     return (
         <div>
             <Input onChange={value => setInputValue(value)} />
-            <DisplayResults listOfResults={events}/>
+            
         </div>
     )
 

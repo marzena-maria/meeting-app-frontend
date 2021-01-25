@@ -12,8 +12,11 @@ const EventForm = () => {
                 timeFrom,
                 timeTo,
                 online,
-                //location,
-                //address,
+                place,
+                street,
+                postalCode,
+                city,
+                country,
                 place,
                 description,
                 category
@@ -34,14 +37,13 @@ const EventForm = () => {
     const [timeFrom, setTimeFrom] = React.useState('');
     const [timeTo, setTimeTo] = React.useState('');
     const [online, setOnline] = React.useState(false);
-    //const [location, setLocation] = React.useState('locationInitialState');
 
     //address - start
     const [place, setPlace] = React.useState('');
-    // const [street, setStreet] = React.useState('');
-    // const [city, setCity] = React.useState('');
-    // const [country, setCountry] = React.useState('');
-    // const [postalCode, setPostalCode] = React.useState('');
+    const [street, setStreet] = React.useState('');
+    const [postalCode, setPostalCode] = React.useState('');
+    const [city, setCity] = React.useState('');
+    const [country, setCountry] = React.useState('');
     //address - end
 
     const [description, setDescription] = React.useState('');
@@ -88,10 +90,40 @@ const EventForm = () => {
                     checked={online}
                 />
 
+                <p>Location</p>
+
                 <label htmlFor='place'>Place:</label>
                 <input 
                     onChange={event => {setPlace(event.target.value)}}
                     className='placeInput'
+                    type='text'
+                />
+
+                <label htmlFor='street'>Street:</label>
+                <input 
+                    onChange={event => {setStreet(event.target.value)}}
+                    className='streetInput'
+                    type='text'
+                />
+
+                <label htmlFor='postalCode'>Postal Code:</label>
+                <input 
+                    onChange={event => {setPostalCode(event.target.value)}}
+                    className='postalCodeInput'
+                    type='text'
+                />
+
+                <label htmlFor='city'>City:</label>
+                <input 
+                    onChange={event => {setCity(event.target.value)}}
+                    className='cityInput'
+                    type='text'
+                />
+
+                <label htmlFor='city'>Country:</label>
+                <input 
+                    onChange={event => {setCountry(event.target.value)}}
+                    className='countryInput'
                     type='text'
                 />
 
@@ -105,8 +137,9 @@ const EventForm = () => {
 
                 <label htmlFor='category'>Category:</label>
                 <select onChange={event => setCategory(event.target.value)}>
-                    <option value="music">culture</option>
-                    <option value="books">culture</option>
+                    <option value="empty"></option>
+                    <option value="music">music</option>
+                    <option value="books">books</option>
                     <option value="sport">sport</option>
                     <option value="learning languages">learning languages</option>
                     <option value="other">other</option>
