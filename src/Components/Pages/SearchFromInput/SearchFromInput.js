@@ -3,9 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 
 import axios from 'axios';
 import  { debounce } from 'lodash';
-
 import Input from './Input/Input';
-import DisplayResults from '../../shared/DisplayResults/DisplayResults';
 
 const SearchFromInput = ({ setEvents }) => {
 

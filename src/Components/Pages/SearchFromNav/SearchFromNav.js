@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './SearchFromNav.scss';
-
 import axios from 'axios';
-
-import DisplayResults from '../../shared/DisplayResults/DisplayResults';
 
 const SearchFromNav = ({ setEvents }) => {
 
