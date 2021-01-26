@@ -1,14 +1,11 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import { NotificationContext } from "../../Notifications";
 
-
-
 function Register() {
- 
   const setMessage = useContext(NotificationContext);
-console.log(setMessage)
+  console.log(setMessage);
 
   const history = useHistory();
 
@@ -23,38 +20,54 @@ console.log(setMessage)
   // const [error,setError] = useState("")
 
   const register = async () => {
-   
     console.log(typeof age);
-    const response = await Axios.post("/user/register", {
-      username,
-      email,
-      password,
-      gender,
-      age,
-      city,
-      country,
-      bio,
-    });
-    console.log(response);
-    if(!response){
-      setMessage("Every field should be valid and none of the field should be empty")
-    }
-    if (response) {
-      console.log(response);
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+   try{
+      const response = await Axios.post(
+        "/user/register",
+        {
+          username,
+          email,
+          password,
+          gender,
+          age,
+          city,
+          country,
+          bio,
+        },
+        config
+      );
 
-      history.push("/login");
+      console.log(43535345,response);
+     
+      if (response) {
+        console.log(response);
+
+        history.push("/login");
+      }
+    }catch(error){
+      console.log(error)
+      
+        setMessage(
+          "Every field should be valid and none of the field should be empty"
+        );
+      
     }
+   
   };
 
   return (
     <div>
-      
       <h1>Register</h1>
       <div>
         <label>Username* :</label>
         <input
           type="text"
-          required ={true}
+          required={true}
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
