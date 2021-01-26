@@ -2,6 +2,7 @@ import './App.scss';
 import React from "react"
 import {BrowserRouter,Route,Switch}from "react-router-dom"
 import Register from "./Components/Forms/UserForms/Register";
+import EventForm from "./Components/Forms/EventForm/EventForm";
 import Login from "./Components/Forms/UserForms/Login";
 import UserProfile from "./Components/Pages/UserProfile";
 import Home from "./Components/Pages/Home";
