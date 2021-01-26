@@ -9,6 +9,9 @@ import EventForm from './Components/Forms/EventForm/EventForm';
 import Maps from './Components/Pages/Maps/Maps';
 import Notifications from "./Components/Notifications"
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute"
+import About from "./Components/About"
+import Contact from "./Components/Contact"
+
 
 function App() {
   return (
@@ -36,14 +39,16 @@ function App() {
       <Route path ="/event-form" component={EventForm} exact /> 
       <Route path ="/location" component={Maps} exact /> 
       <Route path ="/register" component={Register} exact />    
-      <Route path ="/register" component={Register} exact />
       <Route path ="/login" component={Login} exact />
       <PrivateRoute path ="/user_profile" component={UserProfile} exact />
       <Route path ="/" component={Home} exact />
+      <Route path ="/about" component={About} exact />
+      <Route path ="/contact" component={Contact} exact />
 
     </Switch>
 
     </BrowserRouter>
+    
     </Notifications>
   );
 }
