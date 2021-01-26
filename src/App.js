@@ -7,9 +7,12 @@ import UserProfile from "./Components/Pages/UserProfile";
 import Home from "./Components/Pages/Home";
 import EventForm from './Components/Forms/EventForm/EventForm';
 import Maps from './Components/Pages/Maps/Maps';
+import Notifications from "./Components/Notifications"
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute"
 
 function App() {
   return (
+    <Notifications >
     <BrowserRouter>
     {/*<h1> home page</h1> */}
     {/* <ul>
@@ -35,12 +38,13 @@ function App() {
       <Route path ="/register" component={Register} exact />    
       <Route path ="/register" component={Register} exact />
       <Route path ="/login" component={Login} exact />
-      <Route path ="/user_profile" component={UserProfile} exact />
+      <PrivateRoute path ="/user_profile" component={UserProfile} exact />
       <Route path ="/" component={Home} exact />
 
     </Switch>
 
     </BrowserRouter>
+    </Notifications>
   );
 }
 
