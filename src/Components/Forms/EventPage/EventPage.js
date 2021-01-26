@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 
 export function EventPage() {
     const [event, setEvent] = useState([]);
-    const [id, setId] = useState(0)
+    const [id, setId] = useState("5fdb57c7c8bbe2412fee5f27")
 
     useEffect(() => {
         fetch(`/events/get-event/${id}`).then(res => {
@@ -13,8 +14,8 @@ export function EventPage() {
         }).then(jsonResponse => setEvent(jsonResponse))
     },[id])
 
-    const checkLogin = () => {
-        console.log("hello");
+    const checkLoginStatus = () => {
+        axios.get("http://localhost:4014/", {withCredentials: true})
     }
 
     return (
@@ -25,12 +26,12 @@ export function EventPage() {
                 <h1>info: {event.description}</h1>
                 <h1>category: {event.category}</h1>
                 <h1>online: {event.online}</h1>
-                <input type="text" value={id} onChange={e => setId(e.target.value)}/>
+                <h1>participants: {event.participants}</h1>
+                {/* <input type="text" value={id} onChange={e => setId(e.target.value)}/> */}
             </div>
             <div>
-                <button onClick={checkLogin}>Join Now!</button>
+                <button onClick={checkLoginStatus}>Join Now!</button>
             </div>
         </>
-        
     )
 }
