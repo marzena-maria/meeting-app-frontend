@@ -15,12 +15,6 @@ function UserProfile() {
     const [eventsOrganized, setEventsOrganized] = useState('');
     const [eventsAttended, setEventsAttended] = useState('');
 
-    let isLoggedIn = false;
-
-    if (window.localStorage.length > 0 && window.localStorage.getItem("loggedIn") !== null) {
-        isLoggedIn = JSON.parse(window.localStorage.getItem("loggedIn"));
-    }
-
     const get_auth_user_data = async () => {
         const response = await Axios.get("/user/get-auth-user")
 
@@ -121,49 +115,45 @@ function UserProfile() {
         }
     }
 
-    if (!isLoggedIn) {
-        return <Redirect to="/login" />;
-    } else {
-        if (loading === false) {
-            return (
-                <div id="container">
-                    <NavBar />  
-                    <div className="user_details user_panel">
-                        <div className="user_details_pp"></div>
-                        <div className="user_details_inputs">
-                            <h1>{user.firstName}</h1>
-                            <input type="text" name="username" value={username} onChange={(e) => handleUserChange('username', e.target.value)} /> <br />
-                            <input type="text" name="city" value={city} onChange={(e) => handleUserChange('city', e.target.value)} /><br />
-                            <input type="text" name="age" value={age} onChange={(e) => handleUserChange('age', e.target.value)} /><br />
-                            <button onClick={update}>Update</button>
-                        </div>
-                    </div>
-                    <div className="user_events_attend user_panel">
-                        <h2>Event I attend</h2>
-                        <div className="attended_events">
-                            {renderEvents('attended')}
-                        </div>
-                        <p><Link to="/" className="button">Browse New Events</Link>
-                        </p>
-                    </div>
-                    <div className="user_events_organize user_panel">
-                        <h2>Events I organise</h2>
-                        <div className="organized_events">
-                            {renderEvents('organized')}
-                        </div>
-                        <p><Link to="/event-form" className="button">Create New Event</Link>
-                        </p>
+    if (loading === false) {
+        return (
+            <div id="container">
+                <NavBar />  
+                <div className="user_details user_panel">
+                    <div className="user_details_pp"></div>
+                    <div className="user_details_inputs">
+                        <h1>{user.firstName}</h1>
+                        <input type="text" name="username" value={username} onChange={(e) => handleUserChange('username', e.target.value)} /> <br />
+                        <input type="text" name="city" value={city} onChange={(e) => handleUserChange('city', e.target.value)} /><br />
+                        <input type="text" name="age" value={age} onChange={(e) => handleUserChange('age', e.target.value)} /><br />
+                        <button onClick={update}>Update</button>
                     </div>
                 </div>
-            )
-        } else {
-            get_auth_user_data();
+                <div className="user_events_attend user_panel">
+                    <h2>Event I attend</h2>
+                    <div className="attended_events">
+                        {renderEvents('attended')}
+                    </div>
+                    <p><Link to="/" className="button">Browse New Events</Link>
+                    </p>
+                </div>
+                <div className="user_events_organize user_panel">
+                    <h2>Events I organise</h2>
+                    <div className="organized_events">
+                        {renderEvents('organized')}
+                    </div>
+                    <p><Link to="/event-form" className="button">Create New Event</Link>
+                    </p>
+                </div>
+            </div>
+        )
+    } else {
+        get_auth_user_data();
 
-            return (<div>
-                <NavBar /> 
-                <p>Loading... </p>
-            </div>);
-        }
+        return (<div>
+            <NavBar /> 
+            <p>Loading... </p>
+        </div>);
     }
 }
 
