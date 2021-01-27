@@ -25,7 +25,7 @@ function SliderContent() {
 
       <div className="center">
         <h1>{images[currImg].title}</h1>
-        <button>Join Now</button>
+        <button onClick={images[currImg].handleClick}>{images[currImg].button}</button>
         <p>{images[currImg].subtitle}</p>
       </div>
 
