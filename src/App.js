@@ -6,6 +6,7 @@ import EventForm from "./Components/Forms/EventForm/EventForm";
 import Login from "./Components/Forms/UserForms/Login";
 import UserProfile from "./Components/Pages/UserProfile";
 import Home from "./Components/Pages/Home";
+
 import Maps from './Components/Pages/Maps/Maps';
 import Notifications from "./Components/Notifications"
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute"

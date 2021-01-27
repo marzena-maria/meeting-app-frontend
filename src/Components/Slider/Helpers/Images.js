@@ -16,7 +16,7 @@ const images = [
     button: "Show events",
     subtitle: "at your doorstep",
     img: Online,
-    handleClick: () => {return <Redirect to={{pathname:"/login"}}/>},
+    link: '/'
   },
   {
     title: "Events",
