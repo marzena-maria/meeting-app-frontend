@@ -6,13 +6,14 @@ import SearchFromNav from './SearchFromNav/SearchFromNav';
 import Footer from "../shared/Footer"
 import Slider from "../Slider/Slider"
 
+
 function Home() {
     return (
         <div>
             <NavBar />  
             < Slider />
             <SearchFromNav />
-            <SearchFromInput />  
+            <SearchFromInput /> 
             <Footer />      
         </div>
     )
