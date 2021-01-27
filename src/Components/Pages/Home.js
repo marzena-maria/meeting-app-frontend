@@ -8,6 +8,7 @@ import DisplayResults from '../shared/DisplayResults/DisplayResults';
 import Maps from './Maps/Maps';
 import Footer from "../shared/Footer"
 
+
 function Home() {
     const [events, setEvents] = React.useState([]);
     return (

@@ -12,7 +12,7 @@ import { NotificationContext } from "../../Notifications";
     const login = async() =>{
     
         const response = await Axios.post("/user/login",{
-           
+           withCredentials:true,
              email,
              password
          })
