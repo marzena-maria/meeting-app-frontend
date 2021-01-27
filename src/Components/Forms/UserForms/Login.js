@@ -12,7 +12,7 @@ import { NotificationContext } from "../../Notifications";
     const login = async() =>{
     
         const response = await Axios.post("/user/login",{
-           
+           withCredentials:true,
              email,
              password
          })
@@ -24,6 +24,7 @@ import { NotificationContext } from "../../Notifications";
        else{
            setMessage("EmailId or password is invalid")
        }
+    }
        
      
     return (
@@ -50,7 +51,7 @@ import { NotificationContext } from "../../Notifications";
             {/* <a href="">Forget Password</a> */}
         </div>
     )
-}
+
 }
 
 export default Login
