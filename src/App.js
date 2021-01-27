@@ -33,7 +33,6 @@ function App() {
       </li>
     </ul> */}
 
-
     {/* <NavBar /> */}
     <Switch>
       <Route path ="/event-form" component={EventForm} exact /> 
