@@ -65,7 +65,7 @@ const Maps = () => {
     if (!isLoaded) return 'Loading Maps';
 
     return (
-        <div>
+        <div className="map">
             <h1>Find meetings on Google Maps</h1>
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}
