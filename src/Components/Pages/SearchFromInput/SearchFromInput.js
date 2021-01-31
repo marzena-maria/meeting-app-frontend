@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
-//import '/SearchFromInput.scss';
+//import './SearchFromInput.scss';
 
 import axios from 'axios';
 import  { debounce } from 'lodash';
 
 import Input from './Input/Input';
-import DisplayResultsFromInput from './DisplayResults/DisplayResultsFromInput';
-
-// parent component 
+import DisplayResults from '../../shared/DisplayResults/DisplayResults';
 
 const SearchFromInput = () => {
 
@@ -19,9 +17,8 @@ const SearchFromInput = () => {
 
     const handleGetEvents = async inputValue => {
         try {
-            const response = await axios.get(`/events/search-events/${inputValue}`);
-            const data = response.data;
-            setEvents(data);
+            const response = await axios.get(`/events/search-events/name/${inputValue}`);
+            setEvents(response.data);
         }
             catch(error) {
             console.log(error)
@@ -42,10 +39,7 @@ const SearchFromInput = () => {
     return (
         <div>
             <Input onChange={value => setInputValue(value)} />
-            <DisplayResultsFromInput 
-                // show one event page
-                // onClick={}
-                listOfResults={events}/>
+            <DisplayResults listOfResults={events}/>
         </div>
     )
 

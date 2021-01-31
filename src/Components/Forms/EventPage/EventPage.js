@@ -11,12 +11,19 @@ export function EventPage() {
             if(res.ok) {
                 return res.json()
             }
-        }).then(jsonResponse => setEvent(jsonResponse))
+        }).then(jsonResponse => {
+            setEvent(jsonResponse)
+            console.log(event.participants[1]);
+        }) 
     },[id])
 
     const checkLoginStatus = () => {
-        axios.get("http://localhost:4014/", {withCredentials: true})
+        // axios.get("http://localhost:4014/", {withCredentials: true})
+        console.log("test");
     }
+    // const participants = event.participants.map((item)=>{
+    //     return <span>{item.username} </span>
+    // })
 
     return (
         <>
@@ -25,8 +32,9 @@ export function EventPage() {
                 <h1>starting: {event.startingDate}</h1>
                 <h1>info: {event.description}</h1>
                 <h1>category: {event.category}</h1>
-                <h1>online: {event.online}</h1>
-                <h1>participants: {event.participants}</h1>
+                <h1>online: {event.online}</h1>                
+                <h1>participants: {event.participants.map(item => <span> {item.username}</span>)}</h1>
+                {/* <h1>participants: {event.participants[0].username}</h1> */}
                 {/* <input type="text" value={id} onChange={e => setId(e.target.value)}/> */}
             </div>
             <div>

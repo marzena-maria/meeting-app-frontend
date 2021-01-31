@@ -2,17 +2,17 @@ import React from 'react'
 import NavBar from "../shared/NavBar"
 
 import SearchFromInput from './SearchFromInput/SearchFromInput';
+import SearchFromNav from './SearchFromNav/SearchFromNav';
 
 function Home() {
     return (
         <div>
-           <NavBar />
-        
+            <NavBar />  
 
-            <SearchFromInput />
-            
+            <SearchFromNav />
+            <SearchFromInput />        
         </div>
     )
-}
+};
 
 export default Home;

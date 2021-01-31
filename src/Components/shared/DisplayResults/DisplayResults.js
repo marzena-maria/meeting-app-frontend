@@ -1,9 +1,9 @@
 import React from 'react';
 // scss
 
-const DisplayResultsFromInput = ({ listOfResults }) => {
+const DisplayResults = ({ listOfResults }) => {
 
-    console.log(listOfResults)
+    console.log(listOfResults);
 
     return (
         <div className='resultsContainer'>
@@ -13,8 +13,8 @@ const DisplayResultsFromInput = ({ listOfResults }) => {
                         listOfResults.map(eventData => (
                             <li key={eventData._id}> 
                                 <p>{eventData.eventName}</p>   
-                                <span>{eventData.startingDate}</span>  
-                                {/* <span>{eventData.}</span>                              */}
+                                <p>{eventData.startingDate}</p>  
+                                <p>{eventData.category}</p>                             
                             </li>
                     ))) : <p>No result</p>
                 }
@@ -23,4 +23,4 @@ const DisplayResultsFromInput = ({ listOfResults }) => {
     )
 };
 
-export default DisplayResultsFromInput;
+export default DisplayResults;
