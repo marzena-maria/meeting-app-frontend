@@ -1,0 +1,115 @@
+#container {
+    text-align: center;
+
+    .user_panel {
+        min-height: 350px;
+        width: 40%;
+        min-width: 350px;
+        float: left;
+        margin: 10px 2.5% 15px;
+        border-radius: 10px 10px 10px 10px;
+        -moz-border-radius: 10px 10px 10px 10px;
+        -webkit-border-radius: 10px 10px 10px 10px;
+        border: 0px solid #000000;
+
+        ul {
+            list-style: none;
+            width: 90%;
+            margin: 0 5%;
+            padding: 0;
+
+            li {
+                display: inline-block;
+                width: 100%;
+                margin: 15px 0;
+            }
+
+            span {
+                display: inline-block;
+                width: 50%;
+            }
+
+            .eventName {
+                text-align:left;
+                float: left;
+            }
+
+            .eventDate {
+                text-align:right;
+                float: right;
+            }
+        }
+    }
+    
+    .user_details {
+        color: #ffffff;
+        background-color: #550055;
+    }
+    .user_details_pp {
+        width: 150px;
+        height: 100%;
+        float: left;
+    }
+    
+    .user_details_inputs {
+        width: calc(100% - 150px);
+        height: 100%;
+        float: right;
+
+        input {
+            text-align: center;
+            border-radius: 10px 10px 10px 10px;
+            -moz-border-radius: 10px 10px 10px 10px;
+            -webkit-border-radius: 10px 10px 10px 10px;
+            border: 0px solid #000000;
+        }
+
+        label {
+            margin: 10px 0;
+            display: inline-block;
+
+            span {
+                display: inline-block;
+                min-width: 110px;
+                text-align: right;
+                margin-right: 5px;
+            }
+        }
+    }
+    
+    .user_events_attend {  
+        background-color: rgb(106, 128, 128);
+        width: 50%;
+        color: white;
+    }
+    
+    .button {
+        color: white;
+        text-decoration: none;
+        background-color:  rgba(0,0,0,0.2);
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+        display: inline-block;
+        border-radius: 10px 10px 10px 10px;
+        -moz-border-radius: 10px 10px 10px 10px;
+        -webkit-border-radius: 10px 10px 10px 10px;
+        border: 0px solid #000000;
+        cursor: pointer;
+    }
+
+    .button:hover,
+    .button:focus{
+        background-color:  rgba(0,0,0,0.4);
+    }
+    
+    .user_events_organize {
+        background-color:rgb(255, 192, 150);
+        width: 50%;
+        float: right;
+    }
+
+    .clear {
+        clear: both;
+    }
+}
