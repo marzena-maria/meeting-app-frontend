@@ -20,7 +20,6 @@ import { NotificationContext } from "../../Notifications";
          if(response){
              console.log(response);
              window.localStorage.setItem("loggedIn",JSON.stringify(true))
-         }
             // Refresh so it redirects to home
             window.location.reload(false);
         } else {
