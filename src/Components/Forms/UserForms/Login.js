@@ -21,9 +21,11 @@ import { NotificationContext } from "../../Notifications";
              console.log(response);
              window.localStorage.setItem("loggedIn",JSON.stringify(true))
          }
-       else{
-           setMessage("EmailId or password is invalid")
-       }
+            // Refresh so it redirects to home
+            window.location.reload(false);
+        } else {
+            setMessage('EmailId or password is invalid', 'error');
+        }
     }
        
      
