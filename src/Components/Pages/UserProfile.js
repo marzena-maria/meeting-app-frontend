@@ -21,7 +21,6 @@ function UserProfile() {
     const [telephone, setTelephone] = useState('');
     const [gender, setGender] = useState('');
     const [bio, setBio] = useState('');
-    const [username, setUsername] = useState('');
     const [eventsOrganized, setEventsOrganized] = useState('');
     const [eventsAttended, setEventsAttended] = useState('');
 
@@ -40,7 +39,6 @@ function UserProfile() {
             setTelephone(user.telephone);
             setGender(user.gender);
             setBio(user.bio);
-            setUsername(user.username);
 
             // Get events organized by auth user
             events_organized();
@@ -158,15 +156,8 @@ function UserProfile() {
                 setBio(value);
                 user.bio = value;
                 break;
-            case 'username':
-                setUsername(value);
-                user.username = value;
-                break;
             default:
-                setMessage(
-                    'Impossible to update field ' +  fieldName + ' with value ' + value,
-                    'error'
-                );
+                console.log('Impossible to update field ' +  fieldName + ' with value ' + value);
         }
     }
 
@@ -218,7 +209,7 @@ function UserProfile() {
 
                             <label>
                                 <span>Telephone: </span>
-                                <input type="tel" name="telephone" value={telephone} onChange={(e) => handleUserChange('telephone', e.target.value)} />
+                                <input type="text" name="telephone" value={telephone} onChange={(e) => handleUserChange('telephone', e.target.value)} />
                             </label>
                             <br />
 
@@ -264,6 +255,7 @@ function UserProfile() {
         return (<div>
             <NavBar /> 
             <p>Loading... </p>
+            <Footer />
         </div>);
     }
 }
