@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './EventForm.scss';
 import axios from 'axios';
+import { NotificationContext } from '../../Notifications';
 
 const EventForm = () => {
+
+    const setMessage = useContext(NotificationContext);
 
     const onSubmitForm = async () => {
         try {
@@ -24,10 +27,14 @@ const EventForm = () => {
             console.log(response);
             if(response) {
                 console.log(response);
+                setMessage('New event created');
             }
         }
         catch (error) {
             console.error(error);
+            // if(email && msg) {
+            //     return setMessage("We will get back to you as soon as possible. Thank you for your interest.")
+            // }
         }
     };
 

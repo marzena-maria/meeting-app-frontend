@@ -10,7 +10,7 @@ export const NotificationContext = createContext();
 
         setTimeout(()=>{
             setMessage("")
-        },2000);
+        },5000);
     }
 
     return (

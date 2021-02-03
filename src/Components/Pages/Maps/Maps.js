@@ -1,45 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Maps.scss';
-// import GetCoordinates from './GetCoordinates/GetCoordinates';
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import Geocode from 'react-geocode';
 import axios from 'axios';
 
 
-
-// import usePlacesAutocomplete, {
-//     getGeocode,
-//     getLatLng
-// } from 'use-places-autocomplete';
-// import {
-//     Combobox,
-//     ComboboxInput,
-//     ComboboxPopover,
-//     ComboboxList,
-//     ComboboxOption
-// } from '@reach/combobox';
-
 const apiKeys = process.env.REACT_APP_GOOGLE_MAPS_KEY;
-console.log(apiKeys);
 
 Geocode.setApiKey(apiKeys);
 Geocode.setRegion('de');
 
 // Enable or disable logs. Its optional.
 Geocode.enableDebug();
-
-const url = `https://maps.googleapis.com/maps/api/geocode/json?address=Bauerberg%209%2022111%20Hamburg&key=${apiKeys}`;
-
-const coordinates = async () => {
-    try {
-    const response = await axios(url);
-    console.log(response.data);
-    }
-    catch(error) {
-    console.log(error)
-    }
-};
-coordinates();
 
 
 const libraries = ['places'];
@@ -50,15 +22,53 @@ const mapContainerStyle = {
 };
 
 const center = {
-    lat: 53.55099,
-    lng: 10.0793
+    lat: 53.551086,
+    lng: 9.993682
 };
 
-const Maps = () => {
+
+function Maps() {
+
+    const [events, setEvents] = useState([]);
+    const [city, setCity] = useState('Hamburg');
+    const [markers, setMarkers] = useState([]);
+    // const [info, setInfo] = useState([]);
+
+    const address = async () => { 
+  
+        try {
+            const response = await axios.get(`/events/search-events/test/${city}/Germany`);
+            setEvents(response.data);
+        }
+        catch(error) {
+            console.log(error)
+        }
+    };
+
+    useEffect(() => {
+        city && address()
+    }, [city]);
+
+    useEffect(() => {
+        try {
+            const getMarkers = events.map(event => 
+                axios.get(
+                    `https://maps.googleapis.com/maps/api/geocode/json`, 
+                    { params: { address: `${event.street} ${event.postalCode}`, key: apiKeys  }}
+                ).then(response => ({ name: event.eventName ,...response.data.results[0].geometry.location }))
+            )
+            Promise.all(getMarkers).then(response => setMarkers(response));
+            // console.log(events[0].eventName);
+        } catch (error) {
+            console.log(error)
+        }
+    }, [events]);
+
+    
 
     const {isLoaded, loadError} = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_KEY,
-        libraries
+        libraries,
     });
 
     if (loadError) return 'Error loading maps';
@@ -66,13 +76,41 @@ const Maps = () => {
 
     return (
         <div>
-            <h1>Find meetings on Google Maps</h1>
+
+            <div className='inputContainerCity'>
+                <label 
+                    htmlFor='byCity'
+                    className='inputLabelCity'>
+                    Find Events on Google Maps:
+                </label>
+
+                <input 
+                    value={city}
+                    onChange={event => setCity(event.target.value)}
+                    className='inputFieldCity'
+                    type='text'
+                    id='byCity'>
+                </input>
+            </div>
+
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}
                 zoom={12}
                 center={center}>
+        
+                {markers.map(({ name, lat, lng }) => console.log(name) || (
+                    <>
+                    <Marker 
+                        position={{ lat, lng }}
+                    />
+                    <InfoWindow 
+                        position={{ lat, lng }}>
+                            <span>{name}</span>
+                    </InfoWindow>
+                    </>
+                ))}
+           
             </GoogleMap>
-            {/* <GetCoordinates /> */}
         </div>
     )
 };
