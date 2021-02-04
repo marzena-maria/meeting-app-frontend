@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './SearchFromNav.scss';
 import axios from 'axios';
 
 const SearchFromNav = ({ setEvents }) => {
 
-    const options = ['music', 'books', 'sport', 'learning languages', 'other', 'online'];
+    const options = ['music', 'books', 'sport', 'languages', 'other', 'online'];
 
     const getOption = async (option) => {
         try {
