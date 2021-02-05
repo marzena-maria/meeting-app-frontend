@@ -28,9 +28,6 @@ const Navbar= ()=> {
             {isLoggedIn ? (
                 <ul>
                     <li>
-                        <Link to='/'>Home</Link>
-                    </li>
-                    <li>
                         <Link to='/user_profile'>My Profile</Link>
                     </li>
                     <li>

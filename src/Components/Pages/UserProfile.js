@@ -1,17 +1,26 @@
-import React, { useState } from 'react';
-import { Link, Redirect } from "react-router-dom";
+import React, { useState, useContext } from 'react';
+import { Link } from "react-router-dom";
 import Axios from "axios";
 import NavBar from "../shared/NavBar";
-/*import ProfilePic from "./" IMPORTER L IMAGE DU PROFILE EN QUESTION*/
+import './UserProfile.scss';
+import { NotificationContext } from "../Notifications";
+import Footer from "../shared/Footer"
 
 
 function UserProfile() {
+    const setMessage = useContext(NotificationContext);
 
     const [user, setUser] = useState("");
     const [loading, setLoading] = useState(true);
-    const [username, setUsername] = useState('');
-    const [city, setCity] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
     const [age, setAge] = useState('');
+    const [city, setCity] = useState('');
+    const [country, setCountry] = useState('');
+    const [telephone, setTelephone] = useState('');
+    const [gender, setGender] = useState('');
+    const [bio, setBio] = useState('');
     const [eventsOrganized, setEventsOrganized] = useState('');
     const [eventsAttended, setEventsAttended] = useState('');
 
@@ -21,9 +30,15 @@ function UserProfile() {
         if (response.data.status !== false) {
             setUser(response.data.user);
 
-            setUsername(response.data.user.username);
-            setCity(response.data.user.city);
-            setAge(response.data.user.age);
+            setFirstName(user.firstName);
+            setLastName(user.lastName);
+            setEmail(user.email);
+            setAge(user.age);
+            setCity(user.city);
+            setCountry(user.country);
+            setTelephone(user.telephone);
+            setGender(user.gender);
+            setBio(user.bio);
 
             // Get events organized by auth user
             events_organized();
@@ -39,9 +54,15 @@ function UserProfile() {
         const response = await Axios.post("/user/update-user", { user })
 
         if (response.data.status === false) {
-            console.log('Update failed');
+            setMessage(
+                'Update failed',
+                'error'
+            );
         } else {
-            console.log('Update succeed');
+            setMessage(
+                'Update succeed',
+                'success'
+            );
         }
     }
 
@@ -101,50 +122,131 @@ function UserProfile() {
     function handleUserChange(fieldName, value) {
 
         switch (fieldName) {
-            case 'city':
-                setCity(value);
-                user.city = value;
+            case 'firstName':
+                setFirstName(value);
+                user.firstName = value;
                 break;
+            case 'lastName':
+                setLastName(value);
+                user.lastName = value;
+            case 'email':
+                setEmail(value);
+                user.email = value;
             case 'age':
                 setAge(value);
                 user.age = value;
                 break;
+            case 'city':
+                setCity(value);
+                user.city = value;
+                break;
+            case 'country':
+                setCountry(value);
+                user.country = value;
+                break;
+            case 'telephone':
+                setTelephone(value);
+                user.telephone = value;
+                break;
+            case 'gender':
+                setGender(value);
+                user.gender = value;
+                break;
+            case 'bio':
+                setBio(value);
+                user.bio = value;
+                break;
             default:
-                setUsername(value);
-                user.username = value;
+                console.log('Impossible to update field ' +  fieldName + ' with value ' + value);
         }
     }
 
     if (loading === false) {
         return (
-            <div id="container">
-                <NavBar />  
-                <div className="user_details user_panel">
-                    <div className="user_details_pp"></div>
-                    <div className="user_details_inputs">
-                        <h1>{user.firstName}</h1>
-                        <input type="text" name="username" value={username} onChange={(e) => handleUserChange('username', e.target.value)} /> <br />
-                        <input type="text" name="city" value={city} onChange={(e) => handleUserChange('city', e.target.value)} /><br />
-                        <input type="text" name="age" value={age} onChange={(e) => handleUserChange('age', e.target.value)} /><br />
-                        <button onClick={update}>Update</button>
+            <div>
+                <NavBar />
+                <div id="container">
+                    <div className="user_details user_panel">
+                        <div className="user_details_pp"></div>
+                        <div className="user_details_inputs">
+                            <h1>{user.username}</h1>
+
+                            <label>
+                                <span>First name: </span>
+                                <input type="text" name="firstName" value={firstName} onChange={(e) => handleUserChange('firstName', e.target.value)} />
+                            </label>
+                            <br />
+
+                            <label>
+                                <span>Last name: </span>
+                                <input type="text" name="lastName" value={lastName} onChange={(e) => handleUserChange('lastName', e.target.value)} />
+                            </label>
+                            <br />
+
+                            <label>
+                                <span>Email: </span>
+                                <input type="email" name="email" value={email} onChange={(e) => handleUserChange('email', e.target.value)} />
+                            </label>
+                            <br />
+
+                            <label>
+                                <span>Age: </span>
+                                <input type="number" name="age" value={age} onChange={(e) => handleUserChange('age', e.target.value)} />
+                            </label>
+                            <br />
+
+                            <label>
+                                <span>City: </span>
+                                <input type="text" name="city" value={city} onChange={(e) => handleUserChange('city', e.target.value)} />
+                            </label>
+                            <br />
+
+                            <label>
+                                <span>Country: </span>
+                                <input type="text" name="country" value={country} onChange={(e) => handleUserChange('country', e.target.value)} />
+                            </label>
+                            <br />
+
+                            <label>
+                                <span>Telephone: </span>
+                                <input type="text" name="telephone" value={telephone} onChange={(e) => handleUserChange('telephone', e.target.value)} />
+                            </label>
+                            <br />
+
+                            <label>
+                                <span>Gender: </span>
+                                <input type="text" name="gender" value={gender} onChange={(e) => handleUserChange('gender', e.target.value)} />
+                            </label>
+                            <br />
+
+                            <label>
+                                <span>Bio: </span>
+                                <textarea value={bio} onChange={(e) => handleUserChange('bio', e.target.value)} />
+                            </label>
+                            <br />
+
+                            <button onClick={update}>Update</button>
+                        </div>
                     </div>
-                </div>
-                <div className="user_events_attend user_panel">
-                    <h2>Event I attend</h2>
-                    <div className="attended_events">
-                        {renderEvents('attended')}
+                    <div className="user_events_attend user_panel">
+                        <h2>Event I attend</h2>
+                        <div className="attended_events">
+                            {renderEvents('attended')}
+                        </div>
+                        <p><Link to="/" className="button">Browse New Events</Link>
+                        </p>
                     </div>
-                    <p><Link to="/" className="button">Browse New Events</Link>
-                    </p>
-                </div>
-                <div className="user_events_organize user_panel">
-                    <h2>Events I organise</h2>
-                    <div className="organized_events">
-                        {renderEvents('organized')}
+                    <div className="user_events_organize user_panel">
+                        <h2>Events I organise</h2>
+                        <div className="organized_events">
+                            {renderEvents('organized')}
+                        </div>
+                        <p><Link to="/event-form" className="button">Create New Event</Link>
+                        </p>
                     </div>
-                    <p><Link to="/event-form" className="button">Create New Event</Link>
-                    </p>
+                    <div className="clear"></div>
                 </div>
+                <Footer />
             </div>
         )
     } else {
@@ -153,6 +255,7 @@ function UserProfile() {
         return (<div>
             <NavBar /> 
             <p>Loading... </p>
+            <Footer />
         </div>);
     }
 }
