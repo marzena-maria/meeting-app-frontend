@@ -5,9 +5,11 @@ function Contact() {
     const setMessage = useContext(NotificationContext);
     const[email,setEmail] = useState("");
     const [msg,setMsg] = useState("");
+    const localData = localStorage.getItem("contactSubmit");
 
     function contactSubmit(e){
         e.preventDefault();
+       JSON.stringify( localStorage.setItem("contactSubmit",email,msg))
         if(email && msg){
         return setMessage("We will get back to you as soon as possible. Thank you for your interest.")
     }

@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import { NotificationContext } from "../../Notifications";
+import NavBar from "../../shared/NavBar"
+import "./Register.scss"
 
 function Register() {
   const setMessage = useContext(NotificationContext);
@@ -51,10 +53,11 @@ function Register() {
       }
     }catch(error){
       console.log(error)
-      
+      if(!username || !email || !password){
         setMessage(
-          "Every field should be valid and none of the field should be empty"
+          "Every field should be valid and fields with * should not be empty"
         );
+      }
       
     }
    
@@ -62,8 +65,14 @@ function Register() {
 
   return (
     <div>
-      <h1>Register</h1>
       <div>
+      <NavBar />
+      </div>
+    
+    <div className="register">
+      <h1 >Register</h1>
+      <div className="form">
+      <div className="form-group">
         <label>Username* :</label>
         <input
           type="text"
@@ -73,7 +82,7 @@ function Register() {
         />
       </div>
       <br />
-      <div>
+      <div className="form-group">
         <label>Email* :</label>
         <input
           type="email"
@@ -83,7 +92,7 @@ function Register() {
         />
       </div>
       <br />
-      <div>
+      <div className="form-group">
         <label>Password* :</label>
         <input
           type="text"
@@ -93,7 +102,7 @@ function Register() {
         />
       </div>
       <br />
-      <div>
+      <div className="form-group">
         <label>Gender:</label>
         <select
           type="text"
@@ -115,7 +124,7 @@ function Register() {
         </select>
       </div>
       <br />
-      <div>
+      <div className="form-group">
         <label>Age:</label>
         <input
           type="number"
@@ -124,7 +133,7 @@ function Register() {
         />
       </div>
       <br />
-      <div>
+      <div className="form-group">
         <label>City:</label>
         <input
           type="text"
@@ -133,7 +142,7 @@ function Register() {
         />
       </div>
       <br />
-      <div>
+      <div className="form-group">
         <label>Country:</label>
         <input
           type="text"
@@ -142,7 +151,7 @@ function Register() {
         />
       </div>
       <br />
-      <div>
+      <div className="form-group">
         <label>Bio:</label>
         <textarea
           cols="30"
@@ -154,6 +163,9 @@ function Register() {
       </div>
       <br />
       <button onClick={register}>Register</button>
+    </div>
+    </div>
+    
     </div>
   );
 }

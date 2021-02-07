@@ -75,7 +75,7 @@ function Maps() {
     if (!isLoaded) return 'Loading Maps';
 
     return (
-        <div>
+        <div className="map">
 
             <div className='inputContainerCity'>
                 <label 

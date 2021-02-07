@@ -1,0 +1,31 @@
+.notification_container {
+    display: inline-block;
+    padding: 5px 15px;
+    text-align: right;
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.notification_container.neutral {
+    color: #000033;
+    background-color: #88aaff;
+    border: 1px solid #000099;
+}
+.notification_container.warning {
+    color: #333300;
+    background-color: #ffff88;
+    border: 1px solid #999900;
+}
+.notification_container.error {
+    color: #330000;
+    background-color: #ffaa88;
+    border: 1px solid #990000;
+}
+.notification_container.success {
+    color: #003300;
+    background-color: #88dd88;
+    border: 1px solid #009900;
+}
