@@ -4,7 +4,7 @@ import {BrowserRouter,Route,Switch}from "react-router-dom";
 import Register from "./Components/Forms/UserForms/Register";
 import EventForm from "./Components/Forms/EventForm/EventForm";
 import Login from "./Components/Forms/UserForms/Login";
-import UserProfile from "./Components/Pages/UserProfile";
+// import UserProfile from "./Components/Pages/UserProfile";
 import Home from "./Components/Pages/Home";
 import Maps from './Components/Pages/Maps/Maps';
 import Notifications from "./Components/Notifications"
@@ -50,7 +50,7 @@ function App() {
       <Route path ="/reset/:token" component={GeneratePassword} />
       {/* <GuestRoute path ="/register" component={Register} exact />    
       <GuestRoute path ="/login" component={Login} exact /> */}
-      <PrivateRoute path ="/user_profile" component={UserProfile} exact />
+      {/* <PrivateRoute path ="/user_profile" component={UserProfile} exact /> */}
       <Route path ="/" component={Home} exact />
       <Route path ="/about" component={About} exact />
       <Route path ="/careers" component={Careers} exact />

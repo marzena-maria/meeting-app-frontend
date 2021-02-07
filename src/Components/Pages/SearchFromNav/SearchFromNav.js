@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./SearchFromNav.scss";
 import axios from "axios";
 
-const SearchFromNav = ({ events, setEvents }) => {
+const SearchFromNav = () => {
+  const [events,setEvents] = useState([]);
   const [visible, setVisible] = useState(1);
   const [changeOption, setChangeOption] = useState("");
 
@@ -76,7 +77,7 @@ const SearchFromNav = ({ events, setEvents }) => {
                 </div>
               ))
             ) : (
-              <p></p>
+              <p>No Results</p>
             )}
             {events.length && <button onClick={handleClick}>See More</button>}
           </ul>

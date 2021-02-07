@@ -11,17 +11,17 @@ import DisplayOnline from "../DisplayOnline";
 
 
 function Home() {
-    const [events, setEvents] = React.useState([]);
+    // const [events, setEvents] = React.useState([]);
     return (
         <div>
             <NavBar />  
             <Slider />
-            <SearchFromNav events={events} setEvents={setEvents} />
-            <SearchFromInput setEvents={setEvents} />
+            <SearchFromNav  />
+            <SearchFromInput />
             {/* <DisplayResults 
                 listOfResults={events} /> */}
             <Link to='/event-form'>Create New Event</Link>
-            {/* <Maps />  */}
+            <Maps /> 
             {/* <DisplayHealth /> */}
             <Footer />      
         </div>
