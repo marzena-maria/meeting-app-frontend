@@ -12,6 +12,10 @@ import Notifications from "./Components/Notifications"
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute"
 import About from "./Components/About"
 import Contact from "./Components/Contact"
+import Careers from "./Components/Careers"
+import Password from "./Components/Forms/UserForms/Password"
+import DisplayOnline from "./Components/DisplayOnline"
+import GeneratePassword from './Components/Forms/UserForms/GeneratePassword';
 
 
 function App() {
@@ -40,10 +44,14 @@ function App() {
       <Route path ="/location" component={Maps} exact /> 
       <Route path ="/register" component={Register} exact />    
       <Route path ="/login" component={Login} exact />
+      <Route path ="/resetPassword" component={Password} exact />
+      <Route path ="/reset/:token" component={GeneratePassword} />
       <PrivateRoute path ="/user_profile" component={UserProfile} exact />
       <Route path ="/" component={Home} exact />
       <Route path ="/about" component={About} exact />
+      <Route path ="/careers" component={Careers} exact />
       <Route path ="/contact" component={Contact} exact />
+      <Route path ="/events/online" component={DisplayOnline} />
 
     </Switch>
 

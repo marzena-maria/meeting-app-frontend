@@ -1,0 +1,23 @@
+*{
+    padding: 0;
+    margin:auto;
+    box-sizing: border-box;
+
+    @mixin center{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+    }
+    .careers{
+        h1{
+            @include center;
+            color: blue;
+            
+        }
+        .two-parts{
+            display:flex;
+            
+        }
+    }
+}

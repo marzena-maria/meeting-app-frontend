@@ -10,13 +10,14 @@ const images = [
     button: "Join Now",
     subtitle: "Join Us to explore",
     img: Offline,
+    
   },
   {
     title: "Online events ",
     button: "Show events",
     subtitle: "at your doorstep",
     img: Online,
-    link: '/'
+    link: '/events/online'
   },
   {
     title: "Events",

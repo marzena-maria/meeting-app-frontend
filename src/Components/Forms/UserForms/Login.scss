@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin:auto;
+    box-sizing: border-box;
+
+    @mixin center{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+    }
+  .login{
+    h1{
+     @include center;
+    color:blue;
+        
+    }
+
+    .form{
+        @include center;
+        flex-direction: column;
+        position: relative;
+       padding: 110px 0px 30px 45px;
+
+    //    .form-group{
+    //     justify-self:start;
+    //    }
+        label{
+            float:left;
+            font-size:20px;
+        }
+        button{
+            color:blue;
+            padding:5px 6px;
+            font-size:15px;
+        }
+    }
+}
+}
