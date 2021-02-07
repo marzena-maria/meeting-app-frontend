@@ -16,7 +16,7 @@ const DisplayResults = ({ listOfResults }) => {
                             <span>{eventData.eventName}</span>    
                             <span>{`${eventData.city} -
                             ${eventData.place}`}</span> 
-                            <span>{eventData.startingDate}</span> 
+                            <span>{new Date(eventData.startingDate).toDateString()}</span> 
                             <Link 
                                 to={`/event/${eventData._id}`}
                                 className='link'>

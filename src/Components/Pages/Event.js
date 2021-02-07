@@ -5,7 +5,25 @@ import { Link, useParams } from 'react-router-dom';
 const Event = () => {
 
     const [singleEvent, setSingleEvent] = useState({});
-    const { eventId } = useParams()
+    const { eventId } = useParams();
+
+    const [attended, setAttended] = useState(false);
+
+    const attendEvent = async () => {
+        try {
+            const response = await axios.get(`/user/attend-an-event/${eventId}` ,{withCredentials: true} );
+        console.log(response.data)
+        if(response.data.user){
+            setAttended(true)
+        }
+
+            
+        } catch (error) {
+            
+        console.log(error)
+            
+        }
+    }
 
     const getEvent = async () => {
         try { 
@@ -20,15 +38,22 @@ const Event = () => {
 
     useEffect( () => getEvent(), []);
 
+    // const dateFormatted = new Date(singleEvent.event.startingDate).toDateString();
+    // console.log(dateFormatted);
+
     return (
         <div className='eventContainer'>
             <Link to='/'>Go back to the Homepage</Link>
             <div className='singleEvent'>
                 <div className='singleEventBasicData'>
-                    <span>{singleEvent.event?.startingDate}</span>
-                    <span>{`${singleEvent.event?.timeFrom} - ${singleEvent.event?.timeTo}`}</span>
+                    {/* <span>
+                        {dateFormatted}
+                    </span> */}
+                    <span>
+                        {`${singleEvent.event?.timeFrom} - ${singleEvent.event?.timeTo}`}
+                    </span>
                     <h1>{singleEvent.event?.eventName}</h1>
-                    <p>Host: ADD HOST HERE</p>
+                    {/* <span>{singleEvent.event?.organizer.username}</span> */}
                 </div>
                 <div className='singleEventDetailedData'>
                     <p>Details</p>
@@ -43,10 +68,9 @@ const Event = () => {
                     </div>
                     <div>
                         <p>{singleEvent.event?.category}</p>
-                        <span>ADD ICON HERE</span>
                     </div>
-                    <div>PARTICIPANTS</div> 
-                    <button>JOIN THIS EVENT</button>               
+                    <div>{singleEvent.event?.participants}</div> 
+                    <button onClick={attendEvent}> {attended ? 'You joined this event' : 'Join this event'}</button>               
                 </div>
             </div>
         </div>
