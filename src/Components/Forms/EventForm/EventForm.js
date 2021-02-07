@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import './EventForm.scss';
 import axios from 'axios';
 import { NotificationContext } from '../../Notifications';
@@ -75,19 +75,21 @@ const EventForm = () => {
                     type='date'
                 />
 
-                <label htmlFor='time'>From:</label>
-                <input 
-                    onChange={event => {setTimeFrom(event.target.value)}}
-                    className='timeFromInput'
-                    type='time'
-                />
+                <div className='timeFromTo'>
+                    <label htmlFor='time'>From:</label>
+                    <input 
+                        onChange={event => {setTimeFrom(event.target.value)}}
+                        className='timeFromInput'
+                        type='time'
+                    />
 
-                <label htmlFor='time'>To:</label>
-                <input 
-                    onChange={event => {setTimeTo(event.target.value)}}
-                    className='timeToInput'
-                    type='time'
-                />
+                    <label htmlFor='time'>To:</label>
+                    <input 
+                        onChange={event => {setTimeTo(event.target.value)}}
+                        className='timeToInput'
+                        type='time'
+                    />
+                </div>
 
                 <label htmlFor='online'>Online:</label>
                 <input 
@@ -97,7 +99,7 @@ const EventForm = () => {
                     checked={online}
                 />
 
-                <p>Location</p>
+                {/* <p>Location</p> */}
 
                 <label htmlFor='place'>Place:</label>
                 <input 

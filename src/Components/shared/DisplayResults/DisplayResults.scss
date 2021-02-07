@@ -3,14 +3,30 @@
     padding: 5px;
 
     li {
-        list-style: none;
-        
-        outline: 2px solid red;
+        list-style: none;        
+        border: 3px solid red;
+        border-radius: 10px;
+        padding: 5px;
+        margin: 5px;
+        width: 95%;
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: auto;
 
-        p {
-            outline: 2px solid blue;
+        span,
+        .link
+         {
+            // outline: 2px solid blue;
             padding: 5px;
-            margin: 0;
+            margin: 5px;
+        }
+
+        .link {
+            text-align: center;
+        }
+
+        span:first-child {
+            font-size: 20px;
         }
     }
 }
@@ -25,6 +41,10 @@
 }
 
 //desktop
-// @media only screen and (min-width : 1038px) {
-
-// }
+@media only screen and (min-width : 1038px) {
+    .displayResults {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+    }
+}

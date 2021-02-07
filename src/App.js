@@ -11,6 +11,7 @@ import Notifications from "./Components/Notifications"
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute"
 import About from "./Components/About"
 import Contact from "./Components/Contact"
+import Event from './Components/Pages/Event';
 import Careers from "./Components/Careers"
 import Password from "./Components/Forms/UserForms/Password"
 import DisplayOnline from "./Components/DisplayOnline"
@@ -25,20 +26,6 @@ function App() {
     <Notifications >
     <BrowserRouter>
     {/*<h1> home page</h1> */}
-    {/* <ul>
-      <li>
-        <Link to="/home">Home</Link>
-      </li> */}
-      {/* <li>
-        <Link to="/register">Register</Link>
-      </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li> */}
-      {/* <li>
-        <Link to="/user_profile">User Profile</Link>
-      </li>
-    </ul> */}
 
     {/* <NavBar /> */}
     <Switch>
@@ -50,7 +37,8 @@ function App() {
       <Route path ="/reset/:token" component={GeneratePassword} />
       {/* <GuestRoute path ="/register" component={Register} exact />    
       <GuestRoute path ="/login" component={Login} exact /> */}
-      {/* <PrivateRoute path ="/user_profile" component={UserProfile} exact /> */}
+      <PrivateRoute path ="/user_profile" component={UserProfile} exact />
+      <Route path ="/event/:eventId" component={Event} />  
       <Route path ="/" component={Home} exact />
       <Route path ="/about" component={About} exact />
       <Route path ="/careers" component={Careers} exact />

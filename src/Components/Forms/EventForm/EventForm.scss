@@ -4,12 +4,15 @@
         margin: 5px;
         padding: 5px;
         justify-items: center;
-        background: pink;
         
         input,
-        select,
+        .timeFromTo,
+        select {
+            width: 50%;
+        }
+
         textarea {
-            width: 60%;
+            width: 80%;
         }
 
         label {
@@ -18,6 +21,10 @@
 
         .descriptionInput {
             height: 200px;
+        }
+
+        .timeFromTo {
+            display: flex;
         }
     }
     
