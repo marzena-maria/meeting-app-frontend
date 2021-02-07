@@ -35,8 +35,7 @@ const SearchFromInput = ({ setEvents }) => {
 
     return (
         <div>
-            <Input onChange={value => setInputValue(value)} />
-            
+            <Input onChange={value => setInputValue(value)} />        
         </div>
     )
 

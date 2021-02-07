@@ -1,0 +1,30 @@
+.displayResults {
+    list-style: none;
+    padding: 5px;
+
+    li {
+        list-style: none;
+        
+        outline: 2px solid red;
+
+        p {
+            outline: 2px solid blue;
+            padding: 5px;
+            margin: 0;
+        }
+    }
+}
+
+//tablet 
+@media screen and (min-width:526px) {
+    .displayResults {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+}
+
+//desktop
+// @media only screen and (min-width : 1038px) {
+
+// }

@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 // scss
 
+import './DisplayResults.scss';
+
 const DisplayResults = ({ listOfResults}) => {
     const [visible,setVisible] = useState(1);
 
@@ -14,8 +16,8 @@ const DisplayResults = ({ listOfResults}) => {
       
 
     return (
-        <div className='resultsContainer'>
-            
+        // <div className='resultsContainer'>
+            <div>
             <ul className='displayResults'>
                 { listOfResults.length ? (
                         listOfResults.slice(0,visible).map(eventData => (

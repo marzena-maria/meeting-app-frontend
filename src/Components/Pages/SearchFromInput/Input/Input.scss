@@ -1,8 +1,26 @@
 .inputContainer {
-    display: flex;
+    // display: flex;
+    // justify-content: center;
+    text-align: center;
+    padding: 15px;
+    outline: 2px solid black;
+    
 
     .inputLabel,
     .inputField {
         margin: 10px;
     }
 }
+
+//tablet
+@media screen and (min-width:526px) {
+    .inputContainer {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+// //desktop
+// @media only screen and (min-width : 1038px) {
+
+// }

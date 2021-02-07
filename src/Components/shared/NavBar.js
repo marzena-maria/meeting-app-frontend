@@ -36,12 +36,18 @@ const Navbar= ()=> {
             <div><img className="nav-logo" src="" alt="Logo" />  <h1>Connecting Minds </h1></div>
             <div className="menu-icon" onClick={handleClick}> <i className={clicked ? "fas fa-times":"fas fa-bars" }></i> </div>
             {isLoggedIn ? (
+<<<<<<< HEAD
                 <ul className={clicked ? "nav-menu active" : "nav-menu"}>
                     <li >
                         <Link to='/' className="nav-links">Home</Link>
                     </li>
                     <li >
                         <Link to='/user_profile' className="nav-links">My Profile</Link>
+=======
+                <ul>
+                    <li>
+                        <Link to='/user_profile'>My Profile</Link>
+>>>>>>> a2e4cf9adb7a7407a333140d2637306dbd970101
                     </li>
                     <li >
                         <button className="nav-links" onClick={logout}>Logout</button>

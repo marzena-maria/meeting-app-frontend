@@ -2,11 +2,14 @@
     form {
         display: grid;
         margin: 5px;
+        padding: 5px;
+        justify-items: center;
+        background: pink;
         
         input,
         select,
         textarea {
-            width: 150px;
+            width: 60%;
         }
 
         label {
@@ -23,3 +26,14 @@
         padding: 15px 5px;
     }
 }
+
+
+//tablet 
+// @media screen and (min-width:526px) {
+
+// }
+
+//desktop
+// @media only screen and (min-width : 1038px) {
+
+// }
