@@ -4,8 +4,9 @@ import {BrowserRouter,Route,Switch}from "react-router-dom";
 import Register from "./Components/Forms/UserForms/Register";
 import EventForm from "./Components/Forms/EventForm/EventForm";
 import Login from "./Components/Forms/UserForms/Login";
-import UserProfile from "./Components/Pages/UserProfile";
+// import UserProfile from "./Components/Pages/UserProfile";
 import Home from "./Components/Pages/Home";
+import UserProfile from "./Components/Pages/UserProfile";
 import Maps from './Components/Pages/Maps/Maps';
 import Notifications from "./Components/Notifications"
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute"

@@ -1,33 +1,28 @@
 import React from 'react'
 import NavBar from "../shared/NavBar"
 import Slider from '../Slider/Slider';
+import { Link } from "react-router-dom";
 import SearchFromInput from './SearchFromInput/SearchFromInput';
 import SearchFromNav from './SearchFromNav/SearchFromNav';
 import DisplayResults from '../shared/DisplayResults/DisplayResults';
-import Maps from './Maps/Maps';
-import Footer from "../shared/Footer"
+// import Maps from './Maps/Maps';
+import Footer from "../shared/Footer";
 import DisplayOnline from "../DisplayOnline";
-import { Link } from 'react-router-dom';
+import Maps from '../Pages/Maps/Maps';
 
 
 function Home() {
-    const [events, setEvents] = React.useState([]);
-    // const [id, setId] = useState('');
-
+    // const [events, setEvents] = React.useState([]);
     return (
         <div>
             <NavBar />  
             <Slider />
-            <SearchFromNav events={events} setEvents={setEvents} />
-            <SearchFromInput setEvents={setEvents} />
-            <DisplayResults 
-                // setId={setId}
-                listOfResults={events}
-                />
-            <Link to='/event-form'>Create New Event</Link>
+            <SearchFromNav  />
+            <SearchFromInput />
             {/* <DisplayResults 
                 listOfResults={events} /> */}
-            {/* <Maps />  */}
+            <Link to='/event-form'>Create New Event</Link>
+            <Maps /> 
             {/* <DisplayHealth /> */}
             <Footer />      
         </div>

@@ -6,6 +6,7 @@ import axios from 'axios';
 
 
 const apiKeys = process.env.REACT_APP_GOOGLE_MAPS_KEY;
+console.log(apiKeys)
 
 Geocode.setApiKey(apiKeys);
 Geocode.setRegion('de');
