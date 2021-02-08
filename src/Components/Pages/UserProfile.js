@@ -9,45 +9,48 @@ import Footer from "../shared/Footer"
 
 function UserProfile() {
     const setMessage = useContext(NotificationContext);
+    const [file,setFile] = useState("");
+    const [fileName,setFileName]=useState('');
+    const [uploadFile,setUploadFile] = useState({});
 
-//     const [userData, setUserData] = useState({
-//         photo:"",
-//         username:"",
-//         email:"",
-//         gender:"",
-//         age:0,
-//         city:"",
-//         country:"",
-//         bio:"",
+    const [userData, setUserData] = useState({
+        photo:"",
+        username:"",
+        email:"",
+        gender:"",
+        age:0,
+        city:"",
+        country:"",
+        bio:"",
 
-//     });
-//     const {
-//         photo,
-//         username,
-//         email,
-//         gender,
-//         age,
-//         city,
-//         country,
-//         bio, 
-//     } = userData
+    });
+    const {
+        photo,
+        username,
+        email,
+        gender,
+        age,
+        city,
+        country,
+        bio, 
+    } = userData
 
-//    const changeHandler = (e)=>{
-//     setUserData({ ...userData , [e.target.name]:e.target.value})
-//    }
-    const [user, setUser] = useState("");
-    const [loading, setLoading] = useState(true);
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [age, setAge] = useState('');
-    const [city, setCity] = useState('');
-    const [country, setCountry] = useState('');
-    const [telephone, setTelephone] = useState('');
-    const [gender, setGender] = useState('');
-    const [bio, setBio] = useState('');
-    const [eventsOrganized, setEventsOrganized] = useState('');
-    const [eventsAttended, setEventsAttended] = useState('');
+   const changeHandler = (e)=>{
+    setUserData({ ...userData , [e.target.name]:e.target.value})
+   }
+    // const [user, setUser] = useState("");
+    // const [loading, setLoading] = useState(true);
+    // const [firstName, setFirstName] = useState('');
+    // const [lastName, setLastName] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [age, setAge] = useState('');
+    // const [city, setCity] = useState('');
+    // const [country, setCountry] = useState('');
+    // const [telephone, setTelephone] = useState('');
+    // const [gender, setGender] = useState('');
+    // const [bio, setBio] = useState('');
+    // const [eventsOrganized, setEventsOrganized] = useState('');
+    // const [eventsAttended, setEventsAttended] = useState('');
 
     const get_auth_user_data = async () => {
        const config={
@@ -88,20 +91,62 @@ function UserProfile() {
      }, [])
 
     const update = async () => {
-        const response = await Axios.post("/user/update-user", { userData })
 
-        if (response.data.status === false) {
-            setMessage(
-                'Update failed',
-                'error'
-            );
-        } else {
-            setMessage(
-                'Update succeed',
-                'success'
-            );
+        const formData = new FormData();
+        formData.append("file",file);
+        formData.append("username",username);
+        formData.append("email",email);
+        formData.append("age",age);
+        formData.append("gender",gender);
+        formData.append("city",city);
+        formData.append("country",country);
+        formData.append("bio",bio);
+
+        const config = {
+            headers:{
+                "Content-Type":"multipart/form-data"
+            },
+            withCredentials : true
+        };
+        try{
+
+        const response = await Axios.post("/user/update-user", formData, config);
+
+        const {fileName, filePath} = response.data;
+        setUploadFile({fileName,filePath})
         }
+
+        // if (response.data.status === false) {
+        //     setMessage(
+        //         'Update failed',
+        //         'error'
+        //     );
+        // } else {
+        //     setMessage(
+        //         'Update succeed',
+        //         'success'
+        //     );
+        // }
+    catch(error){
+        console.log(error);
     }
+}
+
+const handlePhoto =(e) =>{
+    setFile(e.target.files[0])
+    setFileName(e.target.files[0].name)
+}
+
+const handleUpdate = async(e) =>{
+    e.preventDefault();
+
+    try{
+        await update(userData);
+        await  get_auth_user_data();
+    }catch(error){
+        console.log(error)
+    }
+}
 
     // const events_organized = async () => {
 
@@ -181,14 +226,18 @@ function UserProfile() {
                     <div className="user_details_pp"></div>
                     <div className="user_details_inputs">
                         {/* <h1>{user.firstName}</h1> */}
-                        <label>Photo:</label>
-                        <input type="file" name="photo" value={photo} onChange={(e) => changeHandler( e.target.value)} /> <br />
+                        <form onSubmit={handleUpdate}>
+                        <div>
+                            {photo && <img src={`/uploads/${photo}`}/>}
+                        <label>{fileName}</label>
+                        <input type="file" name="file" value={photo} onChange={handlePhoto} /> <br />
+                        </div>
                         <label>UserName</label>
-                        <input type="text" name="username" value={username} onChange={(e) => changeHandler( e.target.value)} /> <br />
+                        <input type="text" name="username" value={username} onChange={changeHandler} /> <br />
                         <label>Email</label>
-                        <input type="email" name="email" value={email} onChange={(e) =>changeHandler( e.target.value)} /><br />
+                        <input type="email" name="email" value={email} onChange={changeHandler}/><br />
                         <label>Age</label>
-                        <input type="number" name="age" value={age} onChange={(e) => changeHandler( e.target.value)} /><br />
+                        <input type="number" name="age" value={age} onChange= {changeHandler} /><br />
                         <label>Gender</label>
                         <input type="text" name="gender" value={gender} onChange={changeHandler} /><br />
                         <label>City</label>
@@ -198,6 +247,7 @@ function UserProfile() {
                         <label>Bio</label>
                         <textarea type="text" name="bio" value={bio} onChange={changeHandler} /><br />
                         <button onClick={update}>Update</button>
+                        </form>
                     </div>
                 </div>
                 {/* <div className="user_events_attend user_panel">
