@@ -37,7 +37,7 @@ function App() {
       <Route path ="/reset/:token" component={GeneratePassword} />
       {/* <GuestRoute path ="/register" component={Register} exact />    
       <GuestRoute path ="/login" component={Login} exact /> */}
-      <PrivateRoute path ="/user_profile" component={UserProfile} exact />
+      {/* <PrivateRoute path ="/user_profile" component={UserProfile} exact /> */}
       <Route path ="/event/:eventId" component={Event} />  
       <Route path ="/" component={Home} exact />
       <Route path ="/about" component={About} exact />

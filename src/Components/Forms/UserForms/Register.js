@@ -19,8 +19,14 @@ function Register() {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [bio, setBio] = useState("");
+  const [isPasswordShown,setIsPasswordShown] = useState(false);
   // const [error,setError] = useState("")
 
+
+
+  const toggleVisibility=()=>{
+    setIsPasswordShown(!isPasswordShown)
+  }
   const register = async () => {
     console.log(typeof age);
     const config = {
@@ -95,11 +101,12 @@ function Register() {
       <div className="form-group">
         <label>Password* :</label>
         <input
-          type="text"
+          type={isPasswordShown ? "text" : "password"}
           required={true}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+         <i className={`far ${isPasswordShown ? "fa-eye" : "fa-eye-slash"}`} onClick={toggleVisibility} ></i>
       </div>
       <br />
       <div className="form-group">

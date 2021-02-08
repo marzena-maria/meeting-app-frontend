@@ -1,10 +1,11 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import "./Footer.scss"
 
 function Footer() {
   return (
-    <div>
+    <div className="footer">
       <div>
         <div>
           <ul>

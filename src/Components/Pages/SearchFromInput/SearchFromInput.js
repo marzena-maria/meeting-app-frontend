@@ -65,7 +65,7 @@ const SearchFromInput = () => {
                 </div>
               ))
             ) : (
-              <p>No Results</p>
+              <p></p>
             )}
             {events.length && <button onClick={handleClick}>See More</button>}
           </ul>
