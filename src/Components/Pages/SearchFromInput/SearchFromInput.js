@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 //import './SearchFromInput.scss';
-
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import  { debounce } from 'lodash';
 import Input from './Input/Input';
 
 const SearchFromInput = () => {
+
     const [events,setEvents] = useState([]);
     const [inputValue, setInputValue] = useState('');
-    const [visible,setVisible] = useState(0);
+    const [visible, setVisible] = useState(0);
 
     //console.log(inputValue);
     //console.log(events);
@@ -40,36 +41,39 @@ const SearchFromInput = () => {
               `/events/search-events/name/${inputValue}/1/${visible}`
             );
             //   console.log(response);
-      
             setEvents(events.concat(response.data));
-      
             console.log(visible);
-          } catch (error) {
+        } catch (error) {
             console.log(error);
-          }
-      };
+        }
+    };
 
     return (
         <div>
-            <Input onChange={value => setInputValue(value)} />    
+            <Input onChange={value => setInputValue(value)} />  
             <div className="resultsContainer">
-          <ul className="displayResults">
-            {events.length ? (
-              events.map((eventData) => (
-                <div>
-                  <li key={eventData._id}>
-                    <p>{eventData.eventName}</p>
-                    <p>{eventData.startingDate}</p>
-                    <p>{eventData.category}</p>
-                  </li>
-                </div>
-              ))
-            ) : (
-              <p></p>
-            )}
-            {events.length && <button onClick={handleClick}>See More</button>}
-          </ul>
-        </div>
+            <ul className="displayResults">
+                {events.length ? (
+                events.map((eventData) => (
+                    <div>
+                        <li key={eventData._id}>
+                            <span>{eventData.eventName}</span>    
+                            <span>{`${eventData.city} - ${eventData.place}`}</span> 
+                            <span>{new Date(eventData.startingDate).toDateString()}</span> 
+                            <Link 
+                                to={`/event/${eventData._id}`}
+                                className='link'>
+                                    See this event
+                            </Link>                            
+                        </li>
+                    </div>
+                ))
+                ) : (
+                <p></p>
+                )}
+                {events.length && <button onClick={handleClick}>See More</button>}
+            </ul>
+            </div>      
         </div>
     )
 

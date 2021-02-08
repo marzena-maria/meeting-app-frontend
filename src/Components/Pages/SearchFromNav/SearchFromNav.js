@@ -43,6 +43,7 @@
 import React, { useState, useEffect } from "react";
 import "./SearchFromNav.scss";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const SearchFromNav = () => {
   const [events,setEvents] = useState([]);
@@ -112,9 +113,14 @@ const SearchFromNav = () => {
               events.map((eventData) => (
                 <div>
                   <li key={eventData._id}>
-                    <p>{eventData.eventName}</p>
-                    <p>{eventData.startingDate}</p>
-                    <p>{eventData.category}</p>
+                    <span>{eventData.eventName}</span>    
+                    <span>{`${eventData.city} - ${eventData.place}`}</span> 
+                    <span>{new Date(eventData.startingDate).toDateString()}</span> 
+                    <Link 
+                        to={`/event/${eventData._id}`}
+                        className='link'>
+                            See this event
+                    </Link>                          
                   </li>
                 </div>
               ))

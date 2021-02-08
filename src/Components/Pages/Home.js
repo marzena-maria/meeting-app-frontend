@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from "../shared/NavBar"
 import Slider from '../Slider/Slider';
+import { Link } from "react-router-dom";
 import SearchFromInput from './SearchFromInput/SearchFromInput';
 import SearchFromNav from './SearchFromNav/SearchFromNav';
 import DisplayResults from '../shared/DisplayResults/DisplayResults';
@@ -8,6 +9,7 @@ import Maps from './Maps/Maps';
 import { Link } from 'react-router-dom';
 import Footer from "../shared/Footer"
 import DisplayOnline from "../DisplayOnline";
+import Maps from '../Pages/Maps/Maps';
 
 
 function Home() {
