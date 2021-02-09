@@ -52,7 +52,7 @@ import Navbar from '../../shared/NavBar';
 
             <div>
                 <label>Password:</label>
-                <input type="text" value={password}  onChange={(e)=>setPassword(e.target.value)} />
+                <input type="password" value={password}  onChange={(e)=>setPassword(e.target.value)} />
               
             </div>
             <button onClick={login}>Login</button>

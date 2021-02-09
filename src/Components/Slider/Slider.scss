@@ -34,7 +34,7 @@
         .slide-title,.slide-subtitle,.slide-link{
                 height:100%;
                 width:100%;  
-                color:black;
+                color:#912da3;
                 position: absolute;
                 text-align:center;
                 top:30%;
@@ -46,6 +46,12 @@
         }
         .slide-link{
                 top:50%;
+                text-decoration: none;
+               
+               
+                        // border-style:solid;
+                        // border:5px black;
+                
         }
    }
    .prev,.next{
@@ -69,6 +75,9 @@
    .next{
            right:0;
            border-radius:5px 0 0 5px;
+   }
+   .arrows{
+           z-index:10;
    }
 
    .all-dots{

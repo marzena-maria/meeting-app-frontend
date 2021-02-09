@@ -1,5 +1,6 @@
 import React from "react";
 import Images from "./Helpers/Images";
+import "./Slider.scss"
 
 function Dots(props) {
   return (
