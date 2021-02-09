@@ -76,11 +76,12 @@ function Register() {
       </div>
     
     <div className="register">
-      <h1 >Register</h1>
+   
       <div className="form">
+      <h1 >Register</h1>
       <div className="form-group">
-        <label>Username* :</label>
-        <input
+        <label className="label">Username <span> * </span> : </label>
+        <input className="input-field"
           type="text"
           required={true}
           value={username}
@@ -89,8 +90,8 @@ function Register() {
       </div>
       <br />
       <div className="form-group">
-        <label>Email* :</label>
-        <input
+        <label className="label">Email<span>*</span>:</label>
+        <input className="input-field"
           type="email"
           required={true}
           value={email}
@@ -99,8 +100,8 @@ function Register() {
       </div>
       <br />
       <div className="form-group">
-        <label>Password* :</label>
-        <input
+        <label className="label">Password <span>*</span>  :</label>
+        <input className="input-field"
           type={isPasswordShown ? "text" : "password"}
           required={true}
           value={password}
@@ -110,8 +111,8 @@ function Register() {
       </div>
       <br />
       <div className="form-group">
-        <label>Gender:</label>
-        <select
+        <label className="label">Gender:</label>
+        <select className="input-field"
           type="text"
           value={gender}
           onChange={(e) => setGender(e.target.value)}
@@ -132,8 +133,8 @@ function Register() {
       </div>
       <br />
       <div className="form-group">
-        <label>Age:</label>
-        <input
+        <label className="label">Age:</label>
+        <input className="input-field"
           type="number"
           value={age}
           onChange={(e) => setAge(parseInt(e.target.value))}
@@ -141,8 +142,8 @@ function Register() {
       </div>
       <br />
       <div className="form-group">
-        <label>City:</label>
-        <input
+        <label className="label">City:</label>
+        <input className="input-field"
           type="text"
           value={city}
           onChange={(e) => setCity(e.target.value)}
@@ -150,8 +151,8 @@ function Register() {
       </div>
       <br />
       <div className="form-group">
-        <label>Country:</label>
-        <input
+        <label className="label">Country:</label>
+        <input className="input-field"
           type="text"
           value={country}
           onChange={(e) => setCountry(e.target.value)}
@@ -159,8 +160,8 @@ function Register() {
       </div>
       <br />
       <div className="form-group">
-        <label>Bio:</label>
-        <textarea
+        <label className="label">Bio:</label>
+        <textarea 
           cols="30"
           rows="10"
           type="text"

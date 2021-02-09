@@ -1,6 +1,142 @@
 .footer{
-    background-color:rgb(82, 71, 71);
-    height:200px;
+    background-color:#00004d;
+    height:300px;
     width:100%;
+ 
     color: white;
-}
+   
+   .address{
+       display: flex;
+       padding:10px;
+       margin-bottom: 20px;
+
+
+       i{
+           padding:2px;
+           margin:2px;
+           margin-left:25px;
+           font-size: 0.8rem;
+       }
+       p{
+           margin-left:1px;
+           font-size: 0.8rem;
+       }
+   }
+   .vl{
+       border-top:2px solid white;
+     max-width:80%;
+       
+   }
+
+
+   
+
+        .all-links{
+         list-style-type:none;
+         margin:10px;
+        margin-left:40px;
+        margin-bottom: 20px;
+         
+
+        
+            .links {
+                padding:2px;
+                color:white;
+               
+               .link{
+                   color:white;
+                   text-decoration:none;
+               } 
+             
+            }
+
+        }
+        .anchor-heading{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-top:10px;
+           
+          
+          
+              .anchors{
+                  margin-bottom: 10px;
+                h3{
+                    font-size:0.8rem;
+                    margin-bottom:5px;
+                    
+                }
+                .media-icons{
+                    color:white;
+                    margin:5px;
+                    margin-left:3px;
+
+                }
+                .blue{
+                    color:rgb(140, 140, 236);
+                }
+                .pink{
+                    color:pink;
+                }
+              }
+          }
+           
+          @media screen and (min-width:526px){
+             
+              
+            .address{
+               display: flex;
+            //    justify-content: center;
+            transform: translateX(100px);
+            // margin-top: 30px;
+            padding:30px;
+             
+               
+               i,p{
+                   font-size: 1.2rem;;
+               }
+            } 
+            
+            
+            .all-links{
+                  display: flex;
+                  margin:20px 5px ;
+
+                  .link{
+                   padding:5px;
+                  }
+              }
+              .anchor-heading{
+                display: flex;
+                flex-direction: row;
+                margin:30px;
+                margin-left: 20px;
+           
+              .anchors{
+                  h3{
+                      font-size: 1rem;
+                  }
+              }
+            }
+          }
+         
+        
+
+          @media only screen and (min-width : 1038px){
+            
+            .anchors{
+                  display: flex;
+                  flex-direction: row;
+
+                  h3{
+                      margin-right:15px;
+                      margin-top:5px;
+                  }
+              }
+          }
+        }
+    
+        
+        
+   
