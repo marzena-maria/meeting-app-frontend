@@ -1,0 +1,43 @@
+// COLORS
+$light-orange:#ffe599;
+$orange:#ff952b;
+$light-blue: #d5e6fc;
+$middle-blue: #a8cfff;
+$dark-blue:#00004d;
+
+//FONTS
+$decorative-font: 'Aldrich', sans-serif;
+$custom-font: 'Didact Gothic', sans-serif;
+
+// // FORM INPUT
+// @mixin {
+
+// }
+
+// BUTTON 
+@mixin buttonStyle {
+    padding: 15px;
+    margin: 10px;
+    color: $dark-blue;
+    background-color: $orange;
+    border: 2px solid $dark-blue;
+    font-family: $decorative-font;
+    border-radius: 15px;
+}
+
+@mixin buttonStyleHover {
+    color: $orange;
+    background-color: $dark-blue;
+    border: 2px solid $orange;
+}
+
+@mixin displayInfo {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+@mixin inputField {
+    border: 2px solid $orange;
+    border-radius: 5px;
+}

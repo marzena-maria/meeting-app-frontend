@@ -1,0 +1,57 @@
+@import '../../mixinsAndVariables.scss';
+
+.eventContainer {
+
+
+    .singleEvent {
+        margin: 20px;
+
+        .singleEventBasicData {
+            @include displayInfo;
+            background-color: $light-orange;
+
+            .eventDate,
+            .eventTime {
+                margin: 3px;
+                padding: 3px;
+            }
+
+            .eventName {
+                font-family: $decorative-font;
+                color: $dark-blue;
+                margin: 5px;
+                padding: 5px;
+            }
+        }
+
+        .singleEventDetailedData {
+            @include displayInfo;
+            background-color: $middle-blue;
+
+            .eventDetails,
+            .eventDescription,
+            .eventAddress,
+            .eventCategory,
+            .eventParticipants {
+                margin: 5px;
+                padding: 5px;
+            }
+
+            
+
+            div {
+                margin: 5px;
+                padding: 5px;
+            }
+        }
+    }
+
+    .joinButton {
+        @include buttonStyle;
+        font-size: 20px;
+    }
+
+    .joinButton:hover {
+        @include buttonStyleHover;
+    }
+}

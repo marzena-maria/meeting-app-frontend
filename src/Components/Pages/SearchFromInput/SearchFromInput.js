@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-//import './SearchFromInput.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import  { debounce } from 'lodash';

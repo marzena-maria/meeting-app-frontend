@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Event.scss';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 
@@ -31,39 +32,44 @@ const Event = () => {
         }
     }
 
-    useEffect( () => getEvent(), []);
-
     // const dateFormatted = new Date(singleEvent.event.startingDate).toDateString();
     // console.log(dateFormatted);
+
+    useEffect( () => getEvent(), []);
 
     return (
         <div className='eventContainer'>
             <Link to='/'>Go back to the Homepage</Link>
             <div className='singleEvent'>
                 <div className='singleEventBasicData'>
-                     {/* <span>
+                     {/* <span className='eventDate'>
                         {dateFormatted}
                     </span> */}
-                    <span>{`${singleEvent.event?.timeFrom} - ${singleEvent.event?.timeTo}`}</span>
-                    <h1>{singleEvent.event?.eventName}</h1>
+                    <span className='eventDate'>Wed 12-02-2021</span>
+                    <span className='eventTime'>{`${singleEvent.event?.timeFrom} - ${singleEvent.event?.timeTo}`}</span>
+                    <h1 className='eventName'>{singleEvent.event?.eventName}</h1>
                     {/* <span>{singleEvent.event?.organizer.username}</span> */}
                 </div>
                 <div className='singleEventDetailedData'>
-                    <p>Details</p>
-                    <p>{singleEvent.event?.description}</p>
-                    <div>
-                        <p>Address: 
-                            {`${singleEvent.event?.place}, 
+                    <p className='eventDetails'>Details</p>
+                    <p className='eventDescription'>{singleEvent.event?.description}</p>
+                    <div className='eventAddress'>
+                        <p className='eventAddress'>Address:  
+                            {`  ${singleEvent.event?.place}, 
                             ${singleEvent.event?.street}, 
-                            ${singleEvent.event?.postalCode}, 
+                            ${singleEvent.event?.postalCode} 
                             ${singleEvent.event?.city}, ${singleEvent.event?.country}`}
                         </p>
                     </div>
-                    <div>
+                    <div className='eventCategory'>
                         <p>{singleEvent.event?.category}</p>
                     </div>
-                    <div>{singleEvent.event?.participants}</div> 
-                    <button onClick={attendEvent}> {attended ? 'You joined this event' : 'Join this event'}</button>               
+                    <div className='eventParticipants'>{singleEvent.event?.participants}</div> 
+                    <button 
+                        onClick={attendEvent}
+                        className='joinButton'> 
+                            {attended ? 'You joined this event' : 'Join this event'}
+                    </button>               
                 </div>
             </div>
         </div>

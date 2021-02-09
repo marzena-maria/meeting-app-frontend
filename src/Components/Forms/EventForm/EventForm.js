@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import './EventForm.scss';
 import axios from 'axios';
 import { NotificationContext } from '../../Notifications';
+import { Link } from 'react-router-dom';
 
 const EventForm = () => {
 
@@ -59,6 +60,8 @@ const EventForm = () => {
 
     return (
         <div className='formContainer'>
+            <Link to='/'>Go back to the Homepage</Link>
+
             <form>
                 
                 <label htmlFor='eventName'>Event Name:</label>
@@ -156,7 +159,11 @@ const EventForm = () => {
 
             </form>
 
-            <button onClick={onSubmitForm}>Create New Event</button>
+            <button 
+                className='newEventButton'
+                onClick={onSubmitForm}>
+                    Create New Event
+            </button>
         </div>
     )   
      

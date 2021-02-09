@@ -8,7 +8,7 @@ import DisplayResults from '../shared/DisplayResults/DisplayResults';
 // import Maps from './Maps/Maps';
 import Footer from "../shared/Footer";
 import DisplayOnline from "../DisplayOnline";
-import Maps from '../Pages/Maps/Maps';
+// import Maps from '../Pages/Maps/Maps';
 
 
 function Home() {
@@ -21,8 +21,8 @@ function Home() {
             <SearchFromInput />
             {/* <DisplayResults 
                 listOfResults={events} /> */}
-            <Link to='/event-form'>Create New Event</Link>
-            <Maps /> 
+            {/* <Link to='/event-form'>Create New Event</Link> */}
+            {/* <Maps />  */}
             {/* <DisplayHealth /> */}
             <Footer />      
         </div>

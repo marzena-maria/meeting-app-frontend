@@ -111,7 +111,7 @@ const SearchFromNav = () => {
           <ul className="displayResults">
             {events.length ? (
               events.map((eventData) => (
-                <div>
+                <div className='eventBasicData'>
                   <li key={eventData._id}>
                     <span>{eventData.eventName}</span>    
                     <span>{`${eventData.city} - ${eventData.place}`}</span> 
