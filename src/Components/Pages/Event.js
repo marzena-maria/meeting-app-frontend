@@ -32,8 +32,8 @@ const Event = () => {
         }
     }
 
-    // const dateFormatted = new Date(singleEvent.event.startingDate).toDateString();
-    // console.log(dateFormatted);
+    const dateFormatted = new Date(singleEvent.event?.startingDate).toDateString();
+    console.log(dateFormatted);
 
     useEffect( () => getEvent(), []);
 
@@ -42,10 +42,10 @@ const Event = () => {
             <Link to='/'>Go back to the Homepage</Link>
             <div className='singleEvent'>
                 <div className='singleEventBasicData'>
-                     {/* <span className='eventDate'>
+                     <span className='eventDate'>
                         {dateFormatted}
-                    </span> */}
-                    <span className='eventDate'>Wed 12-02-2021</span>
+                    </span>
+                    {/* <span className='eventDate'>Wed 12-02-2021</span> */}
                     <span className='eventTime'>{`${singleEvent.event?.timeFrom} - ${singleEvent.event?.timeTo}`}</span>
                     <h1 className='eventName'>{singleEvent.event?.eventName}</h1>
                     {/* <span>{singleEvent.event?.organizer.username}</span> */}
