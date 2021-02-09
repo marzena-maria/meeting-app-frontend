@@ -3,14 +3,14 @@ import Offline from "../meetUpImages/offline.jpg";
 import Online from "../meetUpImages/online.webp";
 import OnlineSetUp from "../meetUpImages/onlineSetUp.png";
 import Zoom from "../meetUpImages/zoom.png";
-import Career from "../meetUpImages/career6.png"
+import Career from "../meetUpImages/career5.jpeg"
 import Contact from "../meetUpImages/contact.jpeg"
 import OnlineEvent from "../meetUpImages/onlineEvent.jpeg"
 
 const images = [
   {
     title: "Connecting World",
-    button: "Join Now",
+    
     subtitle: "Join Us to explore",
     img: Offline,
     
