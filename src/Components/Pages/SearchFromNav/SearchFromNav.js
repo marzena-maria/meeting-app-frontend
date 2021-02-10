@@ -124,9 +124,9 @@ const SearchFromNav = () => {
                   </li>
                 </div>
               ))
-            ) : (
-              <p></p>
-            )}
+            ) : 
+              null
+            }
             {events.length && <button onClick={handleClick}>See More</button>}
           </ul>
         </div>

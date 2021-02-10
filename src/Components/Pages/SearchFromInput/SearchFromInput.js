@@ -14,6 +14,11 @@ const SearchFromInput = () => {
     //console.log(events);
 
     const handleGetEvents = async inputValue => {
+
+        if(!inputValue) {
+            return;
+        }
+
         try {
             const response = await axios.get(`/events/search-events/name/${inputValue}/3/0`);
             setEvents(response.data);
@@ -67,9 +72,9 @@ const SearchFromInput = () => {
                         </li>
                     </div>
                 ))
-                ) : (
-                <p></p>
-                )}
+                ) : 
+                null
+                }
                 {events.length && <button onClick={handleClick}>See More</button>}
             </ul>
             </div>      
