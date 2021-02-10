@@ -1,0 +1,59 @@
+@import '../../../mixinsAndVariables';
+
+.displayResults {
+    list-style: none;
+    padding: 5px;
+
+    li {
+        list-style: none;        
+        border: 3px solid $orange;
+        border-radius: 10px;
+        padding: 5px;
+        margin: 5px;
+        width: 95%;
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: auto;
+        background-color: $middle-blue;
+
+        span,
+        .link
+         {
+            // outline: 2px solid blue;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .link {
+            text-align: center;
+            @include buttonStyle;
+        }
+
+        .link:hover {
+            @include buttonStyleHover;
+        }
+
+        span:first-child {
+            font-size: 20px;
+            font-family: $decorative-font;
+        }
+    }
+}
+
+//tablet 
+@media screen and (min-width:526px) {
+    .displayResults {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+}
+
+//desktop
+@media only screen and (min-width : 1038px) {
+    .displayResults {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+    }
+}

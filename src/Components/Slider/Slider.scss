@@ -1,7 +1,113 @@
-.slider{
-    
-        width: 60%;
-        height: 500px;
-        background-color: black;
-    
+*{
+        box-sizing: border-box;
+
+//    :root{
+//            --heights:50vh;
+//            --width:100%;
+//    }
+        @mixin root{
+                height:50vh;
+                width:100%
+        }
+   .slider-container{
+        @include root();
+        position:relative;
+        margin: auto;
+        overflow:hidden;
+  
+   .active{
+           display:inline-block
+   }
+   .inactive{
+           display:none;
+   }
+   .slides{
+        @include root();
+        position:relative;
+
+       .slide-image {
+         height:100%;
+         width:100%;
+         position: absolute;
+         object-fit: cover;
+        }
+        .slide-title,.slide-subtitle,.slide-link{
+                height:100%;
+                width:100%;  
+                color:#912da3;
+                position: absolute;
+                text-align:center;
+                top:30%;
+                z-index:9 ;
+
+        }
+        .slide-subtitle{
+                top:60%;
+        }
+        .slide-link{
+                top:50%;
+                text-decoration: none;
+               
+               
+                        // border-style:solid;
+                        // border:5px black;
+                
+        }
+   }
+   .prev,.next{
+           cursor:pointer;
+           z-index: 100;
+           position:absolute;
+           top:50%;
+           width:auto;
+           padding: 1rem;
+           margin-top: -3rem;
+           font-size: 30px;
+           font-weight:bold;
+           border-radius:0 5px 5px 0;
+
+           & :hover{
+                  color:black;
+                  background-color: rgba(0,0,0,0.6); 
+           }
+
+   }
+   .next{
+           right:0;
+           border-radius:5px 0 0 5px;
+   }
+   .arrows{
+           z-index:10;
+   }
+
+   .all-dots{
+        height:100%;
+        width:100%;  
+        position: absolute;
+        display: flex;
+        top:85%;
+        justify-content: center;
+        z-index: 200;
+
+        .dot{
+                cursor:pointer;
+                height:1rem;
+                width:1rem;
+                margin: 0 3px;
+                background-color:rgba(0,0,0,0.3);
+                border-radius: 50%;
+                display: inline-block;
+
+                & :hover{
+                        background-color: rgba(255,255,255,0.5);
+                }
+
+        }
+        .active-dot{
+                background-color: rgba(255,255,255,0.5);
+        }
+        }
+   }
 }
+
+

@@ -1,10 +1,11 @@
 import axios from 'axios'
-import React from 'react'
+import React,{useState} from 'react'
 
 function Password() {
     const [email,setEmail] = useState("")
 
-    const sendEmail = async()=>{
+    const sendEmail = async(e)=>{
+        e.preventDefault();
         const config = {
             headers: {
               "Content-Type": "application/json",
@@ -12,7 +13,7 @@ function Password() {
           };
         try {
             
-            const response = await axios.post('resetPassword',{email} ,config);
+            const response = await axios.post('/user/resetPassword',{email} ,config);
             console.log(response.data.msg);
 
             

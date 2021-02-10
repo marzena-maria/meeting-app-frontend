@@ -1,3 +1,7 @@
+@import './mixinsAndVariables.scss';
+
 body {
-  background-color: rgb(243, 234, 234);
+  background-color: $light-blue;
+  color: $dark-blue;
+  font-family: $custom-font;
 }

@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import './EventForm.scss';
 import axios from 'axios';
+import { NotificationContext } from '../../Notifications';
+import { Link } from 'react-router-dom';
 
 const EventForm = () => {
+
+    const setMessage = useContext(NotificationContext);
 
     const onSubmitForm = async () => {
         try {
@@ -24,10 +28,14 @@ const EventForm = () => {
             console.log(response);
             if(response) {
                 console.log(response);
+                setMessage('New event created');
             }
         }
         catch (error) {
             console.error(error);
+            // if(email && msg) {
+            //     return setMessage("We will get back to you as soon as possible. Thank you for your interest.")
+            // }
         }
     };
 
@@ -52,6 +60,8 @@ const EventForm = () => {
 
     return (
         <div className='formContainer'>
+            <Link to='/'>Go back to the Homepage</Link>
+
             <form>
                 
                 <label htmlFor='eventName'>Event Name:</label>
@@ -68,19 +78,21 @@ const EventForm = () => {
                     type='date'
                 />
 
-                <label htmlFor='time'>From:</label>
-                <input 
-                    onChange={event => {setTimeFrom(event.target.value)}}
-                    className='timeFromInput'
-                    type='time'
-                />
+                <div className='timeFromTo'>
+                    <label htmlFor='time'>From:</label>
+                    <input 
+                        onChange={event => {setTimeFrom(event.target.value)}}
+                        className='timeFromInput'
+                        type='time'
+                    />
 
-                <label htmlFor='time'>To:</label>
-                <input 
-                    onChange={event => {setTimeTo(event.target.value)}}
-                    className='timeToInput'
-                    type='time'
-                />
+                    <label htmlFor='time'>To:</label>
+                    <input 
+                        onChange={event => {setTimeTo(event.target.value)}}
+                        className='timeToInput'
+                        type='time'
+                    />
+                </div>
 
                 <label htmlFor='online'>Online:</label>
                 <input 
@@ -90,7 +102,7 @@ const EventForm = () => {
                     checked={online}
                 />
 
-                <p>Location</p>
+                {/* <p>Location</p> */}
 
                 <label htmlFor='place'>Place:</label>
                 <input 
@@ -147,7 +159,11 @@ const EventForm = () => {
 
             </form>
 
-            <button onClick={onSubmitForm}>Create New Event</button>
+            <button 
+                className='newEventButton'
+                onClick={onSubmitForm}>
+                    Create New Event
+            </button>
         </div>
     )   
      

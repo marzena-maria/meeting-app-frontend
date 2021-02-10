@@ -1,24 +1,42 @@
-import React from 'react';
+import React,{useState} from 'react';
 // scss
 
-const DisplayResults = ({ listOfResults }) => {
+import './DisplayResults.scss';
+import { Link } from 'react-router-dom';
+
+const DisplayResults = ({ listOfResults}) => {
+    const [visible,setVisible] = useState(1);
 
     console.log(listOfResults);
+    const handleClick = () => {
+        setVisible((prevValue)=>prevValue + 1);
+     
+        console.log(visible)
+    };
+     
+      
 
     return (
-        <div className='resultsContainer'>
-            
+        // <div className='resultsContainer'>
+            <div>
             <ul className='displayResults'>
                 { listOfResults.length ? (
-                        listOfResults.map(eventData => (
+                        listOfResults.slice(0,visible).map(eventData => (
+                            <div>
                             <li key={eventData._id}> 
                                 <p>{eventData.eventName}</p>   
-                                <p>{eventData.startingDate}</p>  
-                                <p>{eventData.category}</p>                             
+                                <p>{eventData.startingDate}</p>
+                                <p>{eventData.category}</p>  
+                                                       
                             </li>
-                    ))) : <p>No result</p>
+                               
+                            </div>
+                    )) ) : <p></p>
+                   
                 }
+              {listOfResults.length > 0 && <button onClick={handleClick}>See More</button>}
             </ul>
+      
         </div>
     )
 };

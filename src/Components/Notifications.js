@@ -13,8 +13,9 @@ function Notifications({children}) {
 
         setTimeout(()=> {
             setMessage("")
-            setType("neutral");
-        }, 2000);
+        },3000);
+        //     setType("neutral");
+        // }, 5000);
     }
 
 

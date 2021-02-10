@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import { NotificationContext } from "../../Notifications";
+import NavBar from "../../shared/NavBar"
+import "./Register.scss"
 
 function Register() {
   const setMessage = useContext(NotificationContext);
@@ -17,8 +19,14 @@ function Register() {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [bio, setBio] = useState("");
+  const [isPasswordShown,setIsPasswordShown] = useState(false);
   // const [error,setError] = useState("")
 
+
+
+  const toggleVisibility=()=>{
+    setIsPasswordShown(!isPasswordShown)
+  }
   const register = async () => {
     console.log(typeof age);
     const config = {
@@ -51,10 +59,11 @@ function Register() {
       }
     }catch(error){
       console.log(error)
-      
+      if(!username || !email || !password){
         setMessage(
-          "Every field should be valid and none of the field should be empty"
+          "Every field should be valid and fields with * should not be empty"
         );
+      }
       
     }
    
@@ -62,10 +71,17 @@ function Register() {
 
   return (
     <div>
-      <h1>Register</h1>
       <div>
-        <label>Username* :</label>
-        <input
+      <NavBar />
+      </div>
+    
+    <div className="register">
+   
+      <div className="form">
+      <h1 >Register</h1>
+      <div className="form-group">
+        <label className="label">Username <span> * </span> : </label>
+        <input className="input-field"
           type="text"
           required={true}
           value={username}
@@ -73,9 +89,9 @@ function Register() {
         />
       </div>
       <br />
-      <div>
-        <label>Email* :</label>
-        <input
+      <div className="form-group">
+        <label className="label">Email<span>*</span>:</label>
+        <input className="input-field"
           type="email"
           required={true}
           value={email}
@@ -83,19 +99,20 @@ function Register() {
         />
       </div>
       <br />
-      <div>
-        <label>Password* :</label>
-        <input
-          type="text"
+      <div className="form-group">
+        <label className="label">Password <span>*</span>  :</label>
+        <input className="input-field"
+          type={isPasswordShown ? "text" : "password"}
           required={true}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+         <i className={`far ${isPasswordShown ? "fa-eye" : "fa-eye-slash"}`} onClick={toggleVisibility} ></i>
       </div>
       <br />
-      <div>
-        <label>Gender:</label>
-        <select
+      <div className="form-group">
+        <label className="label">Gender:</label>
+        <select className="input-field"
           type="text"
           value={gender}
           onChange={(e) => setGender(e.target.value)}
@@ -115,36 +132,36 @@ function Register() {
         </select>
       </div>
       <br />
-      <div>
-        <label>Age:</label>
-        <input
+      <div className="form-group">
+        <label className="label">Age:</label>
+        <input className="input-field"
           type="number"
           value={age}
           onChange={(e) => setAge(parseInt(e.target.value))}
         />
       </div>
       <br />
-      <div>
-        <label>City:</label>
-        <input
+      <div className="form-group">
+        <label className="label">City:</label>
+        <input className="input-field"
           type="text"
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
       </div>
       <br />
-      <div>
-        <label>Country:</label>
-        <input
+      <div className="form-group">
+        <label className="label">Country:</label>
+        <input className="input-field"
           type="text"
           value={country}
           onChange={(e) => setCountry(e.target.value)}
         />
       </div>
       <br />
-      <div>
-        <label>Bio:</label>
-        <textarea
+      <div className="form-group">
+        <label className="label">Bio:</label>
+        <textarea 
           cols="30"
           rows="10"
           type="text"
@@ -154,6 +171,9 @@ function Register() {
       </div>
       <br />
       <button onClick={register}>Register</button>
+    </div>
+    </div>
+    
     </div>
   );
 }
