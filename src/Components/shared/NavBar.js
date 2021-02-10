@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Link, Redirect } from "react-router-dom";
 import Axios from "axios";
 import "./NavBar.scss"
+import LogoCm from "../Slider/meetUpImages/logoCm.png"
 
 
 const Navbar= ()=> {
@@ -33,7 +34,7 @@ const Navbar= ()=> {
     return (
         <div className="navbar" >
             {logoutResponse ? <Redirect to="/" /> : ''}
-            <div><img className="nav-logo" src="" alt="Logo" />  <h1>Connecting Minds </h1></div>
+            <div className="logo-heading"><img className="nav-logo " src={LogoCm} alt="Logo" />  <h1>Connecting Minds </h1></div>
             <div className="menu-icon" onClick={handleClick}> <i className={clicked ? "fas fa-times":"fas fa-bars" }></i> </div>
             {isLoggedIn ? (
                 <ul className={clicked ? "nav-menu active" : "nav-menu"}>
@@ -44,7 +45,7 @@ const Navbar= ()=> {
                         <Link to='/user_profile' className="nav-links">My Profile</Link>
                     </li>
                     <li >
-                        <button className="nav-links" onClick={logout}>Logout</button>
+                        <button className="button" onClick={logout}>Logout</button>
                     </li>
                 </ul>
             ) : (
