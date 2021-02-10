@@ -1,3 +1,6 @@
+
+@import "../../../mixinsAndVariables.scss";
+
 *{
     padding: 0;
     margin:auto;
@@ -10,9 +13,12 @@
 
     }
   .login{
+
+    font-family: $decorative-font;
     h1{
      @include center;
-    color:blue;
+    color:$dark-blue;
+    margin:20px 0 0 40px;
         
     }
 
@@ -26,13 +32,26 @@
     //     justify-self:start;
     //    }
         label{
-            float:left;
+            // float:left;
+            margin-right:10px;
             font-size:20px;
+          
         }
+        .pass{
+            margin-left:-40px;
+        }
+        .inputfield{
+            @include inputField;
+            margin-bottom:10px;
+        }
+        
         button{
-            color:blue;
-            padding:5px 6px;
-            font-size:15px;
+            @include buttonStyle;
+            padding:5px 10px;
+
+            &:hover{
+                @include buttonStyleHover
+            }
         }
     }
 }
