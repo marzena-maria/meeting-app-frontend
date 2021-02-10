@@ -6,8 +6,7 @@ import NavBar from "../../shared/NavBar"
 import "./Register.scss"
 
 function Register() {
-  const setMessage = useContext(NotificationContext);
-  console.log(setMessage);
+  const setNotification = useContext(NotificationContext);
 
   const history = useHistory();
 
@@ -58,9 +57,8 @@ function Register() {
         history.push("/login");
       }
     }catch(error){
-      console.log(error)
       if(!username || !email || !password){
-        setMessage(
+        setNotification(
           "Every field should be valid and fields with * should not be empty"
         );
       }
@@ -117,16 +115,16 @@ function Register() {
           value={gender}
           onChange={(e) => setGender(e.target.value)}
         >
-          <option value="Male" key="">
+          <option value="Male">
             Male
           </option>
-          <option value="Female" key="">
+          <option value="Female">
             Female
           </option>
-          <option value="Others" key="">
+          <option value="Others">
             Others
           </option>
-          <option value="N/A" key="">
+          <option value="N/A">
             N/A
           </option>
         </select>
