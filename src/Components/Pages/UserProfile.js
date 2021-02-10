@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import NavBar from "../shared/NavBar";
@@ -10,8 +10,8 @@ import Footer from "../shared/Footer"
 function UserProfile() {
     const setMessage = useContext(NotificationContext);
 
-    const [user, setUser] = useState("");
     const [loading, setLoading] = useState(true);
+    const [username, setUsername] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -28,8 +28,9 @@ function UserProfile() {
         const response = await Axios.get("/user/get-auth-user")
 
         if (response.data.status !== false) {
-            setUser(response.data.user);
+            const user = response.data.user;
 
+            setUsername(user.username);
             setFirstName(user.firstName);
             setLastName(user.lastName);
             setEmail(user.email);
@@ -46,12 +47,22 @@ function UserProfile() {
             // Get events attended by auth user
             events_attended();
         }
-
-        setLoading(false);
     }
 
+
+
     const update = async () => {
-        const response = await Axios.post("/user/update-user", { user })
+        const response = await Axios.post("/user/update-user", {
+            firstName,
+            lastName,
+            email,
+            age,
+            city,
+            country,
+            telephone,
+            gender,
+            bio
+        });
 
         if (response.data.status === false) {
             setMessage(
@@ -68,11 +79,7 @@ function UserProfile() {
 
     const events_organized = async () => {
 
-        const response = await Axios.get("/events/get-organized-events/", { 
-            params: {
-                user: user
-            }
-        })
+        const response = await Axios.get("/events/get-organized-events/")
 
         if (response.data.status === true) {
             setEventsOrganized(response.data.events);
@@ -82,17 +89,15 @@ function UserProfile() {
     }
 
     const events_attended = async () => {
-        const response = await Axios.get("/events/get-attended-events/", { 
-            params: {
-                user: user
-            }
-        })
+        const response = await Axios.get("/events/get-attended-events/")
 
         if (response.data.status === true) {
             setEventsAttended(response.data.events);
         } else {
             console.log('Failed to get user`s events');
         }
+
+        setLoading(false);
     }
 
     const renderEvents = (eventType) => {
@@ -119,42 +124,46 @@ function UserProfile() {
         }
     }
 
+    useEffect(() => {
+        get_auth_user_data();
+    }, [])
+
     function handleUserChange(fieldName, value) {
 
         switch (fieldName) {
             case 'firstName':
                 setFirstName(value);
-                user.firstName = value;
+                //user.firstName = value;
                 break;
             case 'lastName':
                 setLastName(value);
-                user.lastName = value;
+                //user.lastName = value;
             case 'email':
                 setEmail(value);
-                user.email = value;
+                //user.email = value;
             case 'age':
                 setAge(value);
-                user.age = value;
+                //user.age = value;
                 break;
             case 'city':
                 setCity(value);
-                user.city = value;
+                //user.city = value;
                 break;
             case 'country':
                 setCountry(value);
-                user.country = value;
+                //user.country = value;
                 break;
             case 'telephone':
                 setTelephone(value);
-                user.telephone = value;
+                //user.telephone = value;
                 break;
             case 'gender':
                 setGender(value);
-                user.gender = value;
+                //user.gender = value;
                 break;
             case 'bio':
                 setBio(value);
-                user.bio = value;
+                //user.bio = value;
                 break;
             default:
                 console.log('Impossible to update field ' +  fieldName + ' with value ' + value);
@@ -169,7 +178,7 @@ function UserProfile() {
                     <div className="user_details user_panel">
                         <div className="user_details_pp"></div>
                         <div className="user_details_inputs">
-                            <h1>{user.username}</h1>
+                            <h1>{username}</h1>
 
                             <label>
                                 <span>First name: </span>
@@ -250,7 +259,7 @@ function UserProfile() {
             </div>
         )
     } else {
-        get_auth_user_data();
+
 
         return (<div>
             <NavBar /> 
