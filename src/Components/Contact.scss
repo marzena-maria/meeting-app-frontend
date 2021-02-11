@@ -1,181 +1,87 @@
-
-
 @import "../mixinsAndVariables.scss";
 
 *{
     padding: 0;
     margin:0;
     box-sizing: border-box;
-    font-family:$cursive-font;
 
-    @mixin center{
-        display:flex;
-        justify-content:center;
-        align-items:center;
+    .contactpage{
+        .bg {
+            height:30%;
+            width:100%;
+        }
 
-    }
-    
-       
-
- .contactpage{
-     .bg{height:150px;
-        width:100%;}
-    // height:700px;
-        .contact{
+        .contact {
             text-align:center;
-            width:80%;
+            padding: 20px;
             
-            h1{
-              margin:20px 0 20px 0;
-              color:$darkgrey;
-              font-weight:700;
-              
+            .contactHeading {
+              margin:10px;
+              padding: 10px;
+              color: $darkgrey;
+              font-weight:700;             
             }
-            .info-form{
-                @media screen and (min-width:900px){
-                    display:flex;
-                    justify-content: center;
-                    align-items: center;
+
+            .info-form {
+
+                .phone-email{                     
+                    .phone-email-heading{
+                        margin: 10px;
+                        padding: 10px;
+                        text-decoration: underline;
+                        font-size: 25px;
+
+                    }
+                    .mail,
+                    .phone {
+                        display: flex;
+                        justify-content: center;
+                        
+                        color:$orange;
+                        font-weight:600;  
+                        
+                        .fas,
+                        .phoneNumber,
+                        .emailAddress {
+                            padding: 10px;
+                        }
+                    }
                 }
-            .phone-email{
-                
-                
-                h3{
-                    margin-bottom:15px;
+            }
+            .contactform {
+                .contact-form-heading {
+                    margin: 10px;
+                    padding: 10px;
                     text-decoration: underline;
+                    font-size: 25px;
                 }
-                .mail{
-                    display:flex;
-                    justify-content:space-evenly;
-                    align-items: center;
-                    color:$orange;
-                    font-weight:600;
-                    font-size:1rem;
-                    // margin-bottom:20px;
-                    @media screen and (min-width:900px){
-                        font-size:20px;
+                
+                .msg {
+                    display: flex;
+                    justify-content: center;
+
+                    .email,
+                    .textarea {            
+                        @include inputField;
+                        margin: 10px;
+                        min-width: 250px;
+                        max-width: 800px;
+                        width: 60%;
                     }
                 
-
-                    .fa-envelope{
-                      
-                        position: absolute;
-                        left:38%;
-                        top:50%;
-                        @media screen and (min-width:900px){
-                            position: absolute;
-                            left:20%;
-                            top:87%;
-                        }
-                        
-                        
-                    }
-                    strong{
-                        margin-left:45%;
-                    }
-                }
-
-                .phone{
-                    display:flex;
-                    justify-content:space-evenly;
-                    align-items: center;
-                    color:$orange;
-                    font-weight:600;
-                
-
-                        .fa-phone-alt{
-                           position: absolute;
-                           left:38%;
-                           top:54%;
-                           @media screen and (min-width:900px){
-                            position: absolute;
-                            left:20%;
-                            top:92%;
-                        }
-                        }
-                        h4{
-                            margin-left:23%;
-                            font-size:20px;
-                        }
-                }
-            }
-
-                .contactform{
-                    // margin-bottom:20px;
-                    
-                    .msg{
-                        .email{
-                            margin-left:30px;
-                            @include inputField;
-                            
-                        }
-                        .textarea{
-                        margin-top:20px;
-                        margin-left:30px;
-                        @include inputField ;
-                        }
-                    
                     .label{
                         .far{
-                            font-size:20px;
-                            @media screen and (min-width:900px){
-                                display: none;
-                            }
-                            
-                        }
-                        .fa-envelope{
-                            position: absolute;
-                            top:61%;
-                            left:30%;
-                        }
-                        .fa-comment-alt{
-                            font-size:25px;
-                            position: absolute;
-                            bottom:100px;
-                            left:28%;
+                            font-size:30px;  
+                            margin: 5px;            
                         }
                     }
                 }
-                    .button{
-                        @include buttonStyle
-                    }
+                .button{
+                    @include buttonStyle
                 }
-            
-        }
-        }
-     
-
- }   
-   
-//     .contact{
-//        text-align: center;
-//        margin:10px;
-//        margin-top:30px;
-//        margin-bottom: 30px;
-       
-       
-//     // @include center;
-       
-//     .info-form{
-//     //     @include center;
-  
-    
-    
-   
-//     //    height:300px;
-//     //   max-width:300px;
-//     //   border-radius:50px 50px;
-
-//         .form{
-//             margin-top:50px;
-
-
-
-            
-      
+            }  
         
-//     }
-//     }
-//     }
-}
+        } 
+    }    
 
+}
