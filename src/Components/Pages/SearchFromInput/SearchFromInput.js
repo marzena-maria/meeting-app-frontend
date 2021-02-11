@@ -75,7 +75,12 @@ const SearchFromInput = () => {
                 ) : 
                 null
                 }
-                {events.length ? <button onClick={handleClick}>See More</button> : null}
+                {events.length ? 
+                <button 
+                    onClick={handleClick}
+                    className='seeMoreButton'>
+                        See More
+                </button> : null}
             </ul>
             </div>      
         </div>

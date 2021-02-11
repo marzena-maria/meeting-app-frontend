@@ -29,19 +29,19 @@ function Footer() {
           </ul>
           <div className="vl"></div>
           <div className="anchor-heading">
-        <div className="anchors">
-        <h3>Follow Us</h3>
-        <a href="https://www.facebook.com/Connecting-People-104799601625055/">
-          <FaFacebook className="media-icons blue" />
-        </a>
-        <a href="https://www.instagram.com/connecting_minds_2021/">
-          <FaInstagram className="media-icons pink"/>
-        </a>
-        <a href="https://twitter.com/home">
-          <FaTwitter className="media-icons blue"/>
-        </a>
-        </div>
-        <h5> © 2021 Connecting Minds</h5>
+            <div className="anchors">
+              <h3>Follow Us</h3>
+              <a href="https://www.facebook.com/Connecting-People-104799601625055/">
+                <FaFacebook className="media-icons blue" />
+              </a>
+              <a href="https://www.instagram.com/connecting_minds_2021/">
+                <FaInstagram className="media-icons pink"/>
+              </a>
+              <a href="https://twitter.com/home">
+                <FaTwitter className="media-icons blue"/>
+              </a>
+            </div>
+            <h5> © 2021 Connecting Minds</h5>
         </div>
       </div>
     

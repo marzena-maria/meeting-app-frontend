@@ -3,7 +3,7 @@
 .optionsToClick {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 40px 40px 40px;
+    grid-template-rows: 50px 50px 50px;
     text-align: center;
     padding: 5px;
     margin: 2px;
@@ -35,7 +35,7 @@
 @media screen and (min-width:526px) {
     .optionsToClick {
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 40px 40px;
+        grid-template-rows: 60px 60px;
     }
 }
 

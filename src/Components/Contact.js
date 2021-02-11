@@ -29,21 +29,25 @@ function Contact() {
       
       <img className="bg" src={ContactImg} alt="" />
     <div className="contact">
-    <h1>Contact Us</h1>
+    <h1 className='contactHeading'>Contact Us</h1>
       <div className="info-form">
       
         <div className="phone-email">
-          <h3>
-            You can reach us at</h3> <div className="mail"><i className="fas fa-envelope"></i>
-            <strong>mardavishdci@gmail.com</strong></div>
-          
-        
-            
-            <div className="phone"><i className="fas fa-phone-alt"></i><h4>0800-4444-333</h4></div>
-  
+          <p className='phone-email-heading'>
+            You can reach us at
+          </p> 
+          <div className="mail">
+            <i className="fas fa-envelope"></i>
+            <p className='phoneNumber'>mardavishdci@gmail.com</p>
+          </div>
+          <div className="phone">
+            <i className="fas fa-phone-alt"></i>
+            <p className='emailAddress'>0800-4444-333</p>
+          </div>
         </div>
+
         <form className="contactform" onSubmit={contactSubmit}>
-          <h4>For Queries:</h4>
+          <p className='contact-form-heading'>For Queries:</p>
           <div className="msg">
             <label className="label">
               <i className="far fa-envelope"></i>
