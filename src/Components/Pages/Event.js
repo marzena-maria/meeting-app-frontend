@@ -35,6 +35,9 @@ const Event = () => {
     const dateFormatted = new Date(singleEvent.event?.startingDate).toDateString();
     console.log(dateFormatted);
 
+    const whoJoined = singleEvent.event?.participants;
+    console.log(whoJoined);
+
     useEffect( () => getEvent(), []);
 
     return (
@@ -45,10 +48,9 @@ const Event = () => {
                      <span className='eventDate'>
                         {dateFormatted}
                     </span>
-                    {/* <span className='eventDate'>Wed 12-02-2021</span> */}
                     <span className='eventTime'>{`${singleEvent.event?.timeFrom} - ${singleEvent.event?.timeTo}`}</span>
                     <h1 className='eventName'>{singleEvent.event?.eventName}</h1>
-                    {/* <span>{singleEvent.event?.organizer.username}</span> */}
+                    <span>{`Hosted by: ${singleEvent.event?.organizer.username}`}</span>
                 </div>
                 <div className='singleEventDetailedData'>
                     <p className='eventDetails'>Details</p>
@@ -64,7 +66,11 @@ const Event = () => {
                     <div className='eventCategory'>
                         <p>{singleEvent.event?.category}</p>
                     </div>
-                    <div className='eventParticipants'>{singleEvent.event?.participants}</div> 
+                    {/* <div className='eventParticipants'>
+                        { whoJoined.map(userJoined) => (
+                            <span>{userJoined?.username}</span>
+                        )}
+                    </div>  */}
                     <button 
                         onClick={attendEvent}
                         className='joinButton'> 

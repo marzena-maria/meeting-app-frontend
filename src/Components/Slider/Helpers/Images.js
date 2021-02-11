@@ -1,40 +1,43 @@
 import { Redirect } from "react-router-dom";
 import Offline from "../meetUpImages/offline.jpg";
-import Online from "../meetUpImages/online.webp";
-import OnlineSetUp from "../meetUpImages/onlineSetUp.png";
-import Zoom from "../meetUpImages/zoom.png";
+
 import Career from "../meetUpImages/career5.jpeg"
 import Contact from "../meetUpImages/contact.jpeg"
 import OnlineEvent from "../meetUpImages/onlineEvent.jpeg"
 
+import Sliderimg1 from "../meetUpImages/cm2.jpeg"
+import Sliderimg2 from "../meetUpImages/cm1.jpeg"
+import Sliderimg3 from "../meetUpImages/cm3.jpeg"
+import Sliderimg4 from "../meetUpImages/cm4.jpeg"
+
 const images = [
   {
-    title: "Connecting World",
+    title: "join now",
     
-    subtitle: "Join Us to explore",
-    img: Offline,
-    
-  },
-  {
-    title: "Online events ",
-    button: "Show events",
-    subtitle: "at your doorstep",
-    img: OnlineEvent,
-    link: '/events/online'
-  },
-  {
-    title: "Join Our Team",
     subtitle: "",
-    button:"Apply Now",
-    img: Career,
-    link:"/careers"
+    img: Sliderimg1,
+    
   },
   {
-    title: "Have questions?",
-    subtitle: "Communicate with Us 24*7",
-    button:"Contact Us",
-    img: Contact,
-    link:"/contact"
+    title: " ",
+    button: "",
+    subtitle: "",
+    img: Sliderimg2,
+    link: ''
+  },
+  {
+    title: "",
+    subtitle: "",
+    button:"",
+    img: Sliderimg3,
+    link:""
+  },
+  {
+    title: "",
+    subtitle: "",
+    button:"",
+    img: Sliderimg4,
+    link:""
   },
 ];
 export default images;

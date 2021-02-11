@@ -6,8 +6,7 @@ import NavBar from "../../shared/NavBar"
 import "./Register.scss"
 
 function Register() {
-  const setMessage = useContext(NotificationContext);
-  console.log(setMessage);
+  const setNotification = useContext(NotificationContext);
 
   const history = useHistory();
 
@@ -58,9 +57,8 @@ function Register() {
         history.push("/login");
       }
     }catch(error){
-      console.log(error)
       if(!username || !email || !password){
-        setMessage(
+        setNotification(
           "Every field should be valid and fields with * should not be empty"
         );
       }
@@ -88,7 +86,7 @@ function Register() {
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
-      <br />
+     
       <div className="form-group">
         <label className="label">Email<span>*</span>:</label>
         <input className="input-field"
@@ -98,7 +96,7 @@ function Register() {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <br />
+      
       <div className="form-group">
         <label className="label">Password <span>*</span>  :</label>
         <input className="input-field"
@@ -109,7 +107,7 @@ function Register() {
         />
          <i className={`far ${isPasswordShown ? "fa-eye" : "fa-eye-slash"}`} onClick={toggleVisibility} ></i>
       </div>
-      <br />
+     
       <div className="form-group">
         <label className="label">Gender:</label>
         <select className="input-field"
@@ -117,21 +115,21 @@ function Register() {
           value={gender}
           onChange={(e) => setGender(e.target.value)}
         >
-          <option value="Male" key="">
+          <option value="Male">
             Male
           </option>
-          <option value="Female" key="">
+          <option value="Female">
             Female
           </option>
-          <option value="Others" key="">
+          <option value="Others">
             Others
           </option>
-          <option value="N/A" key="">
+          <option value="N/A">
             N/A
           </option>
         </select>
       </div>
-      <br />
+      
       <div className="form-group">
         <label className="label">Age:</label>
         <input className="input-field"
@@ -140,7 +138,7 @@ function Register() {
           onChange={(e) => setAge(parseInt(e.target.value))}
         />
       </div>
-      <br />
+     
       <div className="form-group">
         <label className="label">City:</label>
         <input className="input-field"
@@ -149,7 +147,7 @@ function Register() {
           onChange={(e) => setCity(e.target.value)}
         />
       </div>
-      <br />
+     
       <div className="form-group">
         <label className="label">Country:</label>
         <input className="input-field"
@@ -158,18 +156,18 @@ function Register() {
           onChange={(e) => setCountry(e.target.value)}
         />
       </div>
-      <br />
+     
       <div className="form-group">
         <label className="label">Bio:</label>
         <textarea 
-          cols="30"
-          rows="10"
+          cols="20"
+          rows="8"
           type="text"
           value={bio}
           onChange={(e) => setBio(e.target.value)}
         />
       </div>
-      <br />
+      
       <button onClick={register}>Register</button>
     </div>
     </div>

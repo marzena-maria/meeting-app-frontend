@@ -1,5 +1,9 @@
+@import '../../mixinsAndVariables.scss';
+
+
 .navbar{
-    background: linear-gradient(90deg,tomato,tomato);
+    background: $orange;
+    // linear-gradient(90deg,tomato,tomato);
     height:80px;
 
     display:flex;
@@ -9,22 +13,33 @@
     position: relative;
     
 h1{
-    font-size: 1rem;
+    font-size: 0.8rem;
     position:absolute;
-    top:1;
+    top:10;
     left:0;
-    transform:translate(10%,0%);
+  
+    transform:translate(8%,16%);
     color:blue;
+    font-family: $decorative-font;
 
 }
+// .logo-heading{
+
+// }
 .nav-logo{
-    color:blue;
+   
     position:absolute;
     top:0;
     left:0;
-    font-size:1.2rem;
+    font-size:1rem;
+    height:40px;
+    width:50px;
     // justify-self:start;
-    transform:translate(25%,50%)
+    transform:translate(65%,10%);
+    mix-blend-mode: multiply;
+   
+    
+    
 }
 .menu-icon{
     display:block;
@@ -61,11 +76,13 @@ h1{
 
    
     .nav-links{
-        color: white;
+        color:$orange;
+        font-weight: 900;
         text-decoration: none;
         text-align:center;
         display:table;
         padding:0.5rem 1rem;
+        z-index: 90;
 
       & :hover{
         background-color: #6d76f7;
@@ -74,13 +91,19 @@ h1{
         transition: all 0.2s ease-out;
       }  
     }
+    .button{
+        background-color: transparent;
+        z-index:100;
+        border: transparent;
+        color: $orange;
+    }
 }
 .active{
-    background:#6668f4;
+    background:$middle-blue;
     left:0;
-    opacity:0.5;
+    opacity:1;
     transition:all 0.5s ease;
-    z-index:100;
+    z-index:10;
 }
 }
 // @media screen and (min-width:526px){
