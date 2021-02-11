@@ -5,6 +5,7 @@ import NavBar from "../shared/NavBar";
 import './UserProfile.scss';
 import { NotificationContext } from "../Notifications";
 import Footer from "../shared/Footer"
+import { FaFileUpload } from 'react-icons/fa';
 
 
 function UserProfile() {
@@ -139,9 +140,11 @@ function UserProfile() {
             case 'lastName':
                 setLastName(value);
                 //user.lastName = value;
+                break;
             case 'email':
                 setEmail(value);
                 //user.email = value;
+                break;
             case 'age':
                 setAge(value);
                 //user.age = value;
@@ -180,6 +183,7 @@ function UserProfile() {
                         <div className="user_details_pp"></div>
                         <div className="user_details_inputs">
                             <h1>{username}</h1>
+                          
 
                             <label>
                                 <span>First name: </span>

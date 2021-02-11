@@ -8,8 +8,8 @@ function Footer() {
     <div className="footer">
       <div className="footer-details">
         <div className="address">
-        <i class="far fa-building"></i>
-        <p>Wendenstraße 11, 22111 Hamburg</p>
+        <i className="far fa-building"></i>
+        <p className="para">Wendenstraße 11, 22111 Hamburg</p>
         </div>
         <div className="vl"></div>
        
