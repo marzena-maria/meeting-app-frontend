@@ -12,6 +12,11 @@ import Navbar from '../../shared/NavBar';
 
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    const [isPasswordShown,setIsPasswordShown] = useState(false);
+
+    const toggleVisibility=()=>{
+        setIsPasswordShown(!isPasswordShown)
+      }
 
     const login = async() =>{
     try{
@@ -57,8 +62,8 @@ import Navbar from '../../shared/NavBar';
 
             <div>
                 <label className="pass">Password:</label>
-                <input className="inputfield" type="password" value={password}  onChange={(e)=>setPassword(e.target.value)} />
-              
+                <input className="inputfield" type={isPasswordShown ? "text" : "password"} value={password}  onChange={(e)=>setPassword(e.target.value)} />
+                <i className={`far ${isPasswordShown ? "fa-eye" : "fa-eye-slash"}`} onClick={toggleVisibility} ></i>
             </div>
             <button onClick={login}>Login</button>
             <a href=""> <Link to= "/forgetPassword">Forget Password</Link> </a>

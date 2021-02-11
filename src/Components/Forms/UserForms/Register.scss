@@ -1,0 +1,111 @@
+@import "../../../mixinsAndVariables.scss";
+
+@mixin center{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+.register{
+    text-align: center;
+    font-family:$decorative-font;
+    
+    
+    .heading{
+       
+     
+    color:$dark-blue;
+    margin:30px 0 30px 40px;
+    }
+    .form{
+   
+//    @include center;
+    
+        margin:20px 20px 0 0;
+        .form-group{
+    max-width:110%;
+    display:block;
+     .label{
+        margin-right:10px;
+        margin-bottom:10px;
+        font-size:20px;
+        width:120px;
+        .span{
+            color:$indianred;
+        }
+    }
+    .bio{
+        position:absolute;
+        bottom:20%;
+        left:10%;
+    }
+    .input-field{
+        @include inputField;
+        padding:0;
+        margin-bottom:10px;
+        width:50%;
+    }
+    .textarea{
+        @include inputField;
+        width:50%;
+        padding:0;
+        margin-left:30%;
+        margin-bottom:10px;
+    }
+    
+
+}
+}
+.button{
+    @include buttonStyle;
+    &:hover{
+        @include buttonStyleHover;
+    }
+}
+
+}
+@media screen and (min-width:526px){
+    
+    .register{
+        .form{
+        // @include center;
+        // .first{
+        //     margin-top:-100px;
+        // }
+        // .second{
+        //     margin-top:8%;
+        // }
+        .form-group{
+            .bio{
+                position:absolute;
+                top:37%;
+                left:28%;
+            }
+            // max-width:50%;
+        .input-field{
+        width:30%;
+        padding:0;
+        }
+        .textarea{
+            width:20%;
+            margin-left:10px;
+        }
+    }
+}
+    }
+}
+@media screen and (min-width:526px){
+    .register{
+        .form{
+
+     
+    .form-group{
+        .bio{
+            position:absolute;
+            top:78%;
+            left:30%;
+        }
+    }}
+    }
+   
+}
