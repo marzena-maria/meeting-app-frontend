@@ -42,7 +42,7 @@ const SearchFromInput = () => {
         try {
             setVisible(visible + 1);
             const response = await axios.get(
-              `/events/search-events/name/${inputValue}/1/${visible}`
+              `/events/search-events/name/${inputValue}/3/${visible}`
             );
             //   console.log(response);
             setEvents(events.concat(response.data));

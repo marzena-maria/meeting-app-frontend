@@ -21,9 +21,10 @@ function Password() {
             
             const response = await axios.post('/user/forgetPassword',{email} ,config);
             console.log(response.data.msg);
-            setNotification("Password reset link has been sent to your registered Email")
+            setNotification("Password reset link has been sent to your registered Email.Check your spam folder as well")
         } catch (error) {
             console.log(error);
+            setNotification("Email Id not registered")
         }
 
     }    

@@ -31,6 +31,7 @@
     //    .form-group{
     //     justify-self:start;
     //    }
+    
         label{
             // float:left;
             margin-right:10px;
@@ -39,12 +40,20 @@
         }
         .pass{
             margin-left:-40px;
-            width:33%;
+            width:28%;
         }
         .inputfield{
             @include inputField;
-            margin-bottom:10px;
+            margin-bottom:30px;
+            margin-left:10px;
         }
+        .far{
+          position: absolute;
+          bottom:42%;
+          left:67%;
+          
+        }
+
         
         button{
             @include buttonStyle;

@@ -60,8 +60,9 @@ import Navbar from '../../shared/NavBar';
                 
             </div>
 
-            <div>
+            <div >
                 <label className="pass">Password:</label>
+        
                 <input className="inputfield" type={isPasswordShown ? "text" : "password"} value={password}  onChange={(e)=>setPassword(e.target.value)} />
                 <i className={`far ${isPasswordShown ? "fa-eye" : "fa-eye-slash"}`} onClick={toggleVisibility} ></i>
             </div>
