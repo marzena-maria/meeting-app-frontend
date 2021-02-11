@@ -26,7 +26,7 @@ const sendResetToken = async () =>{
 }
 
 useEffect(() => {
-  if(token)  sendResetToken();
+ if(token)  sendResetToken();
  
 }, [])
 
