@@ -75,7 +75,7 @@ const SearchFromInput = () => {
                 ) : 
                 null
                 }
-                {events.length && <button onClick={handleClick}>See More</button>}
+                {events.length ? <button onClick={handleClick}>See More</button> : null}
             </ul>
             </div>      
         </div>
