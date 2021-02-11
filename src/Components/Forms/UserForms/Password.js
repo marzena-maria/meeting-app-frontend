@@ -1,10 +1,13 @@
 import axios from 'axios'
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import Navbar from '../../shared/NavBar'
 import "./Password.scss"
+import { NotificationContext } from "../../Notifications";
 
 
 function Password() {
+    const setNotification = useContext(NotificationContext);
+
     const [email,setEmail] = useState("")
 
     const sendEmail = async(e)=>{
@@ -16,10 +19,9 @@ function Password() {
           };
         try {
             
-            const response = await axios.post('/user/resetPassword',{email} ,config);
+            const response = await axios.post('/user/forgetPassword',{email} ,config);
             console.log(response.data.msg);
-
-            
+            setNotification("Password reset link has been sent to your registered Email")
         } catch (error) {
             console.log(error);
         }

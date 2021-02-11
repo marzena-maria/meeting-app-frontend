@@ -29,7 +29,8 @@
          height:100%;
          width:100%;
          position: absolute;
-         object-fit: contain;
+         background-size: cover;
+// background-position: center;
         }
         .slide-title,.slide-subtitle,.slide-link{
                 height:100%;

@@ -2,9 +2,9 @@ import React, { Fragment, useState, useEffect } from "react";
 import Message from "./Message";
 import axios from "axios";
 
-function FileUpload() {
+function FileUpload({takePic}) {
   const [file, setFile] = useState("");
-  const [filename, setFilename] = useState("Choose File");
+  const [filename, setFilename] = useState("");
   const [uploadedFile, setUploadedFile] = useState({});
   const [message, setMessage] = useState("");
 
@@ -32,7 +32,9 @@ function FileUpload() {
       const { fileName, filePath } = response.data;
 
       setUploadedFile({ fileName, filePath });
-      setMessage("File Uploaded");
+      takePic(true);
+
+      // setMessage("File Uploaded");
     } catch (err) {
       if (err.response.status === 500) {
         setMessage("There was a problem with the server");
@@ -55,9 +57,9 @@ function FileUpload() {
             onChange={onChange}
             accept=".jpg, .jpeg, .png"
           />
-          <label className="file-label" htmlFor="customFile">
+          {/* <label className="file-label" htmlFor="customFile">
             {filename}
-          </label>
+          </label> */}
         </div>
 
         <input type="submit" value="Upload" className="btn " />
@@ -65,8 +67,8 @@ function FileUpload() {
       {uploadedFile ? (
         <div>
           <div>
-            <h3 className="text-center">{uploadedFile.fileName}</h3>
-            <img style={{ width: "100%" }} src={uploadedFile.filePath} alt="" />
+            {/* <h3 className="text-center">{uploadedFile.fileName}</h3> */}
+            {/* <img style={{ width: "100%" }} src={uploadedFile.filePath} alt="" /> */}
           </div>
         </div>
       ) : null}

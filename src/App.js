@@ -35,14 +35,14 @@ function App() {
       <Route path ="/location" component={Maps} exact /> 
       <Route path ="/register" component={Register} exact />    
       <Route path ="/login" component={Login} exact />
-      <Route path ="/resetPassword" component={Password} exact />
-      <Route path ="/reset/:token" component={GeneratePassword} />
+      <Route path ="/forgetPassword" component={Password} exact />
+      <Route path ="/resetPassword/:token" component={GeneratePassword} />
       {/* <GuestRoute path ="/register" component={Register} exact />    
       <GuestRoute path ="/login" component={Login} exact /> */}
       <PrivateRoute path ="/user_profile" component={UserProfile} exact />
      
       <Route path ="/event/:eventId" component={Event} /> 
-      <Route path="/newpassword/:token" component ={GeneratePassword} /> 
+      {/* <Route path="/newpassword/:token" component ={GeneratePassword} />  */}
       <Route path ="/" component={Home} exact />
       <Route path ="/about" component={About} exact />
       <Route path ="/careers" component={Careers} exact />

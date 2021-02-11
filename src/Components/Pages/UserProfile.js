@@ -24,8 +24,14 @@ function UserProfile() {
     const [telephone, setTelephone] = useState('');
     const [gender, setGender] = useState('');
     const [bio, setBio] = useState('');
+    const [photo,setPhoto] =useState("")
     const [eventsOrganized, setEventsOrganized] = useState('');
     const [eventsAttended, setEventsAttended] = useState('');
+
+    const [uploaded,setUploaded] =useState(false);
+    const takePic =(status) =>{
+        setUploaded(status)
+    }
 
     const get_auth_user_data = async () => {
         const response = await Axios.get("/user/get-auth-user")
@@ -43,6 +49,8 @@ function UserProfile() {
             setTelephone(user.telephone);
             setGender(user.gender);
             setBio(user.bio);
+            setPhoto(user.photo);
+
 
             // Get events organized by auth user
             events_organized();
@@ -132,6 +140,10 @@ function UserProfile() {
         get_auth_user_data();
     }, [])
 
+    useEffect(() => {
+        get_auth_user_data();
+    }, [uploaded])
+
     function handleUserChange(fieldName, value) {
 
         switch (fieldName) {
@@ -183,9 +195,13 @@ function UserProfile() {
                             <h1>{username}</h1>
 
                           
+                                {
+                                 photo && <img style={{width:"100px" , height:"100px"}} src={`uploads/${photo}`} />
+                                }
+                            
 
                              <div>
-                               <FileUpload />
+                               <FileUpload takePic={takePic}/>
                             </div>
 
 

@@ -7,14 +7,14 @@ import Navbar from '../../shared/NavBar';
 
 
  function Login() {
-    const setMessage = useContext(NotificationContext);
+    const setNotification = useContext(NotificationContext);
     const history = useHistory();
 
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
 
     const login = async() =>{
-    
+    try{
         const response = await Axios.post("/user/login",{
            withCredentials:true,
              email,
@@ -25,10 +25,15 @@ import Navbar from '../../shared/NavBar';
              console.log(response);
              window.localStorage.setItem("loggedIn",JSON.stringify(true))
              history.push("/user_profile")
+             
          }
-       else{
-           setMessage("EmailId or password is invalid")
+        }catch{
+    
+           console.log(123);
+        if( !email || !password){
+        setNotification("EmailId or password is invalid")
        }
+    }
     }
        
      
@@ -56,7 +61,7 @@ import Navbar from '../../shared/NavBar';
               
             </div>
             <button onClick={login}>Login</button>
-            <a href=""> <Link to= "/resetPassword">Forget Password</Link> </a>
+            <a href=""> <Link to= "/forgetPassword">Forget Password</Link> </a>
             </div>
         </div>
         </div>
