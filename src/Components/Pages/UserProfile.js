@@ -51,7 +51,8 @@ function UserProfile() {
 
 
 
-    const update = async () => {
+    const update = async (e) => {
+        e.preventDefault();
         const response = await Axios.post("/user/update-user", {
             firstName,
             lastName,
@@ -66,7 +67,7 @@ function UserProfile() {
 
         if (response.data.status === false) {
             setMessage(
-                'Update failed',
+                'Update failed...',
                 'error'
             );
         } else {
