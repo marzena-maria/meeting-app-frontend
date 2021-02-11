@@ -18,6 +18,7 @@ import Password from "./Components/Forms/UserForms/Password"
 import DisplayOnline from "./Components/DisplayOnline"
 import GeneratePassword from './Components/Forms/UserForms/GeneratePassword';
 
+
 // import GuestRoute from "./Components/GuestRoute/GuestRoute";
 
 
@@ -39,7 +40,9 @@ function App() {
       {/* <GuestRoute path ="/register" component={Register} exact />    
       <GuestRoute path ="/login" component={Login} exact /> */}
       <PrivateRoute path ="/user_profile" component={UserProfile} exact />
-      <Route path ="/event/:eventId" component={Event} />  
+     
+      <Route path ="/event/:eventId" component={Event} /> 
+      <Route path="/newpassword/:token" component ={GeneratePassword} /> 
       <Route path ="/" component={Home} exact />
       <Route path ="/about" component={About} exact />
       <Route path ="/careers" component={Careers} exact />

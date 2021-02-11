@@ -29,7 +29,7 @@
          height:100%;
          width:100%;
          position: absolute;
-         object-fit: cover;
+         object-fit: contain;
         }
         .slide-title,.slide-subtitle,.slide-link{
                 height:100%;
@@ -77,7 +77,7 @@
            border-radius:5px 0 0 5px;
    }
    .arrows{
-           z-index:10;
+           z-index:1;
    }
 
    .all-dots{
