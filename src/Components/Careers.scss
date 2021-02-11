@@ -1,7 +1,11 @@
+@import "../mixinsAndVariables.scss";
+
+
 *{
     padding: 0;
-    margin:auto;
+    margin:0;
     box-sizing: border-box;
+    font-family:$cursive-font;
 
     @mixin center{
         display:flex;
@@ -11,15 +15,137 @@
     }
     .careers{
         h1{
-            @include center;
+            // @include center;
             color: blue;
+            text-align-last: center;
+            font-size:1.5rem;
+            font-weight:700;
             
         }
+        p{
+            text-align: center;;
+            max-width:400px;
+        }
+        img{
+            mix-blend-mode: multiply;
+            transform:skewY(20deg);
+            width:500px;
+            margin-top:20px;
+        }
+        h3{
+            text-align: center;
+            font-size: 1.2rem;
+            color:$gold;
+            font-weight:900;
+            // z-index:10;
+          padding-bottom:20px;
+        }
+        .division{
+
+            .fa-file-code{
+                position:absolute;
+    top:65%;
+    left:50%;
+                font-size:2rem;
+               
+            }
+            .fa-mail-bulk{
+                position:absolute;
+top:200%;
+left:40%;
+            font-size:2rem;
+            }
+            h4{
+                text-align:center;
+                margin-top:60px;
+                color:$dark-blue;
+                font-weight:500;
+            }
         .two-parts{
             display:flex;
             flex-direction:column;
-            
+            // @media screen and (min-width:900px){
 
+            //     .two-parts{
+            //      display:grid;
+            //      grid-template-columns:100px 100px;
+            //     }
+                    
+                
+            //     }
+            
+            .first-part{
+                background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+                height:400px;
+                width:300px;
+                text-align:center;
+                padding:20px;
+                border-radius:4em 8em;
+                margin-bottom:20px;
+                margin-left:45px;
+                // @media screen and (min-width:900px){
+                //     position:absolute;
+                //     left:8%;
+                // }
+                
+
+                h5{
+                    color:$indianred;
+                    font-weight: 600;
+                    margin-bottom:15px;
+                }
+
+                li{
+                    list-style-type: disc;
+                    color:$dark-blue;
+                    padding-bottom:10px;
+                }
+                
+            }
+            .second-part{
+                background-image: linear-gradient(to right top, #80737a, #997983, #b37f85, #cb8682, #de9079, #e38971, #e8816a, #ed7863, #e6576b, #d7377b, #ba1e8f, #8d1fa4);
+                height:400px;
+                width:350px;
+                text-align:center;
+                padding:20px;
+                border-radius:4em 8em;
+                margin-bottom:40px;
+                // @media screen and (min-width:900px){
+                //     position:absolute;
+                //     right:8%;
+                //     top:10%
+                // }
+
+                h5{
+                    color:$gold;
+                    font-weight: 600;
+                    margin-bottom:15px;
+
+                }
+         
+
+                li{
+                    list-style-type: disc;
+                    color:$dark-blue;
+                    padding-bottom:10px;
+                }
+            }
+           
+        }
+      
+    }
+    .mailto{
+        font-size: 1rem;
+        text-align: center;
+        max-width:300px;
+
+        span{
+            color:$indianred;
+            font-weight:600;
+            padding-bottom:50px;
         }
     }
+}
+
+    
 }

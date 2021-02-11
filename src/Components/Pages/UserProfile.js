@@ -5,7 +5,9 @@ import NavBar from "../shared/NavBar";
 import './UserProfile.scss';
 import { NotificationContext } from "../Notifications";
 import Footer from "../shared/Footer"
-import { FaFileUpload } from 'react-icons/fa';
+
+import FileUpload from "./FileUpload";
+
 
 
 function UserProfile() {
@@ -183,7 +185,13 @@ function UserProfile() {
                         <div className="user_details_pp"></div>
                         <div className="user_details_inputs">
                             <h1>{username}</h1>
+
                           
+
+                             <div>
+                               <FileUpload />
+                            </div>
+
 
                             <label>
                                 <span>First name: </span>

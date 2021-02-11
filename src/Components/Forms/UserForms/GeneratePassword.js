@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 // import styles from "./Resetpasswordpage.module.css";
 import axios from 'axios';
 import {useParams} from 'react-router-dom'
+import NavBar from "../../shared/NavBar";
+import Footer from "../../shared/Footer"
+import "./GeneratePassword.scss"
 
 
 function GeneratePassword() {
@@ -75,24 +78,32 @@ else{
 
 
 return (
-  <div className="">
-    <h1>Resetpassword</h1>
+  <div>
+    <NavBar />
+  <div className="resetpassword">
+    
+    <h1>Reset Password</h1>
+    <i class="fas fa-unlock one"></i>
+    <i class="fas fa-unlock two"></i>
+    <i class="fas fa-unlock three"></i>
     { validToken ?
 
-    <form onSubmit={sendResetPw} className="">
-      <div className="">
-        <label htmlFor="password"><i class="icon-shield"></i></label>
-        <input type="password" onChange={changePw} name="password" placeholder=" Enter your new Password" />
-      </div>
+    <form onSubmit={sendResetPw} className="form">
+      
+        
+        <input className="inputfield" type="password" onChange={changePw} name="password" placeholder=" Enter your new Password" />
+ 
 
-      <div className="">
-        <label htmlFor="password"><i class="icon-shield"></i></label>
-        <input type="password" onChange={changePw} name="password2" placeholder=" Confirm your new Password" />
-      </div>
-      <input type="submit" value="Resetpassword" className="" />
+      
+        
+        <input  className="inputfield" type="password" onChange={changePw} name="password2" placeholder=" Confirm your new Password" />
+      
+      <input className="button" type="submit" value="Reset"  />
 
     </form> :
     <h1><span>Your token is not valid </span> </h1> }
+  </div>
+  
   </div>
 );
 
