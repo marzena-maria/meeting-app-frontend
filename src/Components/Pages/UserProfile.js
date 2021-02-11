@@ -137,7 +137,6 @@ function UserProfile() {
         switch (fieldName) {
             case 'firstName':
                 setFirstName(value);
-                //user.firstName = value;
                 break;
             case 'lastName':
                 setLastName(value);
@@ -147,29 +146,26 @@ function UserProfile() {
                 setEmail(value);
                 //user.email = value;
                 break;
+            case 'email':
+                setEmail(value);
+                break;
             case 'age':
                 setAge(value);
-                //user.age = value;
                 break;
             case 'city':
                 setCity(value);
-                //user.city = value;
                 break;
             case 'country':
                 setCountry(value);
-                //user.country = value;
                 break;
             case 'telephone':
                 setTelephone(value);
-                //user.telephone = value;
                 break;
             case 'gender':
                 setGender(value);
-                //user.gender = value;
                 break;
             case 'bio':
                 setBio(value);
-                //user.bio = value;
                 break;
             default:
                 console.log('Impossible to update field ' +  fieldName + ' with value ' + value);
