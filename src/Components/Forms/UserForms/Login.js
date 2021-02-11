@@ -55,15 +55,15 @@ import Navbar from '../../shared/NavBar';
             <div className="form">
 
             <div>
-                <label>Email :</label>
+                <label>Email</label>
                 <input className="inputfield" type="email" value={email}   onChange={(e)=>setEmail(e.target.value)}/>
                 
             </div>
 
             <div >
-                <label className="pass">Password:</label>
+                <label className="pass">Password</label>
         
-                <input className="inputfield" type={isPasswordShown ? "text" : "password"} value={password}  onChange={(e)=>setPassword(e.target.value)} />
+                <input className="inputfield passinput" type={isPasswordShown ? "text" : "password"} value={password}  onChange={(e)=>setPassword(e.target.value)} />
                 <i className={`far ${isPasswordShown ? "fa-eye" : "fa-eye-slash"}`} onClick={toggleVisibility} ></i>
             </div>
             <button onClick={login}>Login</button>

@@ -40,17 +40,23 @@
         }
         .pass{
             margin-left:-40px;
-            width:28%;
+            // width:25%;
         }
         .inputfield{
             @include inputField;
             margin-bottom:30px;
             margin-left:10px;
         }
+        .passinput{
+            margin-left:6px;
+            
+        }
         .far{
           position: absolute;
           bottom:42%;
-          left:67%;
+          left:89%;
+        //   bottom:42%;
+        //   left:67%;
           
         }
 
@@ -63,6 +69,39 @@
                 @include buttonStyleHover
             }
         }
+    }
+}
+}
+
+@media screen and (min-width:526px){
+    .login{
+        .form{
+            .passinput{
+                margin-left:15px;
+            }
+    .far{
+        position: absolute;
+        
+        bottom:42%;
+        left:68%;
+        
+      }
+    }
+}
+}
+@media screen and (min-width:1038px){
+    .login{
+        .form{
+            .passinput{
+                margin-left:15px;
+            }
+    .far{
+        position: absolute;
+        
+        bottom:42%;
+        left:64%;
+        
+      }
     }
 }
 }

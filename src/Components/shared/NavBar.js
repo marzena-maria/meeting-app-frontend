@@ -40,6 +40,7 @@ const Navbar= ()=> {
             </div>
             <div className="menu-icon" onClick={handleClick}> <i className={clicked ? "fas fa-times":"fas fa-bars" }></i> </div>
             {isLoggedIn ? (
+                
                 <ul className={clicked ? "nav-menu active" : "nav-menu"}>
                     <li >
                         <Link to='/' className="nav-links">Home</Link>
