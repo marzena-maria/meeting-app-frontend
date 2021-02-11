@@ -6,7 +6,6 @@ import axios from 'axios';
 
 
 const apiKeys = process.env.REACT_APP_GOOGLE_MAPS_KEY;
-console.log(apiKeys)
 
 Geocode.setApiKey(apiKeys);
 Geocode.setRegion('de');
@@ -96,14 +95,14 @@ function Maps() {
 
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}
-                zoom={12}
+                zoom={13}
                 center={center}>
         
                 {markers.map(({ name, lat, lng }) => console.log(name) || (
                     <>
-                    <Marker 
+                    {/* <Marker 
                         position={{ lat, lng }}
-                    />
+                    /> */}
                     <InfoWindow 
                         position={{ lat, lng }}>
                             <span>{name}</span>

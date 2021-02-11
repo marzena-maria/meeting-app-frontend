@@ -21,7 +21,6 @@ function Home() {
             <SearchFromInput />
             {/* <DisplayResults 
                 listOfResults={events} /> */}
-            {/* <Link to='/event-form'>Create New Event</Link> */}
             {/* <Maps />  */}
             {/* <DisplayHealth /> */}
             <Footer />      

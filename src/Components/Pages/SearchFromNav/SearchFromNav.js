@@ -54,7 +54,7 @@ const SearchFromNav = () => {
     "music",
     "books",
     "sport",
-    "learning languages",
+    "languages",
     "other",
     "online",
   ];

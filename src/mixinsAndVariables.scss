@@ -35,4 +35,7 @@ $custom-font: 'Didact Gothic', sans-serif;
 @mixin inputField {
     border: 2px solid $orange;
     border-radius: 5px;
+    padding: 5px;
+    font-family: $custom-font;
+    font-size: large;
 }
