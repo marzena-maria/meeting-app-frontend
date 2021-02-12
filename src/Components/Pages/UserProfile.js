@@ -190,21 +190,16 @@ function UserProfile() {
                 <NavBar />
                 <div id="container">
                     <div className="user_details user_panel">
-                        <div className="user_details_pp"></div>
-                        <div className="user_details_inputs">
+                        <div className="user_details_pp">
                             <h1>{username}</h1>
-
-                          
-                                {
-                                 photo && <img style={{width:"100px" , height:"100px"}} src={`uploads/${photo}`} />
-                                }
-                            
-
-                             <div>
-                               <FileUpload takePic={takePic}/>
+                            {
+                                photo && <img style={{width:"100px" , height:"100px"}} src={`uploads/${photo}`} />
+                            }
+                            <div>
+                            <FileUpload takePic={takePic}/>
                             </div>
-
-
+                        </div>
+                        <div className="user_details_inputs">
                             <label>
                                 <span>First name: </span>
                                 <input type="text" name="firstName" value={firstName} onChange={(e) => handleUserChange('firstName', e.target.value)} />
