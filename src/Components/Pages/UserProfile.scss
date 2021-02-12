@@ -1,3 +1,5 @@
+@import '../../mixinsAndVariables.scss';
+
 #container {
     text-align: center;
 
@@ -11,16 +13,17 @@
         -moz-border-radius: 10px 10px 10px 10px;
         -webkit-border-radius: 10px 10px 10px 10px;
         border: 0px solid #000000;
+        padding: 15px 0;
 
         ul {
             list-style: none;
-            width: 90%;
-            margin: 0 5%;
+            width: 100%;
+            margin: 0 0%;
             padding: 0;
 
             li {
                 display: inline-block;
-                width: 100%;
+                width: 95%;
                 margin: 15px 0;
             }
 
@@ -42,8 +45,8 @@
     }
     
     .user_details {
-        color: #ffffff;
-        background-color: #550055;
+        color: black;
+        background-color: $middle-blue;
     }
     .user_details_pp {
         width: 150px;
@@ -63,9 +66,8 @@
             -webkit-border-radius: 10px 10px 10px 10px;
             border: 0px solid #000000;
         }
-
         label {
-            margin: 10px 0;
+            margin: 8px 0;
             display: inline-block;
 
             span {
@@ -73,12 +75,15 @@
                 min-width: 110px;
                 text-align: right;
                 margin-right: 5px;
+                font-weight: bolder;
             }
         }
+
     }
     
     .user_events_attend {  
-        background-color: rgb(106, 128, 128);
+        /*background-color: rgb(106, 128, 128);*/
+        background-color: $dark-blue;
         width: 50%;
         color: white;
     }
@@ -95,7 +100,7 @@
         -moz-border-radius: 10px 10px 10px 10px;
         -webkit-border-radius: 10px 10px 10px 10px;
         border: 0px solid #000000;
-        cursor: pointer;
+        cursor: pointer;     
     }
 
     .button:hover,
@@ -111,5 +116,31 @@
 
     .clear {
         clear: both;
+    }
+}
+
+/*TABLET*/
+@media screen and (min-width:371px) and (max-width:1162px) {
+    #container {
+        min-width: 60%;
+   
+        .user_panel {
+            width: 95%;
+        }
+
+        .user_events_attend {
+            width: 95%;
+        }
+
+        .user_events_organize {
+            width: 95%;
+        }
+    }
+
+    .user_details_inputs {
+        label {
+            margin: 0px 0;
+            max-height: 1px;
+        }
     }
 }
