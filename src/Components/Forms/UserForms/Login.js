@@ -7,14 +7,19 @@ import Navbar from '../../shared/NavBar';
 
 
  function Login() {
-    const setMessage = useContext(NotificationContext);
+    const setNotification = useContext(NotificationContext);
     const history = useHistory();
 
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    const [isPasswordShown,setIsPasswordShown] = useState(false);
+
+    const toggleVisibility=()=>{
+        setIsPasswordShown(!isPasswordShown)
+      }
 
     const login = async() =>{
-    
+    try{
         const response = await Axios.post("/user/login",{
            withCredentials:true,
              email,
@@ -25,10 +30,15 @@ import Navbar from '../../shared/NavBar';
              console.log(response);
              window.localStorage.setItem("loggedIn",JSON.stringify(true))
              history.push("/user_profile")
+             
          }
-       else{
-           setMessage("EmailId or password is invalid")
+        }catch{
+    
+           console.log(123);
+        if( !email || !password){
+        setNotification("EmailId or password is invalid")
        }
+    }
     }
        
      
@@ -45,18 +55,19 @@ import Navbar from '../../shared/NavBar';
             <div className="form">
 
             <div>
-                <label>Email :</label>
+                <label>Email</label>
                 <input className="inputfield" type="email" value={email}   onChange={(e)=>setEmail(e.target.value)}/>
                 
             </div>
 
-            <div>
-                <label className="pass">Password:</label>
-                <input className="inputfield" type="password" value={password}  onChange={(e)=>setPassword(e.target.value)} />
-              
+            <div >
+                <label className="pass">Password</label>
+        
+                <input className="inputfield passinput" type={isPasswordShown ? "text" : "password"} value={password}  onChange={(e)=>setPassword(e.target.value)} />
+                <i className={`far ${isPasswordShown ? "fa-eye" : "fa-eye-slash"}`} onClick={toggleVisibility} ></i>
             </div>
             <button onClick={login}>Login</button>
-            <a href=""> <Link to= "/resetPassword">Forget Password</Link> </a>
+            <a href=""> <Link to= "/forgetPassword">Forget Password</Link> </a>
             </div>
         </div>
         </div>

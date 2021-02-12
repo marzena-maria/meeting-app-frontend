@@ -1,6 +1,9 @@
 import React, { useState, useContext } from "react";
 import { NotificationContext } from "../Components/Notifications";
 import "./Contact.scss";
+import ContactImg from "./Slider/meetUpImages/contactback.jpg"
+import NavBar from "./shared/NavBar";
+import Footer from "./shared/Footer";
 
 function Contact() {
   const setMessage = useContext(NotificationContext);
@@ -10,7 +13,7 @@ function Contact() {
 
   function contactSubmit(e) {
     e.preventDefault();
-    JSON.stringify(localStorage.setItem("contactSubmit", email, msg));
+    JSON.stringify(localStorage.setItem(localData, email, msg));
     if (email && msg) {
       return setMessage(
         "We will get back to you as soon as possible. Thank you for your interest."
@@ -20,23 +23,31 @@ function Contact() {
   }
 
   return (
-    <header>
+    <div>
+      <NavBar />
+    <div className="contactpage">
+      
+      <img className="bg" src={ContactImg} alt="" />
     <div className="contact">
-    <h1>Contact Us</h1>
+    <h1 className='contactHeading'>Contact Us</h1>
       <div className="info-form">
       
         <div className="phone-email">
-          <h3>
-            You can reach us at our email:{" "}
-            <strong>mardavishdci@gmail.com</strong>{" "}
-          </h3>
-          <div>
-            <h3>You can also contact us on our tollfree number,open 24*7</h3>
-            <h4>0800-4444-333</h4>
+          <p className='phone-email-heading'>
+            You can reach us at
+          </p> 
+          <div className="mail">
+            <i className="fas fa-envelope"></i>
+            <p className='phoneNumber'>mardavishdci@gmail.com</p>
+          </div>
+          <div className="phone">
+            <i className="fas fa-phone-alt"></i>
+            <p className='emailAddress'>0800-4444-333</p>
           </div>
         </div>
-        <form className="form" onSubmit={contactSubmit}>
-          <h4>For Queries:</h4>
+
+        <form className="contactform" onSubmit={contactSubmit}>
+          <p className='contact-form-heading'>For Queries:</p>
           <div className="msg">
             <label className="label">
               <i className="far fa-envelope"></i>
@@ -65,12 +76,14 @@ function Contact() {
             />
           </div>
   
-          <button type="submit">Submit</button>
+          <button className="button" type="submit">Submit</button>
         </form>
       </div>
     </div>
    
-    </header>
+    </div>
+    <Footer />
+    </div>
   );
 }
 

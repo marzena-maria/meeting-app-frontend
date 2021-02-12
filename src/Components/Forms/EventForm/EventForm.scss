@@ -7,7 +7,7 @@
         display: grid;
         margin: 10px;
         padding: 5px;
-        // justify-items: center;
+        justify-items: center;
 
         .timeFromTo {
             margin-top: 15px;
@@ -24,7 +24,7 @@
         }
 
         .postalCodeInput {
-            width: 60px;
+            width: 70px;
         }
         
         .eventNameInput,
@@ -41,8 +41,18 @@
             @include inputField;
         }
 
+        .eventNameInput,
+        .placeInput,
+        .streetInput {
+            width: 250px;
+        }
+
+        select {
+            width: 200px;
+        }
+
         textarea {
-            width: 80%;
+            width: 90%;
             @include inputField;
         }
 
@@ -71,11 +81,34 @@
 
 
 //tablet 
-// @media screen and (min-width:526px) {
+@media screen and (min-width:526px) {
 
-// }
+    .formContainer {
+        text-align: center;
+
+        form {
+
+            textarea {
+                width: 50%;
+            }
+
+        }
+    }
+
+}
 
 //desktop
-// @media only screen and (min-width : 1038px) {
+@media only screen and (min-width : 1038px) {
 
-// }
+    .formContainer {
+        text-align: center;
+
+        form {
+
+            textarea {
+                width: 40%;
+            }
+
+        }
+    }
+}

@@ -29,7 +29,8 @@
          height:100%;
          width:100%;
          position: absolute;
-         object-fit: contain;
+         background-size: cover;
+// background-position: center;
         }
         .slide-title,.slide-subtitle,.slide-link{
                 height:100%;
@@ -38,7 +39,7 @@
                 position: absolute;
                 text-align:center;
                 top:30%;
-                z-index:9 ;
+                z-index:3 ;
 
         }
         .slide-subtitle{
@@ -56,7 +57,7 @@
    }
    .prev,.next{
            cursor:pointer;
-           z-index: 100;
+        //    z-index: ;
            position:absolute;
            top:50%;
            width:auto;
@@ -65,6 +66,7 @@
            font-size: 30px;
            font-weight:bold;
            border-radius:0 5px 5px 0;
+           color:white;
 
            & :hover{
                   color:black;

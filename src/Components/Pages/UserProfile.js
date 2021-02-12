@@ -6,6 +6,9 @@ import './UserProfile.scss';
 import { NotificationContext } from "../Notifications";
 import Footer from "../shared/Footer"
 
+import FileUpload from "./FileUpload";
+
+
 
 function UserProfile() {
     const setMessage = useContext(NotificationContext);
@@ -21,8 +24,14 @@ function UserProfile() {
     const [telephone, setTelephone] = useState('');
     const [gender, setGender] = useState('');
     const [bio, setBio] = useState('');
+    const [photo,setPhoto] =useState("")
     const [eventsOrganized, setEventsOrganized] = useState('');
     const [eventsAttended, setEventsAttended] = useState('');
+
+    const [uploaded,setUploaded] =useState(false);
+    const takePic =(status) =>{
+        setUploaded(status)
+    }
 
     const get_auth_user_data = async () => {
         const response = await Axios.get("/user/get-auth-user")
@@ -40,6 +49,8 @@ function UserProfile() {
             setTelephone(user.telephone);
             setGender(user.gender);
             setBio(user.bio);
+            setPhoto(user.photo);
+
 
             // Get events organized by auth user
             events_organized();
@@ -51,7 +62,8 @@ function UserProfile() {
 
 
 
-    const update = async () => {
+    const update = async (e) => {
+        e.preventDefault();
         const response = await Axios.post("/user/update-user", {
             firstName,
             lastName,
@@ -66,7 +78,7 @@ function UserProfile() {
 
         if (response.data.status === false) {
             setMessage(
-                'Update failed',
+                'Update failed...',
                 'error'
             );
         } else {
@@ -128,42 +140,44 @@ function UserProfile() {
         get_auth_user_data();
     }, [])
 
+    useEffect(() => {
+        get_auth_user_data();
+    }, [uploaded])
+
     function handleUserChange(fieldName, value) {
 
         switch (fieldName) {
             case 'firstName':
                 setFirstName(value);
-                //user.firstName = value;
                 break;
             case 'lastName':
                 setLastName(value);
                 //user.lastName = value;
+                break;
             case 'email':
                 setEmail(value);
                 //user.email = value;
+                break;
+            case 'email':
+                setEmail(value);
+                break;
             case 'age':
                 setAge(value);
-                //user.age = value;
                 break;
             case 'city':
                 setCity(value);
-                //user.city = value;
                 break;
             case 'country':
                 setCountry(value);
-                //user.country = value;
                 break;
             case 'telephone':
                 setTelephone(value);
-                //user.telephone = value;
                 break;
             case 'gender':
                 setGender(value);
-                //user.gender = value;
                 break;
             case 'bio':
                 setBio(value);
-                //user.bio = value;
                 break;
             default:
                 console.log('Impossible to update field ' +  fieldName + ' with value ' + value);
@@ -179,6 +193,17 @@ function UserProfile() {
                         <div className="user_details_pp"></div>
                         <div className="user_details_inputs">
                             <h1>{username}</h1>
+
+                          
+                                {
+                                 photo && <img style={{width:"100px" , height:"100px"}} src={`uploads/${photo}`} />
+                                }
+                            
+
+                             <div>
+                               <FileUpload takePic={takePic}/>
+                            </div>
+
 
                             <label>
                                 <span>First name: </span>

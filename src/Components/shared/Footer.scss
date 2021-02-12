@@ -1,17 +1,29 @@
+@import '../../mixinsAndVariables.scss';
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
 .footer{
-    background-color:#00004d;
-    height:300px;
+    background-color: $dark-blue;
+    height:auto;
+    max-height: 400px;
+    // position:fixed;
+    text-align: center;
     width:100%;
+    // height: 90px;
  
     color: white;
    
    .address{
+       margin: 10px;
+       padding: 20px 0;
        display: flex;
-       padding:10px;
-       margin-bottom: 20px;
+       justify-content: center;
+    //    margin-bottom: 20px;
 
 
-       i{
+       .fa-building{
            padding:2px;
            margin:2px;
            margin-left:25px;
@@ -23,8 +35,8 @@
        }
    }
    .vl{
-       border-top:2px solid white;
-     max-width:80%;
+       border-top:2px solid $middle-blue;
+        width:100%;
        
    }
 
@@ -34,9 +46,10 @@
         .all-links{
          list-style-type:none;
          margin:10px;
-        margin-left:40px;
-        margin-bottom: 20px;
-         
+         padding: 10px;
+        // margin-left:40px;
+        // margin-bottom: 20px;
+        // display: flex;
 
         
             .links {
@@ -54,23 +67,22 @@
         .anchor-heading{
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            margin-top:10px;
-           
-          
-          
+            justify-content: space-around;
+            // align-items: flex-start;
+            margin-top: 10px;
+            padding: 10px;
+
+                
               .anchors{
-                  margin-bottom: 10px;
+
                 h3{
                     font-size:0.8rem;
-                    margin-bottom:5px;
-                    
+                    // margin-bottom:5px;            
                 }
                 .media-icons{
                     color:white;
-                    margin:5px;
-                    margin-left:3px;
+                    margin:3px;
+                    // margin-left:3px;
 
                 }
                 .blue{
@@ -86,14 +98,14 @@
              
               
             .address{
-               display: flex;
+            //    display: flex;
             //    justify-content: center;
-            transform: translateX(100px);
+            // transform: translateX(100px);
             // margin-top: 30px;
-            padding:30px;
+            // padding:30px;
              
                
-               i,p{
+            .fa-building,.para{
                    font-size: 1.2rem;;
                }
             } 
@@ -101,8 +113,8 @@
             
             .all-links{
                   display: flex;
-                  margin:20px 5px ;
-
+                //   margin:20px 5px ;
+                justify-content: space-around;
                   .link{
                    padding:5px;
                   }
@@ -110,8 +122,8 @@
               .anchor-heading{
                 display: flex;
                 flex-direction: row;
-                margin:30px;
-                margin-left: 20px;
+                // margin:30px;
+                // margin-left: 20px;
            
               .anchors{
                   h3{
@@ -137,6 +149,8 @@
           }
         }
     
+    }  
         
+
         
    

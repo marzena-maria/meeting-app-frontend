@@ -1,80 +1,87 @@
-// *{
-//     padding: 0;
-//     margin:0;
-//     box-sizing: border-box;
+@import "../mixinsAndVariables.scss";
 
-//     @mixin center{
-//         display:flex;
-//         justify-content:center;
-//         align-items:center;
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
 
-//     }
-    
-       
+    .contactpage{
+        .bg {
+            height:30%;
+            width:100%;
+        }
 
-//     //     &:after{
-//     //         content:"";
-//     //         position:absolute;
-//     //         bottom:0;
-//     //         width:100%;
-//     //         background-image:url("./Slider/meetUpImages/wave-bottom.png");
-//     //         height:275px;
-//     //     }
-    
-   
-//     .contact{
-//        text-align: center;
-//        margin:10px;
-//        margin-top:30px;
-//        margin-bottom: 30px;
-       
-       
-//     // @include center;
-       
-//     .info-form{
-//     //     @include center;
-  
-    
-    
-   
-//     //    height:300px;
-//     //   max-width:300px;
-//     //   border-radius:50px 50px;
+        .contact {
+            text-align:center;
+            padding: 20px;
+            
+            .contactHeading {
+              margin:10px;
+              padding: 10px;
+              color: $darkgrey;
+              font-weight:700;             
+            }
 
-//         .form{
-//             margin-top:50px;
+            .info-form {
 
+                .phone-email{                     
+                    .phone-email-heading{
+                        margin: 10px;
+                        padding: 10px;
+                        text-decoration: underline;
+                        font-size: 25px;
 
+                    }
+                    .mail,
+                    .phone {
+                        display: flex;
+                        justify-content: center;
+                        
+                        color:$orange;
+                        font-weight:600;  
+                        
+                        .fas,
+                        .phoneNumber,
+                        .emailAddress {
+                            padding: 10px;
+                        }
+                    }
+                }
+            }
+            .contactform {
+                .contact-form-heading {
+                    margin: 10px;
+                    padding: 10px;
+                    text-decoration: underline;
+                    font-size: 25px;
+                }
+                
+                .msg {
+                    display: flex;
+                    justify-content: center;
 
-//             .label{
-//             .far{
-//                 font-size:20px;
-//                 margin-right:10px;
-//             }
-//             .fa-envelope{
-//                 position: absolute;
-//                 bottom:218px;
-//                 left:40px;
-//             }
-//             .fa-comment-alt{
-//                 font-size:25px;
-//                 position: absolute;
-//                 bottom:100px;
-//                 left:40px;
-//             }
-//         }
-//         .msg{
-//             .email{
-//                 margin-left:30px;
-//             }
-//             .textarea{
-//             margin-top:20px;
-//             margin-left:30px;
-//             }
-//         }
+                    .email,
+                    .textarea {            
+                        @include inputField;
+                        margin: 10px;
+                        min-width: 250px;
+                        max-width: 800px;
+                        width: 60%;
+                    }
+                
+                    .label{
+                        .far{
+                            font-size:30px;  
+                            margin: 5px;            
+                        }
+                    }
+                }
+                .button{
+                    @include buttonStyle
+                }
+            }  
         
-//     }
-//     }
-//     }
-// }
+        } 
+    }    
 
+}

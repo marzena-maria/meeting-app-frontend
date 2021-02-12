@@ -1,95 +1,111 @@
-// @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&display=swap');
+@import "../../../mixinsAndVariables.scss";
 
+@mixin center{
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-// *{
-//     padding: 0;
-//     margin:0;
-//     box-sizing: border-box;
-//     outline:none;
-//     font-family:'Big Shoulders Display', cursive;
+}
+.register{
+    text-align: center;
+    font-family:$decorative-font;
     
-
-//     body{
-//         background: url("./Images/register-background.jpg") no-repeat top center;
-//         // url("/meeting-app-frontend/src/Components/Forms/UserForms/Images/register-background.jpg") no-repeat top center;
-//         background-size: cover;
-//         height:100vh;
-//     }
-
-//     @mixin center{
-//         display:flex;
-//         justify-content:center;
-//         align-items:center;
-
-//     }
-//   .register{
-//     position:absolute;
-//     top:50%;
-// //   height:500px;
-//     width:100%;
-//     transform:translate(-50%);
-//     // z-index:100;
-//     padding:0 20px;
     
-//     // background-color:#a8cfff;
-//     // margin:5% 5% 5% 10%;
-//     // opacity:0.5;
-//     // overflow: hidden;
-//     // margin-top:20%;
-//     // margin-left
-//     // border-radius:50px 20px;
-   
-
-  
-//     .form{
-//         max-width:550px;
-//         margin:0 auto;
-//         background:#a8cfff;
-//         opacity:0.8;
-//         padding:30px;
-//         border-radius:10px 20px;
-    
-//        h1{
-//     //     @include center;
-//     //    color:blue;
-//     //    margin-top:0%;
-//     //   padding-bottom: 10%;
-//     //     z-index:20;
-//     //     font-size:0.8rem;
-//        }
-   
+    .heading{
        
-//     //    .form-group{
-      
-//     //     display: flex;
-//     //     justify-content: space-between;
-//     //     align-items: center;
-//     //     .label{
-//     //         float:left;
-//     //         font-size:10px;
-//     //         z-index:100;
-//     //         color:blue;
-            
-//     //         span{
-//     //             color:red;
-//     //         }
-            
-//     //     }
-//         // .input-field{
-//         //     max-width:180px;
-//         // width:100px;
-//         //     height:15px;
-//         //     background-color: #f0f0f0;
-//         //     margin: 10px 0;
-          
-//         // }
-//         // button{
-//         //     color:blue;
-//         //     padding:5px 6px;
-//         //     font-size:15px;
-//         //     z-index:100;
-//         // }
-//     // }
-// }
-// }
-// }
+     
+    color:$dark-blue;
+    margin:30px 0 30px 40px;
+    }
+    .form{
+   
+//    @include center;
+    
+        margin:20px 20px 0 0;
+        .form-group{
+    max-width:110%;
+    display:block;
+     .label{
+        margin-right:10px;
+        margin-bottom:10px;
+        font-size:20px;
+        width:120px;
+        .span{
+            color:$indianred;
+        }
+    }
+    .bio{
+        position:absolute;
+        bottom:20%;
+        left:10%;
+    }
+    .input-field{
+        @include inputField;
+        padding:0;
+        margin-bottom:10px;
+        width:50%;
+    }
+    .textarea{
+        @include inputField;
+        width:50%;
+        padding:0;
+        margin-left:30%;
+        margin-bottom:10px;
+    }
+    
+
+}
+}
+.button{
+    @include buttonStyle;
+    &:hover{
+        @include buttonStyleHover;
+    }
+}
+
+}
+@media screen and (min-width:526px){
+    
+    .register{
+        .form{
+        // @include center;
+        // .first{
+        //     margin-top:-100px;
+        // }
+        // .second{
+        //     margin-top:8%;
+        // }
+        .form-group{
+            .bio{
+                position:absolute;
+                top:37%;
+                left:28%;
+            }
+            // max-width:50%;
+        .input-field{
+        width:30%;
+        padding:0;
+        }
+        .textarea{
+            width:20%;
+            margin-left:10px;
+        }
+    }
+}
+    }
+}
+@media screen and (min-width:526px){
+    .register{
+        .form{
+
+     
+    .form-group{
+        .bio{
+            position:absolute;
+            top:78%;
+            left:30%;
+        }
+    }}
+    }
+   
+}

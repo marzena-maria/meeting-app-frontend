@@ -4,10 +4,14 @@ $orange:#ff952b;
 $light-blue: #d5e6fc;
 $middle-blue: #a8cfff;
 $dark-blue:#00004d;
+$indianred:#cd5c5c;
+$gold:#ffd700;
+$darkgrey:#696969;
 
 //FONTS
 $decorative-font: 'Aldrich', sans-serif;
 $custom-font: 'Didact Gothic', sans-serif;
+$cursive-font:'Comic Sans MS, Comic Sans, cursive';
 
 // BUTTON 
 @mixin buttonStyle {
@@ -35,4 +39,7 @@ $custom-font: 'Didact Gothic', sans-serif;
 @mixin inputField {
     border: 2px solid $orange;
     border-radius: 5px;
+    padding: 5px;
+    font-family: $custom-font;
+    font-size: large;
 }

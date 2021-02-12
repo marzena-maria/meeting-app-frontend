@@ -1,0 +1,24 @@
+@import '../mixinsAndVariables.scss';
+
+.aboutPage {
+    .aboutContainer {
+        padding: 10px;
+        margin: 10px;
+
+        .aboutMainHeading,
+        .aboutInfo {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .aboutMainHeading {
+            font-family: $decorative-font;
+        }
+    }
+}
+
+
+
+// @media screen and (min-width:526px)
+
+// @media only screen and (min-width : 1038px)

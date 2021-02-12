@@ -10,18 +10,16 @@ import Footer from "../shared/Footer"
 import DisplayOnline from "../DisplayOnline";
 import Maps from '../Pages/Maps/Maps';
 
-
 function Home() {
     // const [events, setEvents] = React.useState([]);
     return (
-        <div>
+        <div className='application'>
             <NavBar />  
             <Slider />
             <SearchFromNav  />
             <SearchFromInput />
             {/* <DisplayResults 
                 listOfResults={events} /> */}
-            {/* <Link to='/event-form'>Create New Event</Link> */}
             <Maps /> 
             {/* <DisplayHealth /> */}
             <Footer />      

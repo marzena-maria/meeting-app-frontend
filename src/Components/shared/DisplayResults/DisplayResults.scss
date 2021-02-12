@@ -38,6 +38,17 @@
             font-family: $decorative-font;
         }
     }
+
+    .seeMoreButton {
+        @include buttonStyle;
+        width: 200px;
+        height: 60px;
+    }
+
+    .seeMoreButton:hover {
+        @include buttonStyleHover;
+    }
+
 }
 
 //tablet 

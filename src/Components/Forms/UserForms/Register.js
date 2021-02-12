@@ -69,16 +69,18 @@ function Register() {
 
   return (
     <div>
-      <div>
+    
       <NavBar />
-      </div>
+     
     
     <div className="register">
    
+      <div >
+      <h1 className="heading">Register</h1>
       <div className="form">
-      <h1 >Register</h1>
+      <div className="form-part first">
       <div className="form-group">
-        <label className="label">Username <span> * </span> : </label>
+        <label className="label">Username <span  className="span"> * </span> </label>
         <input className="input-field"
           type="text"
           required={true}
@@ -88,7 +90,7 @@ function Register() {
       </div>
      
       <div className="form-group">
-        <label className="label">Email<span>*</span>:</label>
+        <label className="label">Email<span className="span">*</span></label>
         <input className="input-field"
           type="email"
           required={true}
@@ -98,7 +100,7 @@ function Register() {
       </div>
       
       <div className="form-group">
-        <label className="label">Password <span>*</span>  :</label>
+        <label className="label">Password <span  className="span">*</span></label>
         <input className="input-field"
           type={isPasswordShown ? "text" : "password"}
           required={true}
@@ -109,7 +111,7 @@ function Register() {
       </div>
      
       <div className="form-group">
-        <label className="label">Gender:</label>
+        <label className="label">Gender</label>
         <select className="input-field"
           type="text"
           value={gender}
@@ -129,9 +131,10 @@ function Register() {
           </option>
         </select>
       </div>
-      
+      </div>
+      <div className="form-part second">
       <div className="form-group">
-        <label className="label">Age:</label>
+        <label className="label">Age</label>
         <input className="input-field"
           type="number"
           value={age}
@@ -140,7 +143,7 @@ function Register() {
       </div>
      
       <div className="form-group">
-        <label className="label">City:</label>
+        <label className="label">City</label>
         <input className="input-field"
           type="text"
           value={city}
@@ -149,7 +152,7 @@ function Register() {
       </div>
      
       <div className="form-group">
-        <label className="label">Country:</label>
+        <label className="label">Country</label>
         <input className="input-field"
           type="text"
           value={country}
@@ -158,8 +161,8 @@ function Register() {
       </div>
      
       <div className="form-group">
-        <label className="label">Bio:</label>
-        <textarea 
+        <label className="label bio">Bio</label>
+        <textarea className="textarea"
           cols="20"
           rows="8"
           type="text"
@@ -167,8 +170,10 @@ function Register() {
           onChange={(e) => setBio(e.target.value)}
         />
       </div>
+      </div>
+      </div>
       
-      <button onClick={register}>Register</button>
+      <button className="button" onClick={register}>Register</button>
     </div>
     </div>
     

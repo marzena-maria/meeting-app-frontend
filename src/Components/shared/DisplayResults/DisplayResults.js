@@ -1,8 +1,5 @@
 import React,{useState} from 'react';
-// scss
-
 import './DisplayResults.scss';
-import { Link } from 'react-router-dom';
 
 const DisplayResults = ({ listOfResults}) => {
     const [visible,setVisible] = useState(1);

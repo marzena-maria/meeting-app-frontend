@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Event.scss';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import NavBar from '../shared/NavBar';
+import Footer from '../shared/Footer';
 
 const Event = () => {
 
@@ -32,17 +34,18 @@ const Event = () => {
         }
     }
 
-    const dateFormatted = new Date(singleEvent.event?.startingDate).toDateString();
-    console.log(dateFormatted);
-
-    const whoJoined = singleEvent.event?.participants;
-    console.log(whoJoined);
-
     useEffect( () => getEvent(), []);
+
+    const dateFormatted = new Date(singleEvent.event?.startingDate).toDateString();
+    // console.log(dateFormatted);
+
+    const participants = singleEvent.event?.participants || [];
+    // console.log(participants)
+
 
     return (
         <div className='eventContainer'>
-            <Link to='/'>Go back to the Homepage</Link>
+            <NavBar />
             <div className='singleEvent'>
                 <div className='singleEventBasicData'>
                      <span className='eventDate'>
@@ -63,14 +66,17 @@ const Event = () => {
                             ${singleEvent.event?.city}, ${singleEvent.event?.country}`}
                         </p>
                     </div>
-                    <div className='eventCategory'>
-                        <p>{singleEvent.event?.category}</p>
-                    </div>
-                    {/* <div className='eventParticipants'>
-                        { whoJoined.map(userJoined) => (
-                            <span>{userJoined?.username}</span>
-                        )}
-                    </div>  */}
+                    <div className='eventParticipants'>
+                        { !participants.length
+                        ?   <p>Be the first participant</p>
+                        :   <div>
+                                <p>Participants:</p>
+                                {participants.map(participant => (   
+                                    <p key={participant.email}>{`${participant.username} from ${participant.city}`}</p>
+                                ))}
+                            </div>
+                        }
+                    </div> 
                     <button 
                         onClick={attendEvent}
                         className='joinButton'> 
@@ -78,6 +84,7 @@ const Event = () => {
                     </button>               
                 </div>
             </div>
+            <Footer /> 
         </div>
     )
 }

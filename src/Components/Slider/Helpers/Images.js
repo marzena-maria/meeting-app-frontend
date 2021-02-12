@@ -5,14 +5,14 @@ import Career from "../meetUpImages/career5.jpeg"
 import Contact from "../meetUpImages/contact.jpeg"
 import OnlineEvent from "../meetUpImages/onlineEvent.jpeg"
 
-import Sliderimg1 from "../meetUpImages/cm2.jpeg"
-import Sliderimg2 from "../meetUpImages/cm1.jpeg"
-import Sliderimg3 from "../meetUpImages/cm3.jpeg"
-import Sliderimg4 from "../meetUpImages/cm4.jpeg"
+import Sliderimg1 from "../meetUpImages/business-5475661_1920.jpg"
+import Sliderimg2 from "../meetUpImages/toa-heftiba-6bKpHAun4d8-unsplash.jpg"
+import Sliderimg3 from "../meetUpImages/psychology-2706899_1920.jpg"
+import Sliderimg4 from "../meetUpImages/social-media-3846597_1280.png"
 
 const images = [
   {
-    title: "join now",
+    title: "",
     
     subtitle: "",
     img: Sliderimg1,
